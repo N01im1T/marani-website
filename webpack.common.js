@@ -1,0 +1,162 @@
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+
+const isDev = process.env.NODE_ENV === "development";
+const isProd = !isDev;
+
+const filename = (ext) =>
+  isDev ? `[name].${ext}` : `[name].[contenthash].${ext}`;
+
+const optimization = () => {
+  const config = {
+    splitChunks: {
+      chunks: "all",
+    },
+  };
+
+  if (isProd) {
+    config.minimizer = [
+      new TerserPlugin(),
+      new CssMinimizerPlugin(),
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            plugins: [
+              ["gifsicle", { interlaced: true }],
+              ["jpegtran", { progressive: true }],
+              ["optipng", { optimizationLevel: 5 }],
+              [
+                "svgo",
+                {
+                  plugins: [
+                    {
+                      name: "preset-default",
+                      params: {
+                        overrides: {
+                          removeViewBox: false,
+                        },
+                      },
+                    },
+                    {
+                      name: "addAttributesToSVGElement",
+                      params: {
+                        attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
+                      },
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+      }),
+    ];
+  }
+
+  return config;
+};
+
+module.exports = {
+  entry: [
+    path.resolve(__dirname, './src/main.js'),
+    path.resolve(__dirname, './src/index.js'),
+  ],
+  output: {
+    filename: `src/js/${filename("js")}`,
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
+  },
+  optimization: optimization(),
+  module: {
+    rules: [
+      {
+        test: /\.html$/,
+        use: "html-loader",
+      },
+      {
+        test: /\.css$/,
+        use: [
+          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+          "css-loader",
+        ],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|ico|webmanifest)$/,
+        type: "asset/resource",
+        generator: {
+          filename: (pathData) => {
+            const ext = path.extname(pathData.filename).replace(".", "");
+            return `public/assets/[name].[contenthash].${ext}`;
+          }
+        },
+        use: [
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: { progressive: true },
+              optipng: { enabled: true },
+              pngquant: { quality: [0.65, 0.90], speed: 4 },
+              gifsicle: { interlaced: false },
+              webp: { quality: 75 }
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff(2)?)$/,
+        type: "asset/resource",
+        generator: {
+          filename: (pathData) => {
+            const ext = path.extname(pathData.filename).replace(".", "");
+            return `public/assets/fonts/[name].[contenthash].${ext}`;
+          }
+        },
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: "babel-loader",
+      },
+    ],
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: `src/css/${filename("css")}`,
+    }),
+    new HtmlWebpackPlugin({
+      filename: `public/html/index.html`,
+      template: path.resolve(__dirname, `./public/html/index.html`),
+      minify: {
+        collapseWhitespace: isProd,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      filename: `public/html/about.html`,
+      template: path.resolve(__dirname, `./public/html/about.html`),
+      minify: {
+        collapseWhitespace: isProd,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      filename: `public/html/delivery.html`,
+      template: path.resolve(__dirname, `./public/html/delivery.html`),
+      minify: {
+        collapseWhitespace: isProd,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      filename: `public/html/posters.html`,
+      template: path.resolve(__dirname, `./public/html/posters.html`),
+      minify: {
+        collapseWhitespace: isProd,
+      },
+    }),
+  ],
+};

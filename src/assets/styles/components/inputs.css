@@ -1,0 +1,105 @@
+.input-container {
+  position: relative;
+  flex: 1 1 calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container.disabled > .styled-input {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.styled-input:not(.disabled) {
+  background-color: var(--input-primary-color);
+
+  width: 100%;
+  height: 67px;
+  padding: 0 1.5rem 2rem 1.5rem;
+  border: none;
+  border-radius: 1.5rem;
+
+  outline: none;
+
+  transition: all 0.3s;
+}
+
+.styled-input:focus {
+  height: 67px;
+  padding-top: 2.5rem;
+  padding-left: 1.5rem;
+
+  transition:
+    height 0.3s,
+    border 0.3s,
+    border-color 0.3s;
+}
+
+.styled-input:not(:focus),
+.styled-input:not(:placeholder-shown) {
+  height: 67px;
+  padding-top: 2.5rem;
+  padding-left: 1.5rem;
+
+  transition:
+    height 0.3s,
+    border 0.3s,
+    border-color 0.3s;
+}
+
+.styled-input.invalid:not(:placeholder-shown) {
+  height: 67px;
+  padding-top: 2.5rem;
+  padding-left: 1.5rem;
+  border: 1px solid var(--input-error);
+
+  transition:
+    height 0.3s,
+    border 0.3s,
+    border-color 0.3s;
+}
+
+.styled-input:focus + .floating-label,
+.styled-input:not(:placeholder-shown) + .floating-label {
+  top: 1rem;
+  left: 1.5rem;
+
+  height: 67px;
+}
+
+.floating-label {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  overflow: hidden;
+
+  width: 100%;
+
+  pointer-events: none;
+
+  transition: 0.3s ease all;
+}
+
+/* Modal Inputs */
+
+.call-me-back-form .styled-input:not(.disabled) {
+  background-color: var(--input-primary-color);
+}
+
+@media (min-width: 623px) and (max-width: 768px) {
+  .floating-label {
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 623px) {
+  .input-container {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 350px) {
+  .floating-label {
+    max-width: 220px;
+  }
+}

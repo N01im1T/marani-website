@@ -1,0 +1,270 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+
+  background-color: rgba(0, 0, 0, 0.4);
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 4;
+}
+
+.modal.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+.modal.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  background-color: #ffffff;
+
+  max-width: 668px;
+  width: 100%;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+
+  animation: slideIn 0.5s;
+  transform: translate(-50%, -50%);
+}
+
+.modal-container:has(.calculator-form) {
+  max-width: 847px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translate(-50%, -60%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+.modal-content.slide-out {
+  animation: slideOut 0.5s forwards;
+}
+
+@keyframes slideOut {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -60%);
+    opacity: 0;
+  }
+}
+
+.modal-container h4 {
+  margin-bottom: 2rem;
+}
+
+.close-icon {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+
+  background-color: transparent;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+.reply-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  margin-bottom: 2rem;
+}
+
+.modal-container > .calculator-form {
+  margin-bottom: 2rem;
+}
+
+.modal-container .personal-data-processing {
+  max-width: 400px;
+}
+
+/* Choose city modal */
+
+.modal-container.choose-city-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+
+  max-width: 289px;
+  width: 100%;
+  padding: 2rem 1rem 2rem 1rem;
+}
+
+.modal-container.choose-city-modal h4 {
+  max-width: 230px;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.modal-container.choose-city-modal .close-icon {
+  top: 2rem;
+  right: 1rem;
+}
+
+.city-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.check-mark-color {
+  transition: stroke 0.3s ease-out;
+}
+
+/* Order modal */
+
+.modal-order-wrapper {
+  display: flex;
+}
+
+.modal-order .calculator-form {
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.order-form-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+}
+
+.order-inputs {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  row-gap: 0.5rem;
+}
+
+.order-form-wrapper .transport-card {
+  cursor: default;
+}
+
+.order-form-wrapper .transport-card .transport-card-goods > * {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  max-height: 1.5rem;
+}
+
+/* Success modal */
+
+.modal-success-reply {
+  max-width: 668px;
+}
+
+.modal-success-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-height: 667px) {
+  .modal-container.choose-city-modal {
+    top: 63%;
+    right: 50%;
+  }
+
+  .modal-container.modal-order {
+    top: 63%;
+    right: 50%;
+  }
+}
+
+@media (max-width: 900px) {
+  .modal-container:has(.calculator-form) {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-container {
+    max-width: 580px;
+  }
+
+  .modal-container:has(.calculator-form) {
+    max-width: 580px;
+  }
+
+  .order-form-wrapper .transport-card {
+    display: none;
+  }
+}
+
+@media (max-width: 622px) {
+  .modal-container {
+    max-width: 400px;
+  }
+
+  .modal-container h4,
+  .modal-container:has(.calculator-form) h4 {
+    max-width: 250px;
+  }
+
+  .modal-container:has(.calculator-form) {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 420px) {
+  .modal-container {
+    max-width: 289px;
+    padding: 2rem 1rem 2rem 1rem;
+  }
+
+  .modal-container h4,
+  .modal-container:has(.calculator-form) h4 {
+    max-width: 233px;
+  }
+
+  .modal-container:has(.calculator-form) {
+    max-width: 289px;
+  }
+
+  .close-icon {
+    top: 2rem;
+    right: 1rem;
+  }
+}

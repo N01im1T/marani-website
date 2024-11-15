@@ -1,0 +1,113 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.3s ease;
+}
+
+/* Primary buttons */
+
+.btn-primary {
+  column-gap: 0.625rem;
+
+  background-color: var(--btn-color-default-primary);
+
+  padding: 0.25rem 0.875rem;
+  border: none;
+  border-radius: 150px;
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-color-hover-primary);
+}
+
+.btn-primary:active {
+  background-color: var(--btn-color-click-primary);
+}
+
+.btn-primary:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.btn-to-cart,
+.btn-look-reviews {
+  max-width: 163px;
+  width: 100%;
+  height: 43px;
+}
+
+.btn-build-route {
+  max-width: 220px;
+  width: 100%;
+  height: 50px;
+}
+
+/* Secondary buttons */
+
+.btn-secondary {
+  background-color: var(--btn-color-default-secondary);
+
+  height: 45px;
+  border: none;
+  border-radius: 10px;
+}
+
+.btn-secondary:not(:disabled):hover {
+  background-color: var(--btn-color-hover-secondary);
+}
+
+.btn-secondary:not(:disabled):active {
+  background-color: var(--btn-color-click-secondary);
+}
+
+.btn-secondary:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.btn-secondary.black {
+  border-color: var(--btn-color-default-secondary-black);
+}
+
+.btn-secondary.black:not(:disabled):hover {
+  border-width: 2px;
+  border-color: var(--btn-color-default-secondary-black);
+}
+
+.btn-secondary.black:not(:disabled):active {
+  border-color: var(--btn-color-click-secondary-black);
+}
+
+.btn-secondary.black:disabled {
+  border-color: var(--btn-color-disable-secondary-black);
+
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Header slider arrow buttons */
+
+.dishes-glide-arrows {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 3rem;
+}
+
+.dishes-glide-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+
+  border: none;
+
+  transition: scale 0.2s ease;
+}
+
+.dishes-glide-arrow:hover {
+  transform: scale(1.05);
+}

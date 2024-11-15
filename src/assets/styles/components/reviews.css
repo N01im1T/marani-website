@@ -1,0 +1,21 @@
+.reviews {
+  margin: 0 1.5rem;
+  padding: 2.5rem 9.75rem 1.5rem 9.75rem;
+}
+
+.reviews-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 2.125rem;
+  border-radius: 10px;
+
+  box-shadow: 0 -6px 35px 6px rgba(0, 0, 0, 0.05);
+}
+
+.reviews-text-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.25rem;
+}

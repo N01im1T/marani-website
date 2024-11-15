@@ -1,0 +1,42 @@
+.header {
+  margin: 0 0.5rem 0.5rem;
+  padding: 1.875rem 11.25rem 0rem 11.25rem ;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding-bottom: 1.875rem;
+}
+
+.header-top-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-top-nav {
+  margin-left: 4.5rem;
+}
+
+.header-top-nav-list {
+  display: flex;
+  column-gap: 1.875rem;
+}
+
+.header-top-telephone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.75rem;
+
+  margin-left: auto;
+}

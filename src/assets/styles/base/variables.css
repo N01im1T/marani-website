@@ -1,0 +1,40 @@
+:root {
+  --primary-color: #FFFFFF;
+  --secondary-color: #7B2224;
+  --background-color: #FFFFFF;
+  --text-color: #FFFFFF;
+  --text-color-dark: #000000;
+  --text-color-gray: #5E5E5E;
+  --text-color-lightgray: #A5A5A5;
+
+  --btn-color-default-primary: #7B2224;
+  --btn-color-hover-primary: #992326;
+  --btn-color-click-primary: #671315;
+  --btn-color-default-secondary: #4E9F37;
+  --btn-color-hover-secondary: #4E9F37;
+  --btn-color-click-secondary: #327220;
+
+  --input-primary-color: #f2f2f2;
+  --input-secondary-color: #333333;
+  --input-minor-color: #828282;
+  --input-black-text: #222222;
+  --input-error: #eb5757;
+  --input-disable: #bdbdbd;
+
+  --contact-info-click: #4f4f4f;
+  --contact-info-disable: #333333;
+
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-pacifico: "Pacifico";
+
+  --weight-thin: 100;
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+  --weight-black: 900;
+}

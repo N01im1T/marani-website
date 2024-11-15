@@ -1,0 +1,32 @@
+@import "./base/reset.css";
+@import "./base/typography.css";
+@import "./base/variables.css";
+
+@import "./components/header.css";
+@import "./components/reviews.css";
+@import "./components/map.css";
+@import "./components/footer.css";
+@import "./components/buttons.css";
+@import "./components/inputs.css";
+@import "./components/modals.css";
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  background-color: var(--background-color);
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}

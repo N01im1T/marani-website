@@ -1,0 +1,146 @@
+/* Header */
+
+.header {
+  background-image: url(/public/assets/images/header-img.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 718px;
+  width: 100%;
+}
+
+/* .header-bottom-page-nav-glide {
+  position: sticky;
+} */
+
+.page-nav-slides {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  column-gap: 3.3rem;
+}
+
+.page-nav-slide.active {
+  background-color: var(--secondary-color);
+
+  padding: 0.875rem 1.75rem;
+  border-radius: 150px;
+}
+
+.header-bottom-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-items: center;
+  align-items: center;
+}
+
+.header-bottom-dishes-glide,
+.dishes-glide-track {
+  max-width: 65%;
+  width: 100%;
+}
+
+.dishes-glide-slide {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.75rem;
+
+  max-height: 460px;
+}
+
+.dish-text-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 1.875rem;
+}
+
+.price-and-cart-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  column-gap: 1.25rem;
+
+  width: 100%;
+}
+
+.price-wrapper {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  row-gap: 0.25rem;
+}
+
+.btn-to-cart {
+  align-self: flex-end;
+}
+
+.dish-img {
+  max-height: 460px;
+}
+
+/* .cart {
+  position: sticky;
+} */
+
+.toggle-switch {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+
+  background-color: #f1f1f1;
+  
+  min-width: 323px;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.6rem 2rem;
+  border-radius: 10px;
+
+  z-index: 2;
+}
+
+.toggle-switch input[type="radio"] {
+  display: none;
+}
+
+.toggle-option {
+  flex: 1;
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  text-align: center;
+
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+input#delivery:checked + label[for="delivery"],
+input#pickup:checked + label[for="pickup"] {
+  color: #909294;
+
+  z-index: 3;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  background-color: var(--primary-color);
+
+  width: calc(50% - 0.5rem);
+  height: 33px;
+  border-radius: 10px 0 0 10px;
+
+  z-index: 1;
+  transition: 0.3s;
+}
+
+input#pickup:checked ~ .toggle-slider {
+  transform: translateX(100%);
+  border-radius: 0 10px 10px 0;
+}

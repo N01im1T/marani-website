@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Language" content="ru" />
+    <meta name="application-name" content="Марани" />
+    <title>Марани</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="../assets/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon.svg"
+    />
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/apple-touch-icon.png"
+    />
+    <link
+      rel="webmanifest"
+      crossorigin="use-credentials"
+      href="../assets/site.webmanifest"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <section class="header-top">
+          <a class="header-top-logo" href="http://" target="_blank" rel="noopener noreferrer">
+            <img class="site-logo-img" src="../assets/images/site-logo.svg" alt="site-logo">
+          </a>
+          <button class="btn btn-primary btn-book-table" type="button">
+            <img src="../assets/images/khinkali-icon.svg" alt="khinkali-icon">
+            <span>Забронировать стол</span>
+          </button>
+          <nav class="header-top-nav">
+            <ul class="header-top-nav-list">
+              <li class="header-top-nav-item">
+                <a
+                  class="nav-item-link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >
+                  Доставка
+                </a>
+              </li>
+              <li class="header-top-nav-item">
+                <a
+                  class="nav-item-link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >
+                  Афиша
+                </a>
+              </li>
+              <li class="header-top-nav-item">
+                <a
+                  class="nav-item-link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  О нас
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <a class="header-top-telephone" href="tel:+74212777777">
+            <img src="../assets/images/phone-icon.svg" alt="phone-icon">
+            <span>+74212 77-77-77</span>
+          </a>
+        </section>
+        <section class="header-bottom">
+          <section class="header-bottom-page-nav-glide">
+            <nav
+              class="header-bottom-page-nav-track"
+              data-glide-el="track"
+            >
+              <ul class="page-nav-slides">
+                <li class="page-nav-slide active">
+                  <a href="#new-items">
+                    Новинки
+                  </a>
+                </li>
+                <li class="page-nav-slide">
+                  <a href="#khinkali">
+                    Хинкали
+                  </a>
+                </li>
+                <li class="page-nav-slide">
+                  <a href="#lavash">
+                    Лаваши
+                  </a>
+                </li>
+                <li class="page-nav-slide">
+                  <a href="#georgian-shashlik">
+                    Шашлык по грузински
+                  </a>
+                </li><li class="page-nav-slide">
+                  <a href="#salats">
+                    Салаты
+                  </a>
+                </li>                
+              </ul>
+            </nav>
+          </section>
+          <div class="header-bottom-wrapper">
+            <section class="header-bottom-dishes-glide">
+              <div class="dishes-glide-track" data-glide-el="track">
+                <ul class="dishes-glide-slides">
+                  <li class="dishes-glide-slide">
+                    <div class="dish-text-content-wrapper">
+                      <h2 class="dish-name">Овощная тарелка</h2>
+                      <p class="dish-description">
+                        Овощная грузинская тарелка: яркие помидоры, хрустящий перец, свежий огурец и ароматный зелёный лук с пряными травами.
+                      </p>
+                      <div class="price-and-cart-wrapper">
+                        <div class="price-wrapper">
+                          <span class="previous-price">
+                            1900₽
+                          </span>
+                          <span class="current-price">
+                            1200₽
+                          </span>
+                        </div>
+                        <button class="btn btn-primary btn-to-cart" type="button">
+                          В корзину
+                        </button>
+                      </div>
+                    </div>
+                    <img
+                      class="dish-img"
+                      src="../assets/images/header-slider-dish.png"
+                      alt="dish"
+                    >
+                  </li>
+                  <li class="dishes-glide-slide"></li>
+                  <li class="dishes-glide-slide"></li>
+                </ul>
+              </div>
+              <div class="dishes-glide-arrows" data-glide-el="controls">
+                <button class="dishes-glide-arrow left-arrow" data-glide-dir="<">
+                  <img
+                    src="../assets/images/left-arrow-icon.svg"
+                    alt="left-arrow-icon"
+                  >
+                </button>
+                <button class="dishes-glide-arrow right-arrow" data-glide-dir=">">
+                  <img
+                    src="../assets/images/right-arrow-icon.svg"
+                    alt="right-arrow-icon"
+                  >
+                </button>
+              </div>
+            </section>
+            <section class="cart">
+              <div class="cart-container">
+                <h4 class="cart-container-header">Мой заказ</h4>
+                <!-- <div class="toggle-switch">
+                  <input type="radio" id="delivery" name="toggle" checked>
+                  <input type="radio" id="pickup" name="toggle">
+          
+                  <span class="toggle-slider"></span>
+          
+                  <label for="delivery" class="toggle-option" onclick="toggleOption('delivery')">Доставка</label>
+                  <label for="pickup" class="toggle-option" onclick="toggleOption('pickup')">Самовывоз</label>
+              </div> -->
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <article class="reviews">
+      <div class="reviews-container">
+        <section class="reviews-text-container">
+          <h2 class="reviews-header">
+            Отзывы любимых гостей
+          </h2>
+          <p class="reviews-call-to-action-text">
+            Почитатйте отзывы реальных посетителей из 2ГИС
+          </p>
+          <a
+            class="btn btn-primary btn-look-reviews"
+            href="http://"
+            target="_blank"
+            rel="noopener noreferrer"
+            role="button"
+            >
+            Перейти
+          </a>
+        </section>
+        <section class="reviews-images">
+          <img src="../assets/images/reviews-img.png" alt="reviews-img">
+          <div class="feedback-image-glider"></div>
+        </section>
+      </div>
+    </article>
+
+    <article class="map">
+      <div class="map-container">
+        <section class="map-frame">
+          <a
+            class="dg-widget-link"
+            href="http://2gis.ru/khabarovsk/firm/70000001074609459/center/135.09207487106326,48.49465375716905/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap"
+            >
+              Посмотреть на карте Хабаровска
+          </a>
+          <div class="dg-widget-link">
+            <a
+              href="http://2gis.ru/khabarovsk/firm/70000001074609459/photos/70000001074609459/center/135.09207487106326,48.49465375716905/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos"
+              >
+                Фотографии компании
+            </a>
+          </div>
+          <div class="dg-widget-link">
+            <a 
+              href="http://2gis.ru/khabarovsk/center/135.092066,48.493192/zoom/16/routeTab/rsType/bus/to/135.092066,48.493192╎Марани, кафе?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route"
+              >
+                Найти проезд до Марани, кафе
+            </a>
+          </div>
+          <script
+            charset="utf-8"
+            src="https://widgets.2gis.com/js/DGWidgetLoader.js"
+            >
+          </script>
+          <script charset="utf-8">
+            new DGWidgetLoader({
+              "width":718,
+              "height":502,
+              "borderColor":"#FFFFFF",
+              "pos":{
+                "lat":48.49465375716905,
+                "lon":135.09207487106326,
+                "zoom":16
+              },
+              "opt":{
+                "city":"khabarovsk"
+              },
+              "org":[{"id":"70000001074609459"}]
+            });
+          </script>
+          <noscript
+            style="color:#c00;font-size:16px;font-weight:bold;"
+            >
+              Виджет карты использует JavaScript. Включите его в настройках вашего браузера.
+          </noscript>
+        </section>
+        <section class="map-call-to-action">
+          <p class="map-call-to-action-address">
+            г. Хабаровск, Карла Маркса, 96а 1 этаж 
+          </p>
+
+          <a
+            class="btn btn-primary btn-build-route"
+            href="http://"
+            target="_blank"
+            rel="noopener noreferrer"
+            role="button"
+            >
+            Построить маршрут
+          </a>
+        </section>
+      </div>
+    </article>
+
+    <article class="footer">
+      <div class="footer-container">
+        <section class="footer-branding">
+          <a
+            class="footer-branding-logo"
+            href="http://"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            <img
+              src="../assets/images/site-logo-footer.svg"
+              alt="site-logo-footer"
+            >
+          </a>
+          <ul class="footer-branding-socials-list">
+            <li class="socials-list-item">
+              <a href="http://" target="_blank" rel="noopener noreferrer">
+                <img src="../assets/images/telegram-icon.svg" alt="telegram-icon">
+              </a>
+            </li>
+            <li class="socials-list-item">
+              <a href="http://" target="_blank" rel="noopener noreferrer">
+                <img src="../assets/images/vk-icon.svg" alt="vk-icon">
+              </a>
+            </li>
+          </ul>
+          
+        </section>
+        <section class="contacts">
+          <h4 class="contacts-header">
+            Контакты
+          </h4>
+          <ul class="contacts-list">
+            <li class="contacts-list-item">
+              <a
+                class="contacts-item-link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                г. Хабаровск,
+                Карла Маркса, 96а 1 этаж
+              </a>
+            </li>
+            <li class="contacts-list-item">
+              <a class="contacts-item-link" href="tel:+79625017878">
+              Телефон: +7 962 501 78 78
+              </a>
+            </li>
+            <li class="contacts-list-item">
+              <a class="contacts-item-link" href="mailto:Marani@info.ru">
+              Email: Marani@info.ru
+              </a>
+            </li>
+          </ul>
+          
+        </section>
+        <section class="useful-information">
+          <h4 class="useful-information-header">
+            Полезная информация
+          </h4>
+          <ul class="useful-information-list">
+            <li class="useful-information-item">
+              <a
+                class="useful-information-item-link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                Меню
+              </a>
+            </li>
+            <li class="useful-information-item">
+              <a
+                class="useful-information-item-link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                О компании
+              </a>
+            </li>
+            <li class="useful-information-item">
+              <a
+                class="useful-information-item-link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                Новости
+              </a>
+            </li>
+            <li class="useful-information-item">
+              <a
+                class="useful-information-item-link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                
+                Доставка
+              </a>
+            </li>
+          </ul>
+          
+        </section>
+      </div>
+    </article>
+
+    <script type="module" src="/src/main.js" defer></script>
+    <script type="module" src="/src/index.js" defer></script>
+  </body>
+</html>

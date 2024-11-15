@@ -1,0 +1,252 @@
+@font-face {
+  font-family: "Inter";
+  src: url("/public/assets/fonts/Inter.woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/public/assets/fonts/JTUSjIg1_i6t8kCHKm459W1hyzbi.woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/public/assets/fonts/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/public/assets/fonts/Roboto-Thin.woff")
+    format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/public/assets/fonts/Roboto-Light.woff")
+    format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/public/assets/fonts/Roboto-Regular.woff")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/public/assets/fonts/Roboto-Medium.woff")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/public/assets/fonts/Roboto-Bold.woff")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/public/assets/fonts/Roboto-Black.woff")
+    format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pacifico";
+  src: url("/public/assets/fonts/FwZY7-Qmy14u9lezJ-6D6MmTpA.woff2")
+    format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+body {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-regular);
+}
+
+h1 {
+  font-family: var(--font-pacifico);
+  font-weight: var(--weight-medium);
+  font-size: 6rem;
+  line-height: 115%;
+  text-wrap: nowrap;
+}
+
+h2 {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-extrabold);
+  font-size: 4rem;
+  color: var(--text-color);
+  line-height: 115%;
+}
+
+h3 {
+  font-family: var(--font-roboto);
+  font-weight: var(--weight-semibold);
+  font-size: 2.25rem;
+  line-height: 115%;
+}
+
+h4 {
+  font-family: var(--font-medium);
+  font-weight: var(--weight-medium);
+  font-size: 2.25rem;
+  line-height: 115%;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+p {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+
+/* Buttons */
+
+.btn-book-table,
+.btn-look-reviews,
+.btn-build-route {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-medium);
+  font-size: 1rem;
+  color: var(--text-color);
+  text-wrap: nowrap;
+}
+
+.btn-to-cart {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-light);
+  font-size: 1rem;
+  color: var(--text-color);
+  text-wrap: nowrap;
+}
+
+/* Header */
+
+.header-top-nav-item,
+.page-nav-slide {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-medium);
+  font-size: 1rem;
+  color: var(--text-color);
+  text-wrap: nowrap;
+}
+
+.header-top-nav-item:hover,
+.page-nav-slide:not(.active):hover {
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.header-top-telephone span {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-medium);
+  font-size: 1.25rem;
+  color: var(--text-color);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-wrap: nowrap;
+}
+
+.header-top-telephone:hover span {
+  text-decoration-line: none;
+}
+
+.dish-description {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-light);
+  color: var(--text-color);
+  line-height: 20px;
+}
+
+.previous-price {
+  font-family: var(--font-roboto);
+  font-weight: var(--weight-regular);
+  color: #A7A7A7;
+  text-decoration: line-through;
+}
+
+.current-price {
+  font-family: var(--font-roboto);
+  font-weight: var(--weight-bold);
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+/* Reviews */
+
+.reviews-header {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-bold);
+  font-size: 3.375rem;
+  color: var(--text-color-dark);
+  line-height: 60px;
+}
+
+.reviews-call-to-action-text {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-light);
+  font-size: 1.25rem;
+}
+
+/* Map */
+
+.map-call-to-action-address {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-bold);
+  font-size: 2.25rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* Footer */
+
+.contacts-header,
+.useful-information-header {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-bold);
+  font-size: 1.125rem;
+  color: var(--text-color-dark);
+}
+
+.contacts-item-link,
+.useful-information-item-link {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-light);
+  font-size: 1rem;
+  color: #757575;
+}

@@ -12,11 +12,15 @@
 
 html {
   scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
+  position: relative;
+  overflow-x: hidden;
+
   background-color: var(--background-color);
-  max-width: 1800px;
   margin: 0 auto;
 }
 

@@ -23,39 +23,6 @@ const optimization = () => {
     config.minimizer = [
       new TerserPlugin(),
       new CssMinimizerPlugin(),
-      new ImageMinimizerPlugin({
-        minimizer: {
-          implementation: ImageMinimizerPlugin.imageminMinify,
-          options: {
-            plugins: [
-              ["gifsicle", { interlaced: true }],
-              ["jpegtran", { progressive: true }],
-              ["optipng", { optimizationLevel: 5 }],
-              [
-                "svgo",
-                {
-                  plugins: [
-                    {
-                      name: "preset-default",
-                      params: {
-                        overrides: {
-                          removeViewBox: false,
-                        },
-                      },
-                    },
-                    {
-                      name: "addAttributesToSVGElement",
-                      params: {
-                        attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
-                      },
-                    },
-                  ],
-                },
-              ],
-            ],
-          },
-        },
-      }),
     ];
   }
 
@@ -68,7 +35,7 @@ module.exports = {
     path.resolve(__dirname, './src/index.js'),
   ],
   output: {
-    filename: `src/js/${filename("js")}`,
+    filename: `src/${filename("js")}`,
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
   },
@@ -128,7 +95,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: `src/css/${filename("css")}`,
+      filename: `src/${filename("css")}`,
     }),
     new HtmlWebpackPlugin({
       filename: `public/html/index.html`,

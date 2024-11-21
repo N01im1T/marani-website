@@ -1,13 +1,17 @@
 .footer {
-  margin: 0 1.5rem 1.5rem 1.5rem;
-  padding: 3.75rem 9.75rem 1.5rem 9.75rem;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
 }
 
 .footer-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
+  gap: 3rem;
 }
 
 .footer-branding {
@@ -31,7 +35,8 @@
   justify-content: center;
 }
 
-.contacts {
+.contacts,
+.useful-information  {
   display: flex;
   flex: 1 0 276px;
   flex-direction: column;
@@ -41,17 +46,7 @@
 .contacts-list {
   display: flex;
   flex-direction: column;
-  row-gap: 1.75rem;
-}
-
-.contacts-item-link {
-  max-width: 200px;
-}
-
-.useful-information {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1.75rem;
+  row-gap: 1.5rem;
 }
 
 .useful-information-list {

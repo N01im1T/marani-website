@@ -1,6 +1,8 @@
 .reviews {
-  margin: 0 1.5rem;
-  padding: 2.5rem 9.75rem 1.5rem 9.75rem;
+  max-width: 1440px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
 }
 
 .reviews-container {

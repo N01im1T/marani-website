@@ -3,6 +3,8 @@
   align-items: center;
   justify-content: center;
 
+  border: none;
+
   transition: background-color 0.3s ease;
 }
 
@@ -14,7 +16,6 @@
   background-color: var(--btn-color-default-primary);
 
   padding: 0.25rem 0.875rem;
-  border: none;
   border-radius: 150px;
 }
 
@@ -50,7 +51,6 @@
   background-color: var(--btn-color-default-secondary);
 
   height: 45px;
-  border: none;
   border-radius: 10px;
 }
 
@@ -110,4 +110,10 @@
 
 .dishes-glide-arrow:hover {
   transform: scale(1.05);
+}
+
+/* Cart button */
+
+.btn-change-address {
+  background-color: transparent;
 }

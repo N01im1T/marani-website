@@ -35,7 +35,7 @@ module.exports = {
     path.resolve(__dirname, './src/index.js'),
   ],
   output: {
-    filename: `src/${filename("js")}`,
+    filename: `src/js/${filename("js")}`,
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
   },
@@ -47,7 +47,7 @@ module.exports = {
         use: "html-loader",
       },
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [
           isDev ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
@@ -95,7 +95,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: `src/${filename("css")}`,
+      filename: `src/css/${filename("css")}`,
     }),
     new HtmlWebpackPlugin({
       filename: `public/html/index.html`,

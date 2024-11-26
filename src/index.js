@@ -7,7 +7,6 @@ import Glide from "/node_modules/@glidejs/glide";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Header dish slider
-
   const headerDishSlider = new Glide(".header-bottom-dishes-glide", {
     type: "carousel",
     startAt: 0,
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   headerDishSlider.mount();
   
   // Cart toggle
-  
   const checkbox = document.querySelector(".checkbox");
   const deliveryDiv = document.querySelector(".cart-container-delivery");
   const pickupDiv = document.querySelector(".cart-container-pickup");
@@ -79,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Drag and scroll for sliders
-
   function enableDragAndScroll(containerSelector) {
     const container = document.querySelector(containerSelector);
     if (!container) return;
@@ -87,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let isDragging = false;
     let startX, scrollLeft;
   
-    // Начало перетаскивания
+    // Start of dragging
     container.addEventListener("mousedown", (e) => {
       isDragging = true;
       container.classList.add("dragging");
@@ -96,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
       container.style.cursor = "grabbing";
     });
   
-    // Завершение перетаскивания
+    // End of dragging
     container.addEventListener("mouseleave", () => {
       isDragging = false;
       container.classList.remove("dragging");
@@ -109,19 +106,19 @@ document.addEventListener("DOMContentLoaded", () => {
       container.style.cursor = "auto";
     });
   
-    // Перетаскивание
+    // Dragging
     container.addEventListener("mousemove", (e) => {
       if (!isDragging) return;
       e.preventDefault();
       const x = e.pageX - container.offsetLeft;
-      const walk = (x - startX) * 1.5; // Регулируйте скорость перетаскивания
+      const walk = (x - startX) * 1.5;
       container.scrollLeft = scrollLeft - walk;
     });
   
-    // Прокрутка колесом
+    // Scroll with the wheel
     container.addEventListener("wheel", (e) => {
       e.preventDefault();
-      const scrollAmount = 100; // Регулируйте шаг прокрутки
+      const scrollAmount = 300; // scroll step
       container.scrollBy({
         left: e.deltaY > 0 ? scrollAmount : -scrollAmount,
         behavior: "smooth",
@@ -129,6 +126,63 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  enableDragAndScroll(".header-bottom-page-nav-glide");
+  enableDragAndScroll(".page-nav-slides");
   enableDragAndScroll(".scroll-stories");
+
+  // Cart scroll
+  const cart = document.querySelector(".cart");
+  const stopBlock = document.querySelector(".dishes-menu");
+  const header = document.querySelector(".header");
+  const dishesMenuBlock = document.querySelector(".dishes-menu");
+
+  let stopBlockBottom = stopBlock.offsetTop + stopBlock.offsetHeight; // Нижняя граница стоп-блока
+  let pageHeight = document.documentElement.scrollHeight;
+  let viewportHeight = window.innerHeight;
+
+  const updateMetrics = () => {
+    stopBlockBottom = stopBlock.offsetTop + stopBlock.offsetHeight; // Обновляем нижнюю границу стоп-блока
+    pageHeight = document.documentElement.scrollHeight;
+    viewportHeight = window.innerHeight;
+
+    // Вычисляем отступ справа относительно dishesMenuBlock
+    if (dishesMenuBlock) {
+      const referenceRect = dishesMenuBlock.getBoundingClientRect();
+      cart.style.right = `${document.documentElement.clientWidth - referenceRect.right + 25}px`;
+    }
+  };
+
+  updateMetrics();
+
+  // Функция управления состоянием корзины
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+    const cartHeight = cart.offsetHeight;
+
+    const currentTopOffset = cart.getBoundingClientRect().top;
+
+    // Если корзина достигла нижнего блока
+    if (scrollPosition + cartHeight + 100 > stopBlockBottom) {
+      cart.classList.remove("sticky");
+      cart.classList.add("stop");
+
+      // Вычисляем расстояние от нижней границы stopBlock до конца страницы
+      const bottomDistance = pageHeight - stopBlockBottom;
+      cart.style.bottom = `${bottomDistance}px`;
+    } 
+    // Если корзина возвращается в фиксированное состояние
+    else if (
+      cart.classList.contains("stop") &&
+      (currentTopOffset >= 169)
+    ) {
+      cart.classList.remove("stop");
+      cart.classList.add("sticky");
+      cart.style.bottom = ""; // Убираем динамический bottom
+    }
+  };
+
+  // Слушатель для прокрутки
+  window.addEventListener("scroll", handleScroll);
+
+  // Слушатель для изменения размеров окна
+  window.addEventListener("resize", updateMetrics);
 });

@@ -5,7 +5,7 @@
 
   border: none;
 
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3 ease;
 }
 
 /* Primary buttons */
@@ -45,6 +45,11 @@
   height: 50px;
 }
 
+.btn-add-to-cart {
+  width: 42px;
+  height: 42px;
+}
+
 /* Secondary buttons */
 
 .btn-secondary {
@@ -54,8 +59,10 @@
   border-radius: 10px;
 }
 
-.btn-secondary:not(:disabled):hover {
+.btn-secondary:hover {
   background-color: var(--btn-color-hover-secondary);
+
+  box-shadow: 0 5px 35px 5px rgba(0, 0, 0, 0.15);
 }
 
 .btn-secondary:not(:disabled):active {
@@ -63,26 +70,6 @@
 }
 
 .btn-secondary:disabled {
-  pointer-events: none;
-  cursor: not-allowed;
-}
-
-.btn-secondary.black {
-  border-color: var(--btn-color-default-secondary-black);
-}
-
-.btn-secondary.black:not(:disabled):hover {
-  border-width: 2px;
-  border-color: var(--btn-color-default-secondary-black);
-}
-
-.btn-secondary.black:not(:disabled):active {
-  border-color: var(--btn-color-click-secondary-black);
-}
-
-.btn-secondary.black:disabled {
-  border-color: var(--btn-color-disable-secondary-black);
-
   pointer-events: none;
   cursor: not-allowed;
 }

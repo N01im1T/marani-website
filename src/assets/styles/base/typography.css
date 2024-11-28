@@ -372,3 +372,22 @@ p {
   font-size: 0.75rem;
   color: #919191;
 }
+
+/* Sticky menu */
+
+.sticky-nav-menu-track .page-nav-slides .page-nav-slide a {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-medium);
+  font-size: 1rem;
+  color: var(--text-color-dark);
+}
+
+.sticky-nav-menu-track .page-nav-slides .page-nav-slide.active a {
+  color: var(--text-color);
+}
+
+.page-nav-slide:not(.active):hover a {
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}

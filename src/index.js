@@ -6,6 +6,7 @@ import Glide from "/node_modules/@glidejs/glide";
 
 
 document.addEventListener("DOMContentLoaded", () => {
+
   // Header dish slider
   const headerDishSlider = new Glide(".header-bottom-dishes-glide", {
     type: "carousel",
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   headerDishSlider.mount();
   
+
   // Cart toggle
   const checkbox = document.querySelector(".checkbox");
   const deliveryDiv = document.querySelector(".cart-container-delivery");
@@ -86,6 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
     // Start of dragging
     container.addEventListener("mousedown", (e) => {
+      if (e.target.tagName !== "A") {
+        e.preventDefault();
+      }
       isDragging = true;
       container.classList.add("dragging");
       startX = e.pageX - container.offsetLeft;
@@ -126,25 +131,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  enableDragAndScroll(".page-nav-slides");
+  enableDragAndScroll("#static-nav-menu .page-nav-slides");
+  enableDragAndScroll(".sticky-nav-menu .page-nav-slides");
   enableDragAndScroll(".scroll-stories");
 
   // Cart scroll
   const cart = document.querySelector(".cart");
   const stopBlock = document.querySelector(".dishes-menu");
-  const header = document.querySelector(".header");
   const dishesMenuBlock = document.querySelector(".dishes-menu");
 
-  let stopBlockBottom = stopBlock.offsetTop + stopBlock.offsetHeight; // Нижняя граница стоп-блока
+  let stopBlockBottom = stopBlock.offsetTop + stopBlock.offsetHeight; // Bottom line
   let pageHeight = document.documentElement.scrollHeight;
   let viewportHeight = window.innerHeight;
 
   const updateMetrics = () => {
-    stopBlockBottom = stopBlock.offsetTop + stopBlock.offsetHeight; // Обновляем нижнюю границу стоп-блока
+    stopBlockBottom = stopBlock.offsetTop + stopBlock.offsetHeight; // Refresh bottom line
     pageHeight = document.documentElement.scrollHeight;
     viewportHeight = window.innerHeight;
 
-    // Вычисляем отступ справа относительно dishesMenuBlock
+    // Calculate right indent relative to dishesMenuBlock
     if (dishesMenuBlock) {
       const referenceRect = dishesMenuBlock.getBoundingClientRect();
       cart.style.right = `${document.documentElement.clientWidth - referenceRect.right + 25}px`;
@@ -153,36 +158,93 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateMetrics();
 
-  // Функция управления состоянием корзины
+  // Cart state management function
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
     const cartHeight = cart.offsetHeight;
 
     const currentTopOffset = cart.getBoundingClientRect().top;
 
-    // Если корзина достигла нижнего блока
-    if (scrollPosition + cartHeight + 100 > stopBlockBottom) {
+    // If the basket has reached the bottom block
+    if (scrollPosition + cartHeight + 120 > stopBlockBottom) {
       cart.classList.remove("sticky");
       cart.classList.add("stop");
 
-      // Вычисляем расстояние от нижней границы stopBlock до конца страницы
+      // Calculate the distance from the bottom border of stopBlock to the end of the page
       const bottomDistance = pageHeight - stopBlockBottom;
       cart.style.bottom = `${bottomDistance}px`;
     } 
-    // Если корзина возвращается в фиксированное состояние
+    // If the basket returns to a fixed state
     else if (
       cart.classList.contains("stop") &&
       (currentTopOffset >= 169)
     ) {
       cart.classList.remove("stop");
       cart.classList.add("sticky");
-      cart.style.bottom = ""; // Убираем динамический bottom
+      cart.style.bottom = ""; // Remove dinamyc bottom
     }
   };
 
-  // Слушатель для прокрутки
+  // Listener for scroll
   window.addEventListener("scroll", handleScroll);
 
-  // Слушатель для изменения размеров окна
+  // Listener for resize
   window.addEventListener("resize", updateMetrics);
+
+
+  //Sticky menu navigation handler
+  const stickyMenu = document.querySelector(".sticky-nav-menu");
+  const triggerElement = document.querySelector("#static-nav-menu");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (!entry.isIntersecting) {
+        stickyMenu.classList.add("static");
+        stickyMenu.classList.remove("hidden");
+      } else {
+        stickyMenu.classList.remove("static");
+        stickyMenu.classList.add("hidden");
+      }
+    },
+    { threshold: 0 } // If an element goes out of scope
+  );
+
+  observer.observe(triggerElement);
+
+  // Listener for active links in page navigations
+
+  function syncActiveLinks(navSelectors) {
+    const navs = navSelectors.map((selector) => document.querySelector(selector)).filter(Boolean);
+    if (navs.length < 2) return; // Necessary min 2
+  
+    const updateActiveClass = (target, links) => {
+      links.forEach((link) => link.classList.remove("active"));
+      target.classList.add("active");
+    };
+  
+    const syncLinks = (clickedLink, clickedNav) => {
+      const clickedNavLinks = [...clickedNav.querySelectorAll(".page-nav-slide")];
+      const clickedIndex = clickedNavLinks.indexOf(clickedLink);
+  
+      if (clickedIndex !== -1) {
+        navs.forEach((nav) => {
+          const navLinks = [...nav.querySelectorAll(".page-nav-slide")];
+          updateActiveClass(navLinks[clickedIndex], navLinks);
+        });
+      }
+    };
+  
+    navs.forEach((nav) => {
+      nav.addEventListener("click", (e) => {
+        const link = e.target.closest(".page-nav-slide");
+        if (link) syncLinks(link, nav);
+      });
+    });
+  }
+  
+  syncActiveLinks([
+    ".sticky-nav-menu .page-nav-slides",
+    "#static-nav-menu .page-nav-slides",
+  ]);
 });

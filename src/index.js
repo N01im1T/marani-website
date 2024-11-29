@@ -4,6 +4,7 @@ import "/node_modules/@glidejs/glide/dist/css/glide.core.css";
 
 import Glide from "/node_modules/@glidejs/glide";
 
+import storyImage from "../public/assets/images/story-img.png";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -50,14 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (target.classList.contains("counter-plus") || target.classList.contains("counter-minus")) {
       const dishCard = target.closest(".dish-card-wrapper");
       const amountSpan = dishCard.querySelector(".counter-amount");
-      const priceElement = dishCard.querySelector(".price");
-      const initialPrice = parseInt(priceElement.dataset.initialPrice || priceElement.textContent, 10);
 
       let currentAmount = parseInt(amountSpan.textContent, 10);
-
-      if (!priceElement.dataset.initialPrice) {
-        priceElement.dataset.initialPrice = initialPrice;
-      }
 
       if (target.classList.contains("counter-plus")) {
         currentAmount++;
@@ -72,9 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       amountSpan.textContent = currentAmount;
-
-      const newPrice = currentAmount * initialPrice;
-      priceElement.textContent = newPrice;
     }
   });
 
@@ -140,9 +132,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const stopBlock = document.querySelector(".dishes-menu");
   const dishesMenuBlock = document.querySelector(".dishes-menu");
 
-  let stopBlockBottom = stopBlock.offsetTop + stopBlock.offsetHeight; // Bottom line
-  let pageHeight = document.documentElement.scrollHeight;
-  let viewportHeight = window.innerHeight;
+  var stopBlockBottom = stopBlock.offsetTop + stopBlock.offsetHeight; // Bottom line
+  var pageHeight = document.documentElement.scrollHeight;
+  var viewportHeight = window.innerHeight;
+
 
   const updateMetrics = () => {
     stopBlockBottom = stopBlock.offsetTop + stopBlock.offsetHeight; // Refresh bottom line
@@ -247,4 +240,182 @@ document.addEventListener("DOMContentLoaded", () => {
     ".sticky-nav-menu .page-nav-slides",
     "#static-nav-menu .page-nav-slides",
   ]);
+
+  // Stories slider modal
+
+  const storiesElements = document.querySelectorAll('.story');
+  const modal = document.querySelector('.instagram-stories-modal');
+  const modalContainer = document.querySelector('.instagram-stories-modal-container');
+  const btnNext = document.querySelector('.instagram-stories-btn-next');
+  const btnPrev = document.querySelector('.instagram-stories-btn-prev');
+  const closeBtn = document.querySelector('.instagram-stories-btn-close-modal');
+
+  // Current img index
+  var currentIndex = 0;
+
+  // Timer and progress
+  var progressIntervals = [];
+  var isModalOpen = false;
+
+  var isPaused = false;
+  var currentProgress = 0;
+
+  const images = [
+    storyImage,
+    storyImage,
+    storyImage,
+    storyImage,
+    storyImage,
+    storyImage,
+    storyImage,
+    storyImage,
+    storyImage,
+  ];
+
+  const updateModalContent = () => {
+    const progressBars = images.map(
+      (_, index) => `
+      <div class="instagram-storie-progress-item">
+        <div
+          class="instagram-storie-progress-item-bar"
+          style="width: 0%;"
+          data-index="${index}"
+        ></div>
+      </div>`
+    );
+
+    modalContainer.innerHTML = `
+      <div class="instagram-storie-progress">
+        ${progressBars.join('')}
+      </div>
+      <div class="instagram-storie-wrapper">
+        <img
+          class="instagram-storie-image"
+          src="${images[currentIndex]}"
+          alt="Image ${currentIndex + 1}"
+        />
+      </div>
+    `;
+  };
+
+  const startProgress = () => {
+    if (isPaused) return;
+  
+    const progressBar = modalContainer.querySelector(
+      `.instagram-storie-progress-item-bar[data-index="${currentIndex}"]`
+    );
+  
+    clearInterval(progressIntervals[currentIndex]);
+  
+    progressIntervals[currentIndex] = setInterval(() => {
+      if (!isPaused) {
+        currentProgress += 2;
+        if (currentProgress <= 100) {
+          progressBar.style.width = `${currentProgress}%`;
+        } else {
+          clearInterval(progressIntervals[currentIndex]);
+          currentProgress = 0;
+          nextImage();
+        }
+      }
+    }, 100);
+  };
+
+  const stopProgress = () => {
+    progressIntervals.forEach(clearInterval);
+  };
+
+  const nextImage = () => {
+    if (currentIndex < images.length - 1) {
+      currentIndex++;
+      currentProgress = 0;
+      updateModalContent();
+      startProgress();
+    } else {
+      closeModal(); // Close modal if last img
+    }
+  };
+
+  const prevImage = () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      currentProgress = 0;
+      updateModalContent();
+      startProgress();
+    }
+  };
+
+  const openModal = (index) => {
+    if (isModalOpen) return;
+
+    currentIndex = index;
+    isModalOpen = true;
+
+    modal.style.display = 'block';
+    modal.classList.add('fade-in');
+    modalContainer.classList.add('slide-in');
+    modal.classList.remove('fade-out');
+    modalContainer.classList.remove('slide-out');
+
+    updateModalContent();
+    startProgress();
+  };
+
+  const closeModal = () => {
+    stopProgress();
+    isModalOpen = false;
+
+    modal.style.display = 'none';
+    modal.classList.remove('fade-in');
+    modal.classList.add('fade-out');
+    modal.classList.remove('fade-in');
+    modalContainer.classList.remove('slide-in');
+  };
+
+  // Story items click listener
+  storiesElements.forEach((storyElement, index) => {
+    storyElement.addEventListener('click', () => openModal(index));
+  });
+
+  // Next and Previous button handlers
+  btnNext.addEventListener('click', () => {
+    stopProgress();
+    nextImage();
+  });
+
+  btnPrev.addEventListener('click', () => {
+    stopProgress();
+    prevImage();
+  });
+
+  // Modal window click listener (Next and Prev img)
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      const clickX = e.clientX;
+      const modalWidth = modal.offsetWidth;а
+  
+      if (clickX < modalWidth / 2) {
+        stopProgress();
+        prevImage(); // The left side brings up the previous story
+      } else {
+        stopProgress();
+        nextImage(); // The right side brings up the next story
+      }
+    }
+  });
+
+  modalContainer.addEventListener('click', (e) => {
+    const clickedElement = e.target;
+    if (clickedElement.classList.contains('instagram-storie-image')) {
+      if (isPaused) {
+        isPaused = false;
+        startProgress();
+      } else {
+        isPaused = true;
+        stopProgress();
+      }
+    }
+  });
+
+  closeBtn.addEventListener('click', () => closeModal());
 });

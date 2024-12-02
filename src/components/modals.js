@@ -114,7 +114,7 @@ const modals = () => {
     btn.addEventListener("click", () => openModal(modalChangeAddress));
   });
 
-  // btnBookTable.addEventListener("click", openModal(modalBookTable));
+  btnBookTable.addEventListener("click", () => openModal(modalBookTable));
 };
 
 export default modals;

@@ -78,6 +78,20 @@
   width: 100%;
 }
 
+.btn-order-table {
+  background-color: var(--secondary-color);
+
+  width: 100%;
+}
+
+.btn-order-table:hover {
+  background-color: #982A2D;
+}
+
+.btn-order-table:not(:disabled):active {
+  background-color: #661c1f;
+}
+
 /* Header slider arrow buttons */
 
 .dishes-glide-arrows {

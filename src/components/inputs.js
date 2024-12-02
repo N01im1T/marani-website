@@ -10,9 +10,22 @@ const inputs = (container = document) => {
     placeholder: "+7(999) - 999 - 99 - 99",
   });
 
+  const dateMask = new Inputmask({
+    mask: "99.99.9999",
+    alias: "datetime",
+    inputFormat: "dd.mm.yyyy",
+    showMaskOnHover: false,
+    clearIncomplete: true,
+    placeholder: "00.00.0000",
+    onincomplete: function () {
+      console.log("Ввод даты не завершен.");
+    },
+  });
+
   const timeMask = new Inputmask({
     mask: "Hh:Mm",
     placeholder: "00:00",
+    alias: "time",
     insertMode: false,
     showMaskOnHover: false,
     clearIncomplete: true,
@@ -44,9 +57,31 @@ const inputs = (container = document) => {
     showMaskOnHover: false,
     clearIncomplete: true,
   });
+
+  const peopleAmountMask = new Inputmask({
+    mask: "9{1,}",
+    showMaskOnHover: false,
+    clearIncomplete: true,
+  });
+
+  const nameMask = new Inputmask({
+    mask: "*{1,30}",
+    definitions: {
+      '*': {
+        validator: "[а-яА-ЯёЁa-zA-Z\\s-]",
+        cardinality: 1,
+      },
+    },
+    showMaskOnHover: false,
+    clearIncomplete: true,
+  });
   
   document.querySelectorAll('input[type="tel"]').forEach((input) => {
     phoneMask.mask(input);
+  });
+
+  document.querySelectorAll('.date').forEach((input) => {
+    dateMask.mask(input);
   });
 
   document.querySelectorAll('.time').forEach((input) => {
@@ -57,42 +92,48 @@ const inputs = (container = document) => {
     apartmentMask.mask(input);
   });
 
+  document.querySelectorAll('.people-amount').forEach((input) => {
+    peopleAmountMask.mask(input);
+  });
+
+  document.querySelectorAll('.name').forEach((input) => {
+    nameMask.mask(input);
+  });
+
   const label = document.getElementById("custom-label");
   const dropdown = document.getElementById("custom-dropdown");
   const options = dropdown.querySelectorAll(".select-option");
 
-  // Показать/скрыть выпадающий список
+  // Show/hide dropdown list
   label.addEventListener("click", () => {
     dropdown.classList.toggle("open");
-    label.classList.toggle("focused"); // Добавляем класс при открытии
+    label.classList.toggle("focused");
   });
 
-  // Удаление фокуса при клике вне элемента
+  // Delete focus 
   document.addEventListener("click", (e) => {
     if (!dropdown.contains(e.target) && !label.contains(e.target)) {
       dropdown.classList.remove("open");
-      label.classList.remove("focused"); // Убираем класс при закрытии
+      label.classList.remove("focused");
     }
   });
 
-  // Обработка выбора опции
+  // Handler change option
   options.forEach((option) => {
     option.addEventListener("click", () => {
       const text = option.textContent;
 
-      // Обновляем текст в label
       label.textContent = text;
 
-      // Добавляем класс "selected" для изменения текста
       label.classList.add("selected");
 
-      // Убираем "focused" после выбора
       label.classList.remove("focused");
 
-      // Закрываем список
       dropdown.classList.remove("open");
     });
   });
+
+
 };
 
 export default inputs;

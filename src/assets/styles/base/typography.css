@@ -133,6 +133,10 @@ p {
   overflow-wrap: break-word;
 }
 
+textarea {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-light);
+}
 
 /* Buttons */
 
@@ -184,10 +188,43 @@ p {
   color: var(--text-color);
 }
 
+.btn-order-table {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-regular);
+  font-size: 1rem;
+  line-height: 20px;
+  color: var(--text-color);
+}
+
 /* Modals */
 
 .modal-container h4 {
   text-align: center;
+}
+
+#header-book-table {
+  font-family: var(--font-pacifico);
+  font-weight: var(--weight-medium);
+  font-size: 2rem;
+  line-height: 150%;
+}
+
+.policy-agreement,
+.policy-agreement a {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-light);
+  font-size: 0.75rem;
+  color: #8C8C8C;
+}
+
+.policy-agreement a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 0.5px;
+}
+
+.policy-agreement a:hover {
+  text-decoration: none;
 }
 
 /* Header */

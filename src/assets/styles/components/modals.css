@@ -236,7 +236,7 @@
   background-color: transparent;
 }
 
-/* Choose address form */
+/* Choose address form modal */
 .modal-change-address .modal-container{
   height: 439px;
 }
@@ -266,6 +266,17 @@
 
   opacity: 1;
   visibility: visible;
+}
+
+/* Book table modal */
+
+.modal-book-table .modal-container {
+  display: flex;
+  align-items: center;
+}
+
+.modal-book-table .modal-wrapper {
+  max-width: 400px;
 }
 
 @media (max-width: 768px) {

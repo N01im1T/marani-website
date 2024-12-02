@@ -17,13 +17,13 @@ const modals = () => {
       pickupContainer.classList.add("active");
       deliveryForm.classList.remove("active");
       pickupForm.classList.add("active");
-      headerText.textContent = "Выберете адрес доставки";
+      headerText.textContent = "Выберете адрес самовывоза";
     } else {
       deliveryContainer.classList.add("active");
       pickupContainer.classList.remove("active");
       deliveryForm.classList.add("active");
       pickupForm.classList.remove("active");
-      headerText.textContent = "Выберете адрес самовывоза"; 
+      headerText.textContent = "Выберете адрес доставки"; 
     }
   };
 

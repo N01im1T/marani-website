@@ -213,17 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
   var isPaused = false;
   var currentProgress = 0;
 
-  const images = [
-    storyImage,
-    storyImage,
-    storyImage,
-    storyImage,
-    storyImage,
-    storyImage,
-    storyImage,
-    storyImage,
-    storyImage,
-  ];
+  const images = Array.from(document.querySelectorAll('.story-photo-source')).map(i => i.dataset.full);
 
   const updateModalContent = () => {
     const progressBars = images.map(

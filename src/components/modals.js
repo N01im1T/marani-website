@@ -9,17 +9,21 @@ const modals = () => {
   const deliveryForm = document.querySelector(".delivery-form");
   const pickupForm = document.querySelector(".pickup-form");
 
+  const headerText = document.querySelector("#header-change-address");
+
   const toggleComponents = (checked) => {
     if (checked) {
-      deliveryContainer.classList.add("active");
-      pickupContainer.classList.remove("active");
-      deliveryForm.classList.add("active");
-      pickupForm.classList.remove("active");
-    } else {
       deliveryContainer.classList.remove("active");
       pickupContainer.classList.add("active");
       deliveryForm.classList.remove("active");
       pickupForm.classList.add("active");
+      headerText.textContent = "Выберете адрес доставки";
+    } else {
+      deliveryContainer.classList.add("active");
+      pickupContainer.classList.remove("active");
+      deliveryForm.classList.add("active");
+      pickupForm.classList.remove("active");
+      headerText.textContent = "Выберете адрес самовывоза"; 
     }
   };
 

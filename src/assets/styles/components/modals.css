@@ -237,6 +237,9 @@
 }
 
 /* Choose address form */
+.modal-change-address .modal-container{
+  height: 439px;
+}
 
 .form-wrapper {
   align-self: center;

@@ -242,12 +242,15 @@
   align-self: center;
 
   max-width: 448px;
+  width: 100%;
   margin-top: 15px;
 }
 
 .pickup-form,
 .delivery-form {
   display: none;
+  
+  width: 100%;
 
   opacity: 0;
   visibility: hidden;

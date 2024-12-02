@@ -1,22 +1,42 @@
 const modals = () => {
   // Cart toggle
-  const checkbox = document.querySelector(".checkbox");
-  const deliveryDiv = document.querySelector(".cart-container-delivery");
-  const pickupDiv = document.querySelector(".cart-container-pickup");
-  
-  const toggleVisibility = () => {
-    if (checkbox.checked) {
-      deliveryDiv.classList.remove("active");
-      pickupDiv.classList.add("active");
+  const checkbox1 = document.querySelector("#checkbox1");
+  const checkbox2 = document.querySelector("#checkbox2");
+
+  const deliveryContainer = document.querySelector(".cart-container-delivery");
+  const pickupContainer = document.querySelector(".cart-container-pickup");
+
+  const deliveryForm = document.querySelector(".delivery-form");
+  const pickupForm = document.querySelector(".pickup-form");
+
+  const toggleComponents = (checked) => {
+    if (checked) {
+      deliveryContainer.classList.add("active");
+      pickupContainer.classList.remove("active");
+      deliveryForm.classList.add("active");
+      pickupForm.classList.remove("active");
     } else {
-      deliveryDiv.classList.add("active");
-      pickupDiv.classList.remove("active");
+      deliveryContainer.classList.remove("active");
+      pickupContainer.classList.add("active");
+      deliveryForm.classList.remove("active");
+      pickupForm.classList.add("active");
     }
   };
-  
-  checkbox.addEventListener("change", toggleVisibility);
-  
-  toggleVisibility();
+
+  const syncCheckboxes = (sourceCheckbox, targetCheckbox) => {
+    targetCheckbox.checked = sourceCheckbox.checked;
+    toggleComponents(sourceCheckbox.checked);
+  };
+
+  checkbox1.addEventListener("change", () => {
+    syncCheckboxes(checkbox1, checkbox2);
+  });
+
+  checkbox2.addEventListener("change", () => {
+    syncCheckboxes(checkbox2, checkbox1);
+  });
+
+  toggleComponents(checkbox1.checked);
 
   // Add event listener for dishes container
   document.body.addEventListener("click", (event) => {

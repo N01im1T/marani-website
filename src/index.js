@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // If the basket returns to a fixed state
     else if (
       cart.classList.contains("stop") &&
-      (currentTopOffset >= 169)
+      (currentTopOffset >= 180)
     ) {
       cart.classList.remove("stop");
       cart.classList.add("sticky");

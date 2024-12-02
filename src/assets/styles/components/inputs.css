@@ -1,105 +1,303 @@
-.input-container {
+/* Toggle switch */
+
+.toggle-button-cover {
   position: relative;
-  flex: 1 1 calc(50% - 20px);
+
+  height: 39px;
+  padding-bottom: 1rem;
+}
+
+.button-cover,
+.knobs,
+.layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.button-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-switch {
+  position: relative;
+  width: 323px;
+  height: 39px;
+  border-radius: 10px;
+  
+  overflow: hidden;
+}
+
+.checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs {
+  z-index: 2;
+}
+
+.layer {
+  width: 100%;
+  background-color: #EDF2F7;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+.button-switch .knobs:before,
+.button-switch .knobs:after,
+.button-switch .knobs span {
+  position: absolute;
+  top: 3px;
+  width: 149px;
+  height: 33px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 10px 27px;
+  border-radius: 10px 0 0 10px;
+  transition: 0.3s ease all;
+}
+
+.button-switch .knobs:before {
+  content: "";
+  left: 5px;
+  background-color: #FFFFFF;
+}
+
+.button-switch .knobs:after {
+  content: "Самовывоз";
+  right: 5px;
+  color: #909294;
+}
+
+.button-switch .knobs span {
+  display: inline-block;
+  left: 5px;
+  color: #909294;
+  z-index: 1;
+}
+
+.button-switch .checkbox:checked + .knobs span {
+  color: #909294;
+}
+
+.button-switch .checkbox:checked + .knobs:before {
+  left: 169px;
+  background-color: #FFFFFF;
+  border-radius: 0 10px 10px 0;
+  color: #909294;
+}
+
+.button-switch .checkbox:checked + .knobs:after {
+  color: #909294;
+  z-index: 1;
+}
+
+.button-switch .checkbox:checked ~ .layer {
+  background-color: #EDF2F7;
+}
+
+
+.form-group {
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
 }
 
-.input-container.disabled > .styled-input {
-  pointer-events: none;
-  cursor: not-allowed;
+.form-group-row {
+  flex-direction: row;
+  gap: 10px;
 }
 
-.styled-input:not(.disabled) {
-  background-color: var(--input-primary-color);
+.form-label {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
 
+.form-input {
   width: 100%;
-  height: 67px;
-  padding: 0 1.5rem 2rem 1.5rem;
-  border: none;
-  border-radius: 1.5rem;
+  box-sizing: border-box;
+}
 
+.small-input {
+  flex: 1;
+  max-width: 100px;
+}
+
+.input-wrapper:has(.form-input:focus) {
   outline: none;
-
-  transition: all 0.3s;
+  border-color: #4E9F37;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.3);
 }
 
-.styled-input:focus {
-  height: 67px;
-  padding-top: 2.5rem;
-  padding-left: 1.5rem;
-
-  transition:
-    height 0.3s,
-    border 0.3s,
-    border-color 0.3s;
-}
-
-.styled-input:not(:focus),
-.styled-input:not(:placeholder-shown) {
-  height: 67px;
-  padding-top: 2.5rem;
-  padding-left: 1.5rem;
-
-  transition:
-    height 0.3s,
-    border 0.3s,
-    border-color 0.3s;
-}
-
-.styled-input.invalid:not(:placeholder-shown) {
-  height: 67px;
-  padding-top: 2.5rem;
-  padding-left: 1.5rem;
-  border: 1px solid var(--input-error);
-
-  transition:
-    height 0.3s,
-    border 0.3s,
-    border-color 0.3s;
-}
-
-.styled-input:focus + .floating-label,
-.styled-input:not(:placeholder-shown) + .floating-label {
-  top: 1rem;
-  left: 1.5rem;
-
-  height: 67px;
-}
-
-.floating-label {
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
-  overflow: hidden;
-
+.form-input,
+.form-select {
   width: 100%;
+  font-size: 14px;
+  border: none;
+  box-sizing: border-box;
+  appearance: none;
+}
 
+.small {
+  max-width: 120px;
+}
+
+.required {
+  color: red;
+  margin-left: 5px;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border: none;
+}
+
+.input-wrapper {
+  position: relative;
+  
+  padding: 6px 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-wrapper:has(.telephone){
+  padding: 10px 15px;
+}
+
+.form-input {
+  width: 100%;
+  font-size: 14px;
+}
+
+.form-input::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
+.form-input:placeholder-shown + .placeholder-star {
+  opacity: 1;
+}
+
+.placeholder-star {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: red;
   pointer-events: none;
-
-  transition: 0.3s ease all;
+  opacity: 0;
 }
 
-/* Modal Inputs */
-
-.call-me-back-form .styled-input:not(.disabled) {
-  background-color: var(--input-primary-color);
+.input-wrapper:has(.street) .placeholder-star {
+  left: calc(15px + 5ch);
 }
 
-@media (min-width: 623px) and (max-width: 768px) {
-  .floating-label {
-    max-width: 240px;
-  }
+.input-wrapper:has(.house) .placeholder-star {
+  left: calc(15px + 3.5ch);
 }
 
-@media (max-width: 623px) {
-  .input-container {
-    flex: 1 1 100%;
-  }
+.input-wrapper:has(.apartaments) .placeholder-star {
+  left: calc(15px + 7ch);
 }
 
-@media (max-width: 350px) {
-  .floating-label {
-    max-width: 220px;
-  }
+.input-wrapper:has(.telephone) .placeholder-star {
+  left: calc(15px + 16.5ch); 
+}
+
+.form-input:focus::placeholder {
+  opacity: 0; /* Скрытие плейсхолдера при фокусе */
+}
+
+.form-input:focus + .placeholder-star {
+  display: none; /* Скрытие звёздочки при фокусе */
+}
+
+.custom-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-size: 14px;
+}
+
+.select-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #aaa;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.select-label::after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-radius: 3px;
+  border-top-color: #aaa;
+  
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.select-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.select-dropdown .select-option {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.select-dropdown .select-option:hover {
+  background-color: #f4f4f4;
+}
+
+.select-dropdown.open {
+  display: block;
+}
+
+.select-label.selected {
+  color: #000; /* Цвет текста чёрный */
+}
+
+.select-label:focus,
+.select-label.focused {
+  border-color: #4E9F37;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.3);
+  outline: none;
 }

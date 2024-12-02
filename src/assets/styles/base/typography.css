@@ -118,9 +118,9 @@ h3 {
 
 h4 {
   font-family: var(--font-montserrat);
-  font-weight: var(--weight-medium);
-  font-size: 2.25rem;
-  line-height: 115%;
+  font-weight: var(--weight-semibold);
+  font-size: 2.375rem;
+  line-height: 150%;
 }
 
 a {
@@ -175,6 +175,19 @@ p {
   font-size: 1rem;
   line-height: 20px;
   color: var(--text-color);
+}
+
+.apply-address {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-light);
+  font-size: 1.25rem;
+  color: var(--text-color);
+}
+
+/* Modals */
+
+.modal-container h4 {
+  text-align: center;
 }
 
 /* Header */

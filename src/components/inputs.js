@@ -1,78 +1,98 @@
-// import Inputmask from "inputmask";
-
-// import dictionary from "./modals-dictionary.json";
+import Inputmask from "inputmask";
+import Choices from 'choices.js';
+import 'choices.js/public/assets/styles/choices.min.css';
 
 const inputs = (container = document) => {
-  // const rawLanguage = document.documentElement.lang;
-  // const language = rawLanguage ? rawLanguage.toLowerCase().split("-")[0] : "";
-  // const selectedLanguage = dictionary[language] ? language : "en";
-  // const messages = dictionary[selectedLanguage];
+  const phoneMask = new Inputmask({
+    mask: "+7(999) - 999 - 99 - 99",
+    showMaskOnHover: false,
+    clearIncomplete: true,
+    placeholder: "+7(999) - 999 - 99 - 99",
+  });
 
-  // const fieldsMap = {
-  //   name: {
-  //     originalText: messages.name,
-  //     errorMessage: messages.nameError,
-  //   },
-  //   email: {
-  //     originalText: messages.email,
-  //     errorMessage: messages.emailError,
-  //   },
-  //   telephone: {
-  //     originalText: messages.phone,
-  //     errorMessage: messages.phoneError,
-  //   },
-  //   message: {
-  //     originalText: messages.message,
-  //     errorMessage: null,
-  //   },
-  // };
+  const timeMask = new Inputmask({
+    mask: "Hh:Mm",
+    placeholder: "00:00",
+    insertMode: false,
+    showMaskOnHover: false,
+    clearIncomplete: true,
+    definitions: {
+      "H": { 
+        validator: "[0-2]",
+        cardinality: 1,
+      },
+      "h": {
+        validator: (chrs, maskset, pos, strict, opts) => {
+          const firstDigit = maskset.buffer[0] || "0";
+          return (firstDigit === "2" && /^[0-3]$/.test(chrs)) || (firstDigit !== "2" && /^[0-9]$/.test(chrs));
+        },
+        cardinality: 1,
+      },
+      "M": {
+        validator: "[0-5]",
+        cardinality: 1,
+      },
+      "m": {
+        validator: "[0-9]",
+        cardinality: 1,
+      },
+    },
+  });
 
-  // container.querySelectorAll(".input-container").forEach((inputContainer) => {
-  //   const input = inputContainer.querySelector(".styled-input");
-  //   const label = inputContainer.querySelector(".floating-label");
-  //   const fieldId = input.id;
-
-  //   const fieldKey = Object.keys(fieldsMap).find((key) => 
-  //     new RegExp(`^${key}(_\\d+)?$`).test(fieldId)
-  //   );
-
-  //   if (fieldsMap[fieldKey]) {
-  //     const { originalText, errorMessage } = fieldsMap[fieldKey];
-
-  //     label.setAttribute("data-original-text", originalText);
-  //     if (errorMessage) {
-  //       label.setAttribute("data-error-message", errorMessage);
-  //     }
-
-  //     label.textContent = originalText;
-
-  //     input.addEventListener("input", () => {
-  //       if (input.value.trim() === "") {
-  //         label.textContent = label.getAttribute("data-original-text");
-  //         return;
-  //       }
-
-  //       if (input.validity.valid) {
-  //         input.classList.remove("invalid");
-  //         label.textContent = label.getAttribute("data-original-text");
-  //       } else {
-  //         input.classList.add("invalid");
-  //         label.textContent = label.getAttribute("data-error-message");
-  //       }
-  //     });
-  //   }
-  // });
-
-  // const phoneMask = new Inputmask({
-  //   mask: '+7(999)999-99-99',
-  //   showMaskOnHover: false,
-  //   clearIncomplete: true,
-  //   placeholder: "_",
-  // });
+  const apartmentMask = new Inputmask({
+    mask: "9{1,}",
+    showMaskOnHover: false,
+    clearIncomplete: true,
+  });
   
-  // document.querySelectorAll('input[type="tel"]').forEach((input) => {
-  //   phoneMask.mask(input);
-  // });
+  document.querySelectorAll('input[type="tel"]').forEach((input) => {
+    phoneMask.mask(input);
+  });
+
+  document.querySelectorAll('.time').forEach((input) => {
+    timeMask.mask(input);
+  });
+
+  document.querySelectorAll('.apartaments').forEach((input) => {
+    apartmentMask.mask(input);
+  });
+
+  const label = document.getElementById("custom-label");
+  const dropdown = document.getElementById("custom-dropdown");
+  const options = dropdown.querySelectorAll(".select-option");
+
+  // Показать/скрыть выпадающий список
+  label.addEventListener("click", () => {
+    dropdown.classList.toggle("open");
+    label.classList.toggle("focused"); // Добавляем класс при открытии
+  });
+
+  // Удаление фокуса при клике вне элемента
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target) && !label.contains(e.target)) {
+      dropdown.classList.remove("open");
+      label.classList.remove("focused"); // Убираем класс при закрытии
+    }
+  });
+
+  // Обработка выбора опции
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
+      const text = option.textContent;
+
+      // Обновляем текст в label
+      label.textContent = text;
+
+      // Добавляем класс "selected" для изменения текста
+      label.classList.add("selected");
+
+      // Убираем "focused" после выбора
+      label.classList.remove("focused");
+
+      // Закрываем список
+      dropdown.classList.remove("open");
+    });
+  });
 };
 
 export default inputs;

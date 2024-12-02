@@ -74,6 +74,10 @@
   cursor: not-allowed;
 }
 
+.apply-address {
+  width: 100%;
+}
+
 /* Header slider arrow buttons */
 
 .dishes-glide-arrows {

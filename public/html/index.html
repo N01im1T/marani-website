@@ -1104,6 +1104,87 @@
       </nav>
     </div>
 
+    <div class="modal  modal-change-address">
+      <div class="modal-container">
+        <button class="btn close-icon" type="button">
+          <img src="../assets/images/close-icon.svg" alt="close-icon">
+        </button>
+        <h4>Выберете адрес доставки</h4>
+        <div class="toggle-button-cover">
+          <div class="button-cover">
+            <div class="button-switch" id="button-switch">
+              <input type="checkbox" class="checkbox" />
+              <div class="knobs">
+                <span>Доставка</span>
+              </div>
+              <div class="layer"></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-wrapper">
+          <div class="delivery-form active">
+            <div class="form-group">
+              <div class="input-wrapper">
+                <input type="text" class="form-input street" placeholder="Улица" required />
+                <span class="placeholder-star">*</span>
+              </div>
+            </div>
+            <div class="form-group form-group-row">
+              <div class="input-wrapper">
+                <input type="text" class="form-input small-input house" placeholder="Дом" required />
+                <span class="placeholder-star">*</span>
+              </div>
+          
+              <div class="input-wrapper">
+                <input type="text" class="form-input small-input apartaments" placeholder="Кв/Офис" required />
+                <span class="placeholder-star">*</span>
+              </div>
+        
+              <div class="input-wrapper">
+                <input type="text" class="form-input small-input entrance" placeholder="Подъезд" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-wrapper">
+                  <input type="tel" class="form-input telephone" placeholder="+7(999) - 999 - 99 - 99" required />
+                  <span class="placeholder-star">*</span>
+              </div>
+            </div>
+          </div>
+          <div class="pickup-form">
+            <div class="form-group">
+              <div class="custom-select">
+                <div class="select-label" id="custom-label">
+                  Выберете адрес
+                </div>
+                <div class="select-dropdown" id="custom-dropdown">
+                  <div class="select-option" data-value="1">
+                    Карла Маркса 96А ресторан “Марани”
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-wrapper">
+                  <input type="tel" class="form-input telephone" placeholder="+7(999) - 999 - 99 - 99" required />
+                  <span class="placeholder-star">*</span>
+              </div>
+            </div>
+            <div class="form-group small">
+              <div class="input-wrapper">
+                <label for="time" class="form-label">
+                  Время<span class="required">*</span>
+                </label>
+                <input type="text" id="time" class="form-input time" placeholder="21:30" required />
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-secondary apply-address" type="button">
+            Выбрать
+          </button>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.js" defer></script>
     <script type="module" src="/src/index.js" defer></script>
   </body>

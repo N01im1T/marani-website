@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Language" content="ru" />
+    <meta name="application-name" content="Марани" />
+    <title>Оформление заказа</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="../assets/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon.svg"
+    />
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/apple-touch-icon.png"
+    />
+    <link
+      rel="webmanifest"
+      crossorigin="use-credentials"
+      href="../assets/site.webmanifest"
+    />
+  </head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <section class="header-top">
+        <a class="header-top-logo" href="http://" target="_blank" rel="noopener noreferrer">
+          <img class="site-logo-img" src="../assets/images/site-logo.svg" alt="site-logo">
+        </a>
+        <button class="btn btn-primary btn-book-table" type="button">
+          <img src="../assets/images/khinkali-icon.svg" alt="khinkali-icon">
+          <span>Забронировать стол</span>
+        </button>
+        <nav class="header-top-nav">
+          <ul class="header-top-nav-list">
+            <li class="header-top-nav-item">
+              <a
+                class="nav-item-link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                Доставка
+              </a>
+            </li>
+            <li class="header-top-nav-item">
+              <a
+                class="nav-item-link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                Афиша
+              </a>
+            </li>
+            <li class="header-top-nav-item">
+              <a
+                class="nav-item-link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer">
+                О нас
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <a class="header-top-telephone" href="tel:+74212777777">
+          <img src="../assets/images/phone-icon.svg" alt="phone-icon">
+          <span>+74212 77-77-77</span>
+        </a>
+      </section>
+      <section class="header-bottom">
+        <div id="static-nav-menu" class="header-bottom-page-nav-glide">
+          <nav class="header-bottom-page-nav-track">
+            <ul class="page-nav-slides">
+              <li class="page-nav-slide active">
+                <a href="#new-items" role="button">
+                  Новинки
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#khinkali">
+                  Хинкали
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#lavash">
+                  Лаваши
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#georgian-shashlik">
+                  Шашлык по грузински
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#salats">
+                  Салаты
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#new-items">
+                  Новинки
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#khinkali">
+                  Хинкали
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#lavash">
+                  Лаваши
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#georgian-shashlik">
+                  Шашлык по грузински
+                </a>
+              </li>
+              <li class="page-nav-slide">
+                <a href="#new-items" role="button">
+                  Новинки
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#khinkali">
+                  Хинкали
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#lavash">
+                  Лаваши
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#georgian-shashlik">
+                  Шашлык по грузински
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#salats">
+                  Салаты
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#new-items">
+                  Новинки
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#khinkali">
+                  Хинкали
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#lavash">
+                  Лаваши
+                </a>
+              </li>
+              <li class="page-nav-slide" role="button">
+                <a href="#georgian-shashlik">
+                  Шашлык по грузински
+                </a>
+              </li>             
+            </ul>
+          </nav>
+        </div>
+        <div class="header-bottom-wrapper">
+          <aside class="cart">
+            <div class="cart-container">
+              <h4 class="cart-header">Мой заказ</h4>
+              <div class="toggle-button-cover">
+                <div class="button-cover">
+                  <div class="button-switch" id="button-switch">
+                    <input type="checkbox" class="checkbox" id="checkbox1" />
+                    <div class="knobs">
+                      <span>Доставка</span>
+                    </div>
+                    <div class="layer"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-container-delivery">
+                <span class="delivery-address">
+                  Укажите адрес доставки
+                </span>
+                <button class="btn btn-change-address" type="button">
+                  Изменить адрес
+                </button>
+              </div>
+              <div class="cart-container-pickup">
+                <span class="pickup-address">
+                  Укажите адрес самовывоза
+                </span>
+                <button class="btn btn-change-address" type="button">
+                  Изменить адрес
+                </button>
+              </div>
+              <section class="cart-dishes">
+                <div class="cart-dish-card">
+                  <img
+                    class="dish-card-img"
+                    src="../assets/images/cart-dish-img.png"
+                    alt="cart-dish-img"
+                  >
+                  <div class="dish-card-wrapper">
+                    <p class="dish-card-name">
+                      Хинкали жареные с телятиной 4шт.
+                    </p>
+                    <div class="cart-dish-info">
+                      <p class="price-weight">
+                        <span class="price">1250</span>
+                        <span class="currency">₽</span>/
+                        <span class="weight">250</span>гр
+                      </p>
+                      <div class="amount-counter">
+                        <button class="btn counter-minus" type="button">
+                          -
+                        </button>
+                        <span class="counter-amount">1</span>
+                        <button class="btn counter-plus" type="button">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart-dish-card">
+                  <img
+                    class="dish-card-img"
+                    src="../assets/images/cart-dish-img.png"
+                    alt="cart-dish-img"
+                  >
+                  <div class="dish-card-wrapper">
+                    <p class="dish-card-name">
+                      Хинкали жареные с телятиной 4шт.
+                    </p>
+                    <div class="cart-dish-info">
+                      <p class="price-weight">
+                        <span class="price">1250</span>
+                        <span class="currency">₽</span>/
+                        <span class="weight">250</span>гр
+                      </p>
+                      <div class="amount-counter">
+                        <button class="btn counter-minus" type="button">
+                          -
+                        </button>
+                        <span class="counter-amount">1</span>
+                        <button class="btn counter-plus" type="button">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart-dish-card">
+                  <img
+                    class="dish-card-img"
+                    src="../assets/images/cart-dish-img.png"
+                    alt="cart-dish-img"
+                  >
+                  <div class="dish-card-wrapper">
+                    <p class="dish-card-name">
+                      Хинкали жареные с телятиной 4шт.
+                    </p>
+                    <div class="cart-dish-info">
+                      <p class="price-weight">
+                        <span class="price">1250</span>
+                        <span class="currency">₽</span>/
+                        <span class="weight">250</span>гр
+                      </p>
+                      <div class="amount-counter">
+                        <button class="btn counter-minus" type="button">
+                          -
+                        </button>
+                        <span class="counter-amount">1</span>
+                        <button class="btn counter-plus" type="button">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart-dish-card">
+                  <img
+                    class="dish-card-img"
+                    src="../assets/images/cart-dish-img.png"
+                    alt="cart-dish-img"
+                  >
+                  <div class="dish-card-wrapper">
+                    <p class="dish-card-name">
+                      Хинкали жареные с телятиной 4шт.
+                    </p>
+                    <div class="cart-dish-info">
+                      <p class="price-weight">
+                        <span class="price">1250</span>
+                        <span class="currency">₽</span>/
+                        <span class="weight">250</span>гр
+                      </p>
+                      <div class="amount-counter">
+                        <button class="btn counter-minus" type="button">
+                          -
+                        </button>
+                        <span class="counter-amount">1</span>
+                        <button class="btn counter-plus" type="button">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <button class="btn btn-secondary btn-order" type="button">
+                <span class="total-price"></span>
+                Оформить заказ
+              </button>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <main>
+    <article class="checkout">
+      <div class="checkout-container">
+        <h1 id="checkout-header">Оформление заказа</h1>
+        <div class="checkout-wrapper">
+          <section class="placing-order">
+            <div class="toggle-button-cover">
+              <div class="button-cover">
+                <div class="button-switch" id="button-switch">
+                  <input type="checkbox" class="checkbox" id="checkbox3"/>
+                  <div class="knobs">
+                    <span>Доставка</span>
+                  </div>
+                  <div class="layer"></div>
+                </div>
+              </div>
+            </div>
+            <div class="checkout-delivery-address">
+              <span class="delivery-address">
+                Укажите адрес доставки
+              </span>
+              <button class="btn btn-change-address" type="button">
+                Изменить адрес
+              </button>
+            </div>
+            <div class="checkout-pickup-address">
+              <span class="pickup-address">
+                Укажите адрес самовывоза
+              </span>
+              <button class="btn btn-change-address" type="button">
+                Изменить адрес
+              </button>
+            </div>
+            <section class="choose-time">
+              <h2 id="choose-time-header">Выберете время</h2>
+              <label class="radio-label">
+                <input type="radio" name="time-option" class="radio-input" id="closest-time-checkbox" />
+                <span class="radio-custom"></span>
+                <span class="choose-time-checkbox-text">
+                  Ближайшее время
+                </span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="time-option" class="radio-input" id="choose-time-checkbox" />
+                <span class="radio-custom"></span>
+                <span class="choose-time-checkbox-text">
+                  Указать время
+                </span>
+              </label>
+              <div class="form-group form-group-row date-and-time-picker">
+                <div class="input-wrapper">
+                  <label for="date" class="form-label">
+                    Дата<span class="required">*</span>
+                  </label>
+                  <input type="text" id="date" class="form-input date" placeholder="17.10.2024" required />
+                </div>
+                <div class="input-wrapper">
+                  <label for="time" class="form-label">
+                    Время<span class="required">*</span>
+                  </label>
+                  <input type="text" id="time" class="form-input time" placeholder="21:30" required />
+                </div>
+              </div>
+            </section>
+            <section class="payment-method">
+              <h2 id="payment-method-header">Оплата</h2>
+              <label class="radio-label">
+                <input type="radio" name="payment-method-option" class="radio-input" id="paiment-method-online" />
+                <span class="radio-custom"></span>
+                <span class="choose-time-checkbox-text">
+                  Онлайн
+                </span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="payment-method-option" class="radio-input" id="paiment-method-card" />
+                <span class="radio-custom"></span>
+                <span class="choose-time-checkbox-text">
+                  Картой курьеру
+                </span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="payment-method-option" class="radio-input" id="paiment-method-cash" />
+                <span class="radio-custom"></span>
+                <span class="choose-time-checkbox-text">
+                  Наличными курьеру
+                </span>
+              </label>
+            </section>
+            <section class="details">
+              <h2 id="details-header">Детали</h2>
+              <div class="form-group">
+                <div class="input-wrapper">
+                  <input type="text" class="form-input name" placeholder="Имя" required />
+                  <span class="placeholder-star">*</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="comments"
+                  class="form-textarea"
+                  placeholder="Комментарий к заказу"
+                ></textarea>
+              </div>
+              <h5 id="amount-cutlery-header">Количество приборов</h5>
+              <div class="amount-counter">
+                <button class="btn counter-minus" type="button">
+                  -
+                </button>
+                <span class="counter-amount">1</span>
+                <button class="btn counter-plus" type="button">
+                  +
+                </button>
+              </div>
+            </section>
+          </section>
+          <section class="recomendations">
+            <div class="recomendations-container">
+              <h3 id="recomendations-header">Рекомендуем!</h3>
+              <div class="recomendations-dish-container">
+                <div class="cart-dish-card">
+                  <img
+                    class="dish-card-img"
+                    src="../assets/images/cart-dish-img.png"
+                    alt="cart-dish-img"
+                  >
+                  <div class="dish-card-wrapper">
+                    <p class="dish-card-name">
+                      Хинкали жареные с телятиной 4шт.
+                    </p>
+                    <div class="cart-dish-info">
+                      <button class="btn btn-secondary price-weight" type="button">
+                        <span class="price">1250</span>
+                        <span class="currency">₽</span>/
+                        <span class="weight"> 250</span>гр
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart-dish-card">
+                  <img
+                    class="dish-card-img"
+                    src="../assets/images/cart-dish-img.png"
+                    alt="cart-dish-img"
+                  >
+                  <div class="dish-card-wrapper">
+                    <p class="dish-card-name">
+                      Хинкали жареные с телятиной 4шт.
+                    </p>
+                    <div class="cart-dish-info">
+                      <button class="btn btn-secondary price-weight" type="button">
+                        <span class="price">1250</span>
+                        <span class="currency">₽</span>/
+                        <span class="weight"> 250</span>гр
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <article class="map">
+    <div class="map-container">
+      <section class="map-frame">
+        <a
+          class="dg-widget-link"
+          href="http://2gis.ru/khabarovsk/firm/70000001074609459/center/135.09207487106326,48.49465375716905/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap"
+          >
+            Посмотреть на карте Хабаровска
+        </a>
+        <div class="dg-widget-link">
+          <a
+            href="http://2gis.ru/khabarovsk/firm/70000001074609459/photos/70000001074609459/center/135.09207487106326,48.49465375716905/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos"
+            >
+              Фотографии компании
+          </a>
+        </div>
+        <div class="dg-widget-link">
+          <a 
+            href="http://2gis.ru/khabarovsk/center/135.092066,48.493192/zoom/16/routeTab/rsType/bus/to/135.092066,48.493192╎Марани, кафе?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route"
+            >
+              Найти проезд до Марани, кафе
+          </a>
+        </div>
+        <script
+          charset="utf-8"
+          src="https://widgets.2gis.com/js/DGWidgetLoader.js"
+          >
+        </script>
+        <script charset="utf-8">
+          new DGWidgetLoader({
+            "maxWidth": "718px",
+            "maxHeight": "502px",
+            "width": "100%",
+            "height": "100%",
+            "borderColor":"#FFFFFF",
+            "pos":{
+              "lat":48.49465375716905,
+              "lon":135.09207487106326,
+              "zoom":16
+            },
+            "opt":{
+              "city":"khabarovsk"
+            },
+            "org":[{"id":"70000001074609459"}]
+          });
+        </script>
+        <noscript
+          style="color:#c00;font-size:16px;font-weight:bold;"
+          >
+            Виджет карты использует JavaScript. Включите его в настройках вашего браузера.
+        </noscript>
+      </section>
+      <section class="map-call-to-action">
+        <p class="map-call-to-action-address">
+          г. Хабаровск, Карла Маркса, 96а 1 этаж 
+        </p>
+
+        <a
+          class="btn btn-primary btn-build-route"
+          href="http://"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="button"
+          >
+          Построить маршрут
+        </a>
+      </section>
+    </div>
+  </article>
+
+  <article class="footer">
+    <div class="footer-container">
+      <section class="footer-branding">
+        <a
+          class="footer-branding-logo"
+          href="http://"
+          target="_blank"
+          rel="noopener noreferrer"
+          >
+          <img
+            src="../assets/images/site-logo-footer.svg"
+            alt="site-logo-footer"
+          >
+        </a>
+        <ul class="footer-branding-socials-list">
+          <li class="socials-list-item">
+            <a href="http://" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/images/telegram-icon.svg" alt="telegram-icon">
+            </a>
+          </li>
+          <li class="socials-list-item">
+            <a href="http://" target="_blank" rel="noopener noreferrer">
+              <img src="../assets/images/vk-icon.svg" alt="vk-icon">
+            </a>
+          </li>
+        </ul>
+        
+      </section>
+      <section class="contacts">
+        <h4 class="contacts-header">
+          Контакты
+        </h4>
+        <ul class="contacts-list">
+          <li class="contacts-list-item">
+            <a
+              class="contacts-item-link"
+              href="http://"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              г. Хабаровск,
+              Карла Маркса, 96а 1 этаж
+            </a>
+          </li>
+          <li class="contacts-list-item">
+            <a class="contacts-item-link" href="tel:+79625017878">
+            Телефон: +7 962 501 78 78
+            </a>
+          </li>
+          <li class="contacts-list-item">
+            <a class="contacts-item-link" href="mailto:Marani@info.ru">
+            Email: Marani@info.ru
+            </a>
+          </li>
+        </ul>
+        
+      </section>
+      <section class="useful-information">
+        <h4 class="useful-information-header">
+          Полезная информация
+        </h4>
+        <ul class="useful-information-list">
+          <li class="useful-information-item">
+            <a
+              class="useful-information-item-link"
+              href="http://"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              Меню
+            </a>
+          </li>
+          <li class="useful-information-item">
+            <a
+              class="useful-information-item-link"
+              href="http://"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              О компании
+            </a>
+          </li>
+          <li class="useful-information-item">
+            <a
+              class="useful-information-item-link"
+              href="http://"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              Новости
+            </a>
+          </li>
+          <li class="useful-information-item">
+            <a
+              class="useful-information-item-link"
+              href="http://"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              
+              Доставка
+            </a>
+          </li>
+        </ul>
+        
+      </section>
+    </div>
+  </article>
+
+  <div class="sticky-nav-menu">
+    <nav class="sticky-nav-menu-track">
+      <ul class="page-nav-slides">
+        <li class="page-nav-slide active">
+          <a href="#new-items" role="button">
+            Новинки
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#khinkali">
+            Хинкали
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#lavash">
+            Лаваши
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#georgian-shashlik">
+            Шашлык по грузински
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#salats">
+            Салаты
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#new-items">
+            Новинки
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#khinkali">
+            Хинкали
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#lavash">
+            Лаваши
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#georgian-shashlik">
+            Шашлык по грузински
+          </a>
+        </li>
+        <li class="page-nav-slide">
+          <a href="#new-items" role="button">
+            Новинки
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#khinkali">
+            Хинкали
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#lavash">
+            Лаваши
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#georgian-shashlik">
+            Шашлык по грузински
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#salats">
+            Салаты
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#new-items">
+            Новинки
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#khinkali">
+            Хинкали
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#lavash">
+            Лаваши
+          </a>
+        </li>
+        <li class="page-nav-slide" role="button">
+          <a href="#georgian-shashlik">
+            Шашлык по грузински
+          </a>
+        </li>             
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="modal  modal-change-address">
+    <div class="modal-container">
+      <button class="btn close-icon" type="button">
+        <img src="../assets/images/close-icon.svg" alt="close-icon">
+      </button>
+      <h4 id="header-change-address">Выберете адрес доставки</h4>
+      <div class="toggle-button-cover">
+        <div class="button-cover">
+          <div class="button-switch" id="button-switch">
+            <input type="checkbox" class="checkbox" id="checkbox2"/>
+            <div class="knobs">
+              <span>Доставка</span>
+            </div>
+            <div class="layer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="form-wrapper">
+        <div class="delivery-form active">
+          <div class="form-group">
+            <div class="input-wrapper">
+              <input type="text" class="form-input street" placeholder="Улица" required />
+              <span class="placeholder-star">*</span>
+            </div>
+          </div>
+          <div class="form-group form-group-row">
+            <div class="input-wrapper">
+              <input type="text" class="form-input small-input house" placeholder="Дом" required />
+              <span class="placeholder-star">*</span>
+            </div>
+        
+            <div class="input-wrapper">
+              <input type="text" class="form-input small-input apartaments" placeholder="Кв/Офис" required />
+              <span class="placeholder-star">*</span>
+            </div>
+      
+            <div class="input-wrapper">
+              <input type="text" class="form-input small-input entrance" placeholder="Подъезд" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-wrapper">
+                <input type="tel" class="form-input telephone" placeholder="+7(999) - 999 - 99 - 99" required />
+                <span class="placeholder-star">*</span>
+            </div>
+          </div>
+        </div>
+        <div class="pickup-form">
+          <div class="form-group">
+            <div class="custom-select">
+              <div class="select-label" id="custom-label">
+                Выберете адрес
+              </div>
+              <div class="select-dropdown" id="custom-dropdown">
+                <div class="select-option" data-value="1">
+                  Карла Маркса 96А ресторан “Марани”
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-wrapper">
+                <input type="tel" class="form-input telephone" placeholder="+7(999) - 999 - 99 - 99" required />
+                <span class="placeholder-star">*</span>
+            </div>
+          </div>
+          <div class="form-group small">
+            <div class="input-wrapper">
+              <label for="time" class="form-label">
+                Время<span class="required">*</span>
+              </label>
+              <input type="text" id="time" class="form-input time" placeholder="21:30" required />
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-secondary apply-address" type="button">
+          Выбрать
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal modal-book-table">
+    <div class="modal-container">
+      <button class="btn close-icon" type="button">
+        <img src="../assets/images/close-icon.svg" alt="close-icon">
+      </button>
+      <h4 id="header-book-table">Выберете желаемую дату и время посещения</h4>
+      <div class="modal-wrapper">
+        <div class="form-group">
+          <div class="form-group">
+            <div class="input-wrapper">
+              <input type="text" class="form-input name" placeholder="Имя" required />
+              <span class="placeholder-star">*</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-wrapper">
+                <input type="tel" class="form-input telephone" placeholder="+7(999) - 999 - 99 - 99" required />
+                <span class="placeholder-star">*</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-wrapper">
+              <input type="text" class="form-input people-amount" placeholder="Количество персон" required />
+              <span class="placeholder-star">*</span>
+            </div>
+          </div>
+          <div class="form-group form-group-row">
+            <div class="input-wrapper">
+              <label for="date" class="form-label">
+                Дата<span class="required">*</span>
+              </label>
+              <input type="text" id="date" class="form-input date" placeholder="17.10.2024" required />
+            </div>
+            <div class="input-wrapper">
+              <label for="time" class="form-label">
+                Время<span class="required">*</span>
+              </label>
+              <input type="text" id="time" class="form-input time" placeholder="21:30" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea
+              id="comments"
+              class="form-textarea"
+              placeholder="Пожелания к брони"
+            ></textarea>
+          </div>
+          <label class="radio-label">
+            <input type="radio" name="policy-agreement-option" class="radio-input" id="time2" />
+            <span class="radio-custom"></span>
+            <span class="policy-agreement">
+              Даю согласие на обработку
+              <a href="http://" target="_blank" rel="noopener noreferrer">
+                персональных данных
+              </a>
+            </span>
+          </label>
+        </div>
+        <button class="btn btn-secondary btn-order-table" type="button">
+          Забронировать стол
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js" defer></script>
+  <script type="module" src="/src/checkout.js" defer></script>
+</body>
+</html>

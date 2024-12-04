@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentTopOffset = cart.getBoundingClientRect().top;
 
     // If the basket has reached the bottom block
-    if (scrollPosition + cartHeight + 120 > stopBlockBottom) {
+    if (scrollPosition + cartHeight + 120 > stopBlockBottom + 40) {
       cart.classList.remove("sticky");
       cart.classList.add("stop");
 

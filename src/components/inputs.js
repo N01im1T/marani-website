@@ -11,20 +11,38 @@ const inputs = (container = document) => {
   });
 
   const dateMask = new Inputmask({
-    mask: "99.99.9999",
-    alias: "datetime",
-    inputFormat: "dd.mm.yyyy",
+    mask: "Dd.Mm", // Используем кастомные символы
+    placeholder: "00.00",
     showMaskOnHover: false,
     clearIncomplete: true,
-    placeholder: "00.00.0000",
-    onincomplete: function () {
-      console.log("Ввод даты не завершен.");
+    definitions: {
+      "D": {
+        validator: "[0-3]", // Первая цифра дня может быть 0-3
+        cardinality: 1,
+      },
+      "d": {
+        validator: (chrs, maskset, pos, strict, opts) => {
+          const firstDigit = maskset.buffer[0] || "0"; // Получаем первую цифру дня
+          return (firstDigit === "3" && /^[0-1]$/.test(chrs)) || (firstDigit !== "3" && /^[0-9]$/.test(chrs)); // Если первая цифра 3, то вторая должна быть от 0 до 1 (для 30 и 31)
+        },
+        cardinality: 1,
+      },
+      "M": {
+        validator: "[0-1]", // Первая цифра месяца 0-1
+        cardinality: 1,
+      },
+      "m": {
+        validator: (chrs, maskset, pos, strict, opts) => {
+          const firstDigit = maskset.buffer[2] || "0"; // Получаем первую цифру месяца
+          return (firstDigit === "1" && /^[0-2]$/.test(chrs)) || (firstDigit !== "1" && /^[0-2]$/.test(chrs)); // Если первая цифра 1, то вторая должна быть от 0 до 2 (для месяцев 10-12)
+        },
+        cardinality: 1,
+      },
     },
   });
 
   const timeMask = new Inputmask({
     mask: "Hh:Mm",
-    placeholder: "00:00",
     alias: "time",
     insertMode: false,
     showMaskOnHover: false,

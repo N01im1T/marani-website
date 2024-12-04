@@ -16,6 +16,13 @@ const optimization = () => {
   const config = {
     splitChunks: {
       chunks: "all",
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
     },
   };
 
@@ -30,10 +37,11 @@ const optimization = () => {
 };
 
 module.exports = {
-  entry: [
-    path.resolve(__dirname, './src/main.js'),
-    path.resolve(__dirname, './src/index.js'),
-  ],
+  entry: {
+    main: path.resolve(__dirname, './src/main.js'),
+    index: path.resolve(__dirname, './src/index.js'),
+    checkout: path.resolve(__dirname, './src/checkout.js'),
+  },
   output: {
     filename: `src/js/${filename("js")}`,
     path: path.resolve(__dirname, "dist"),
@@ -100,6 +108,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: `public/html/index.html`,
       template: path.resolve(__dirname, `./public/html/index.html`),
+      chunks: ['main', 'index'],
       minify: {
         collapseWhitespace: isProd,
       },
@@ -121,6 +130,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: `public/html/posters.html`,
       template: path.resolve(__dirname, `./public/html/posters.html`),
+      minify: {
+        collapseWhitespace: isProd,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      filename: `public/html/checkout.html`,
+      template: path.resolve(__dirname, `./public/html/checkout.html`),
+      chunks: ['main', 'checkout'],
       minify: {
         collapseWhitespace: isProd,
       },

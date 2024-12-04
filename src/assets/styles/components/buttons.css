@@ -78,6 +78,10 @@
   width: 100%;
 }
 
+.btn-order {
+  flex-wrap: nowrap;
+}
+
 .btn-order-table {
   background-color: var(--secondary-color);
 
@@ -90,6 +94,17 @@
 
 .btn-order-table:not(:disabled):active {
   background-color: #661c1f;
+}
+
+.btn-secondary.price-weight {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.15rem;
+
+  width: 131px;
+  height: 23px;
 }
 
 /* Header slider arrow buttons */

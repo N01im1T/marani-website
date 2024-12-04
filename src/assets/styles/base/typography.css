@@ -94,10 +94,10 @@ body {
 }
 
 h1 {
-  font-family: var(--font-pacifico);
-  font-weight: var(--weight-medium);
-  font-size: 6rem;
-  line-height: 115%;
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-semibold);
+  font-size: 1.75rem;
+  line-height: auto;
   text-wrap: nowrap;
 }
 
@@ -193,6 +193,16 @@ textarea {
   font-weight: var(--weight-regular);
   font-size: 1rem;
   line-height: 20px;
+  color: var(--text-color);
+}
+
+.btn-secondary.price-weight,
+.btn-secondary.price-weight .price,
+.btn-secondary.price-weight .currency,
+.btn-secondary.price-weight .weight {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-regular);
+  font-size: 0.875rem;
   color: var(--text-color);
 }
 
@@ -329,6 +339,12 @@ textarea {
   font-size: 0.875rem;
 }
 
+.total-price {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-semibold);
+  font-size: 1rem;
+}
+
 /* Reviews */
 
 .reviews-header {
@@ -440,4 +456,28 @@ textarea {
   text-decoration-line: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
+}
+
+/* Checkout */
+
+#choose-time-header,
+#payment-method-header,
+#details-header {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-semibold);
+  font-size: 1.75rem;
+  color: var(--text-color-dark);
+}
+
+#amount-cutlery-header {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-medium);
+  font-size: 1rem;
+  color: var(--text-color-dark);
+}
+
+#recomendations-header {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-semibold);
+  font-size: 1rem;
 }

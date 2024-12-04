@@ -115,7 +115,7 @@
   border-radius: 10px;
 
   box-shadow: 0 -6px 36px 6px rgba(0, 0, 0, 0.05);
-  z-index: 4;
+  z-index: 6;
   transition: bottom 0.3s ease, top 0.3s ease, position 0.3s ease;
 }
 
@@ -230,6 +230,10 @@
   padding: 6px 9px;
   border: 1px solid #D4D4D4;
   border-radius: 4px;
+}
+
+.details .amount-counter {
+  max-width: 5.125rem;
 }
 
 .amount-counter > * {

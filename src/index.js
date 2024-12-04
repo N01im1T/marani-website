@@ -4,8 +4,6 @@ import "/node_modules/@glidejs/glide/dist/css/glide.core.css";
 
 import Glide from "/node_modules/@glidejs/glide";
 
-import storyImage from "../public/assets/images/story-img.png";
-
 document.addEventListener("DOMContentLoaded", () => {
 
   // Header dish slider
@@ -123,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // If the basket returns to a fixed state
     else if (
       cart.classList.contains("stop") &&
-      (currentTopOffset >= 190)
+      (currentTopOffset >= 200)
     ) {
       cart.classList.remove("stop");
       cart.classList.add("sticky");
@@ -159,7 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
   observer.observe(triggerElement);
 
   // Listener for active links in page navigations
-
   function syncActiveLinks(navSelectors) {
     const navs = navSelectors.map((selector) => document.querySelector(selector)).filter(Boolean);
     if (navs.length < 2) return; // Necessary min 2
@@ -195,7 +192,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ]);
 
   // Stories slider modal
-
   const storiesElements = document.querySelectorAll('.story');
   const modal = document.querySelector('.instagram-stories-modal');
   const modalContainer = document.querySelector('.instagram-stories-modal-container');

@@ -21,3 +21,35 @@
   flex-direction: column;
   row-gap: 1.25rem;
 }
+
+@media (max-width: 960px) {
+  .reviews {
+    padding: 1.25rem 0.625rem;
+  }
+
+  .reviews-container {
+    flex-wrap: wrap;
+
+    padding: 1.25rem;
+  }
+
+  .reviews-container > * {
+    flex: 1 0 311px;
+  }
+}
+
+@media (max-width: 681px) {
+  .reviews-text-container {
+    align-items: center;
+  }
+}
+
+@media (max-width: 395px) {
+  .reviews-container {
+    padding: 0;
+  }
+
+  .reviews-text-container {
+    row-gap: 0;
+  }
+}

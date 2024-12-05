@@ -137,3 +137,133 @@
 .btn-change-address {
   background-color: transparent;
 }
+
+/* Mobile buttons */
+
+.btn-mobile-burger {
+  display: none;
+}
+
+.mobile-btn-close-top-menu {
+  position: absolute;
+  top: -1.5rem;
+  right: 0.5rem;
+
+  background-color: transparent;
+
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.mobile-btn-close-top-menu img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.btn-mobile-book-table {
+  max-width: 260px;
+  margin-bottom: 1.25rem;
+}
+
+.mobile-menu .btn-build-route {
+  background-color: var(--primary-color);
+
+  max-width: 304px;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 2.875rem;
+}
+
+.btn-open-cart {
+  display: none;
+}
+
+@media (max-width: 1280px) {
+  /* Header slider buttons*/
+  .dishes-glide-arrows {
+    position: absolute;
+    justify-content: space-between;
+    top: 20%;
+    column-gap: none;
+
+    max-width: 800px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  /* Header slider buttons */
+
+  .dishes-glide-arrows {
+    top: 30%;
+
+    max-width: 940px;
+    width: 100%;
+  }
+
+  /* Mobile menu buttons */
+
+  .btn-mobile-burger {
+    display: block;
+
+    background-color: transparent;
+
+    min-width: 1.5rem;
+    margin-left: auto;
+  }
+
+  /* Mobile buttons */
+
+  .btn-open-cart {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.25rem;
+    bottom: 0.625rem;
+    left: 0.625rem;
+
+    width: calc(100% - 1.25rem);
+    height: 60px;
+  }
+
+  .btn-open-cart.visible {
+    display: flex;
+  }
+
+  .btn-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #82DA69;
+
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-book-table {
+    max-height: 2rem;
+  }
+
+  .btn-book-table img {
+    max-height: 1.5rem;
+  }
+}
+
+@media (max-width: 681px) {
+  .btn-look-reviews {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .btn-book-table {
+    column-gap: 0rem;
+
+    min-width: 170px;
+  }
+}

@@ -424,3 +424,45 @@
   font-size: 16px;
   color: #b1b1b1;
 }
+
+@media (max-width: 960px) {
+  .cart .button-switch {
+    position: relative;
+    width: 926px;
+    height: 39px;
+    border-radius: 10px;
+    
+    overflow: hidden;
+  }
+  
+  .cart .button-switch .knobs:before,
+  .cart .button-switch .knobs:after,
+  .cart .button-switch .knobs span {
+    width: calc((100% - 25px) / 2);
+  }
+  
+  .cart .button-switch .checkbox:checked + .knobs:before {
+    left: calc((100% - 25px) / 2 + 20px);
+  }
+}
+
+@media (max-width: 420px) {
+  .modal-change-address .button-switch {
+    position: relative;
+    width: 308px;
+    height: 39px;
+    border-radius: 10px;
+    
+    overflow: hidden;
+  }
+  
+  .modal-change-address .button-switch .knobs:before,
+  .modal-change-address .button-switch .knobs:after,
+  .modal-change-address .button-switch .knobs span {
+    width: calc((100% - 25px) / 2);
+  }
+  
+  .modal-change-address .button-switch .checkbox:checked + .knobs:before {
+    left: calc((100% - 25px) / 2 + 20px);
+  }
+}

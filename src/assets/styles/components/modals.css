@@ -134,12 +134,17 @@
 }
 
 .cart-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
 
   max-width: 365px;
   min-height: 500px;
+}
+
+.cart-container .close-icon {
+  display: none;
 }
 
 .cart-container-delivery,
@@ -283,6 +288,70 @@
   max-width: 400px;
 }
 
+@media (max-width: 960px) {
+  .cart {
+    position: fixed;
+    display: none;
+    top: unset;
+    bottom: 0;
+    left: 0;
+
+    max-width: none;
+    max-height: 533px;
+    border-radius: 0.625rem 0.625rem 0 0;
+  }
+
+  .cart.slide-in {
+    animation: slidein 0.5s;
+    transform: translateY(0.5%);
+  }
+
+  .cart.visible {
+    display: block;
+  }
+  
+  @keyframes slidein {
+    from {
+      transform: translateY(60%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0.5%);
+      opacity: 1;
+    }
+  }
+
+  .cart.hidden {
+    display: none;
+  }
+  
+  .cart.slide-out {
+    animation: slideout 0.5s;
+    transform: translateY(60%);
+  }
+  
+  @keyframes slideout {
+    from {
+      transform: translateY(0.5%);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(60%);
+      opacity: 0;
+    }
+  }
+
+  .cart-container {
+    max-width: none;
+  }
+
+  .cart-container .close-icon {
+    display: block;
+    top: 0rem;
+    right: 0.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .modal-container {
     max-width: 580px;
@@ -293,10 +362,6 @@
   .modal-container {
     max-width: 400px;
   }
-
-  .modal-container h4 {
-    max-width: 250px;
-  }
 }
 
 @media (max-width: 420px) {
@@ -305,8 +370,12 @@
     padding: 2rem 1rem 2rem 1rem;
   }
 
+  .modal-change-address .modal-container {
+    max-width: 340px;
+  }
+
   .modal-container h4 {
-    max-width: 233px;
+    max-width: none;
   }
 
   .close-icon {

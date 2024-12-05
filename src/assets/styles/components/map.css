@@ -7,7 +7,7 @@
 
 .map-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   overflow: hidden;
 
   border-radius: 10px;
@@ -32,8 +32,8 @@
   row-gap: 3.5rem;
 
   background-image: url(/public/assets/images/map-section-bg-img.png);
-  background-position:center;
-  background-repeat:no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
   background-clip: content-box;
 
   max-height: 500px;
@@ -42,4 +42,34 @@
 
 .map-call-to-action-address {
   max-width: 560px;
+}
+
+@media (max-width: 960px) {
+  .map {
+    padding: 1.25rem 0.675rem;
+  }
+
+  .map-call-to-action {
+    row-gap: 1rem;
+  }
+}
+
+@media (max-width: 740px) {
+  .map-call-to-action {
+    min-height: 340px;
+  }
+  
+  .map-frame {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 395px) {
+  .map-call-to-action {
+    max-width: 375px;
+  }
+
+  .map-call-to-action-address {
+    max-width: 278px;
+  }
 }

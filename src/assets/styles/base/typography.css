@@ -206,6 +206,24 @@ textarea {
   color: var(--text-color);
 }
 
+.mobile-menu .btn-build-route {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-semibold);
+  font-size: 0.875rem;
+  color: var(--text-color-dark);
+}
+
+.btn-open-cart {
+  color: var(--text-color);
+}
+
+.btn-open-cart .total-price {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-semibold);
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
 /* Modals */
 
 .modal-container h4 {
@@ -345,6 +363,15 @@ textarea {
   font-size: 1rem;
 }
 
+/* Header mobile menu */
+
+.tel-link-text {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-regular);
+  font-size: 0.625rem;
+  color: var(--text-color);
+}
+
 /* Reviews */
 
 .reviews-header {
@@ -480,4 +507,116 @@ textarea {
   font-family: var(--font-montserrat);
   font-weight: var(--weight-semibold);
   font-size: 1rem;
+}
+
+@media (max-width: 1280px) {
+  /* Header */
+  .dish-name {
+    font-size: 2rem;
+  }
+
+  .slide-dish-description {
+    text-align: center;
+  }
+}
+
+@media (max-width: 960px) {
+  /* Map */
+
+  .map-call-to-action-address {
+    font-size: 1.25rem;
+  }
+
+  /* Footer */
+
+  .contacts-header,
+  .useful-information-header {
+    color: var(--text-color);
+  }
+
+  .contacts-item-link,
+  .useful-information-item-link {
+    color: var(--text-color);
+  }
+
+  /* Sticky menu */
+
+  .sticky-nav-menu-track .page-nav-slides .page-nav-slide a {
+    color: var(--text-color);
+  }
+}
+
+@media (max-width: 681px) {
+  /* Reviews */
+
+  .reviews-header,
+  .reviews-call-to-action-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Buttons */
+
+  .btn-book-table{
+    font-size: 0.75rem;
+  }
+
+  /* Modals */
+
+  #header-change-address,
+  #header-book-table {
+    font-size: 1.25rem;
+  }
+
+  /* Header */
+
+  .dish-name {
+    font-size: 1.375rem;
+    text-align: center;
+  }
+
+  .slide-dish-description {
+    font-size: 0.75rem;
+  }
+
+  .current-price {
+    font-size: 1.375rem;
+    line-height: 20px;
+  }
+
+  /* Page nav slider */
+
+  .page-nav-slides .page-nav-slide a,
+  .sticky-nav-menu-track .page-nav-slides .page-nav-slide a {
+    font-size: 0.75rem;
+  }
+
+  /* Reviews */
+
+  .reviews-header {
+    font-size: 2.25rem;
+  }
+
+  .reviews-call-to-action-text {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 395px) {
+  /* Dishes menu */
+
+  .menu-section-header {
+    font-size: 1.375rem;
+  }
+  
+  /* Reviews */
+
+  .reviews-header {
+    font-size: 1.375rem;
+  }
+
+  .reviews-call-to-action-text {
+    font-size: 0.75rem;
+  }
 }

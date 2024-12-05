@@ -92,7 +92,7 @@ const modals = () => {
   // Buttons
 
   const btnsChangeAddress = document.querySelectorAll(".btn-change-address");
-  const btnBookTable = document.querySelector(".btn-book-table");
+  const btnBookTable = document.querySelectorAll(".btn-book-table");
 
   // Modals
 
@@ -129,7 +129,9 @@ const modals = () => {
     btn.addEventListener("click", () => openModal(modalChangeAddress));
   });
 
-  btnBookTable.addEventListener("click", () => openModal(modalBookTable));
+  btnBookTable.forEach((btn) => {
+    btn.addEventListener("click", () => openModal(modalBookTable));
+  });
 };
 
 export default modals;

@@ -83,58 +83,74 @@ document.addEventListener("DOMContentLoaded", () => {
   const stopBlock = document.querySelector(".dishes-menu");
   const dishesMenuBlock = document.querySelector(".dishes-menu");
 
-  var stopBlockBottom = stopBlock.offsetTop + stopBlock.offsetHeight; // Bottom line
-  var pageHeight = document.documentElement.scrollHeight;
-  var viewportHeight = window.innerHeight;
+  // Переменные для расчёта
+  var stopBlockBottom;
+  var pageHeight;
+  var viewportHeight;
 
-
+  // Функция обновления метрик
   const updateMetrics = () => {
-    stopBlockBottom = stopBlock.offsetTop + stopBlock.offsetHeight; // Refresh bottom line
+    if (!stopBlock || !cart || !dishesMenuBlock) return;
+
+    stopBlockBottom = stopBlock.offsetTop + stopBlock.offsetHeight; // Bottom line
     pageHeight = document.documentElement.scrollHeight;
     viewportHeight = window.innerHeight;
 
-    // Calculate right indent relative to dishesMenuBlock
-    if (dishesMenuBlock) {
-      const referenceRect = dishesMenuBlock.getBoundingClientRect();
-      cart.style.right = `${document.documentElement.clientWidth - referenceRect.right + 25}px`;
-    }
+    // Вычисление правого отступа относительно dishesMenuBlock
+    const referenceRect = dishesMenuBlock.getBoundingClientRect();
+    cart.style.right = `${document.documentElement.clientWidth - referenceRect.right + 25}px`;
   };
 
-  updateMetrics();
-
-  // Cart state management function
+  // Функция управления состоянием корзины (от 961px)
   const handleScroll = () => {
+    if (!cart || !stopBlock) return;
+
     const scrollPosition = window.scrollY;
     const cartHeight = cart.offsetHeight;
 
-    const currentTopOffset = cart.getBoundingClientRect().top;
-
-    // If the basket has reached the bottom block
+    // Если корзина достигает нижнего блока
     if (scrollPosition + cartHeight + 120 > stopBlockBottom + 40) {
       cart.classList.remove("sticky");
       cart.classList.add("stop");
 
-      // Calculate the distance from the bottom border of stopBlock to the end of the page
+      // Расчёт расстояния от нижней границы stopBlock до конца страницы
       const bottomDistance = pageHeight - stopBlockBottom;
       cart.style.bottom = `${bottomDistance}px`;
-    } 
-    // If the basket returns to a fixed state
-    else if (
-      cart.classList.contains("stop") &&
-      (currentTopOffset >= 200)
-    ) {
+    } else if (cart.classList.contains("stop") && cart.getBoundingClientRect().top >= 200) {
+      // Возврат в фиксированное состояние
       cart.classList.remove("stop");
       cart.classList.add("sticky");
-      cart.style.bottom = ""; // Remove dinamyc bottom
+      cart.style.bottom = ""; // Удаление динамического отступа
     }
   };
 
-  // Listener for scroll
-  window.addEventListener("scroll", handleScroll);
+  // Логика для диапазона <= 960px
+  const handleSmallScreen = () => {
+    
+  };
 
-  // Listener for resize
-  window.addEventListener("resize", updateMetrics);
+  // Обновление логики при изменении размера окна
+  const updateLogic = () => {
+    const screenWidth = window.innerWidth;
 
+    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", updateMetrics);
+
+    if (screenWidth > 960) {
+      updateMetrics();
+      handleScroll();
+      window.addEventListener("scroll", handleScroll);
+      window.addEventListener("resize", updateMetrics);
+    } else {
+      handleSmallScreen();
+    }
+  };
+
+  // Инициализация
+  updateLogic();
+
+  // Слушатель для изменения размеров окна
+  window.addEventListener("resize", updateLogic);
 
   //Sticky menu navigation handler
   const stickyMenu = document.querySelector(".sticky-nav-menu");

@@ -33,8 +33,14 @@ const inputs = (container = document) => {
       },
       "m": {
         validator: (chrs, maskset, pos, strict, opts) => {
-          const firstDigit = maskset.buffer[2] || "0"; // Получаем первую цифру месяца
-          return (firstDigit === "1" && /^[0-2]$/.test(chrs)) || (firstDigit !== "1" && /^[0-2]$/.test(chrs)); // Если первая цифра 1, то вторая должна быть от 0 до 2 (для месяцев 10-12)
+          const firstDigit = maskset.buffer[3] || "0"; // Получаем первую цифру месяца
+          // Проверяем вторую цифру месяца
+          if (firstDigit === "0") {
+            return /^[1-9]$/.test(chrs); // Если первая цифра 0, вторая цифра должна быть 1-9
+          } else if (firstDigit === "1") {
+            return /^[0-2]$/.test(chrs); // Если первая цифра 1, вторая цифра должна быть 0-2
+          }
+          return false; // Все остальные случаи недопустимы
         },
         cardinality: 1,
       },

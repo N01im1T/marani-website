@@ -140,7 +140,8 @@
   row-gap: 1rem;
 
   max-width: 365px;
-  min-height: 500px;
+  min-height: 499px;
+  max-height: 499px;
 }
 
 .cart-container .close-icon {
@@ -179,7 +180,6 @@
   row-gap: 1rem;
   overflow-y: auto;
 
-  max-height: 283px;
   height: 100%;
   padding-right: 0.5rem;
 

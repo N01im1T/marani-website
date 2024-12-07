@@ -79,7 +79,7 @@
 .placing-order .button-switch .knobs span {
   position: absolute;
   top: 3px;
-  width: 193px;
+  width: calc((100% - 25px) / 2);
   height: 33px;
   font-size: 14px;
   font-weight: bold;
@@ -121,7 +121,7 @@
 }
 
 .placing-order .button-switch .checkbox:checked + .knobs:before {
-  left: 196px;
+  left: calc((100% - 25px) / 2 + 20px);
   background-color: #FFFFFF;
   border-radius: 0 10px 10px 0;
   color: #909294;

@@ -132,9 +132,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Обработчики событий
-  window.addEventListener("scroll", handleScroll);
-  window.addEventListener("resize", updateMetrics);
+  // Логика для диапазона <= 960px
+  const handleSmallScreen = () => {
+    
+  };
+
+  const updateLogic = () => {
+    const screenWidth = window.innerWidth;
+
+    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", updateMetrics);
+
+    if (screenWidth > 960) {
+      updateMetrics();
+      handleScroll();
+      window.addEventListener("scroll", handleScroll);
+      window.addEventListener("resize", updateMetrics);
+    } else {
+      handleSmallScreen();
+    }
+  };
+
+  // Инициализация
+  updateLogic();
+
+  // Слушатель для изменения размеров окна
+  window.addEventListener("resize", updateLogic);
 
   document.body.addEventListener("click", (event) => {
     const target = event.target;

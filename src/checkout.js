@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cart scroll
   const cart = document.querySelector(".cart");
   const stopBlock = document.querySelector(".map");
-  const dishesMenuBlock = document.querySelector(".checkout");
+  const dishesMenuBlock = document.querySelector(".checkout-form");
 
   // Переменные для расчетов
   let stopBlockTop = stopBlock.offsetTop; // Верхняя граница stopBlock

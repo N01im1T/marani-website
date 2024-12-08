@@ -26,7 +26,7 @@ main {
   z-index: 5;
 }
 
-.checkout {
+.checkout-form {
   max-width: 1440px;
   margin-right: auto;
   margin-left: auto;
@@ -141,13 +141,13 @@ main {
     padding: 0;
   }
 
-  .checkout {
+  .checkout-form {
     padding: 0 0.625rem 1.25rem 0.625rem;
   }
 }
 
 @media (max-width: 495px) {
-  .checkout {
+  .checkout-form {
     padding: 0.625rem;
   }
 

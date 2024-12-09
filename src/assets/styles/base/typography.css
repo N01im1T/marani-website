@@ -509,6 +509,44 @@ textarea {
   font-size: 1rem;
 }
 
+
+/* Posters */
+
+#posters-header {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-semibold);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.poster-item-content {
+  color: var(--text-color);
+}
+
+.poster-date {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-semibold);
+  font-size: 1.25rem;
+}
+
+.big-item .item-header {
+  font-family: var(--font-pacifico);
+  font-weight: var(--weight-regular);
+  font-size: 3.375rem;
+}
+
+.small-item .item-header {
+  font-family: var(--font-pacifico);
+  font-weight: var(--weight-regular);
+  font-size: 2rem;
+}
+
+.item-descreption {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-semibold);
+  font-size: 1.25rem;
+}
+
 @media (max-width: 1280px) {
   /* Header */
   .dish-name {
@@ -517,6 +555,12 @@ textarea {
 
   .slide-dish-description {
     text-align: center;
+  }
+
+  /* Posters */
+
+  .item-descreption {
+    font-size: 1rem;
   }
 }
 
@@ -543,6 +587,12 @@ textarea {
 
   .sticky-nav-menu-track .page-nav-slides .page-nav-slide a {
     color: var(--text-color);
+  }
+
+  /* Posters */
+
+  .big-item .item-header {
+    font-size: 2rem;
   }
 }
 
@@ -628,6 +678,12 @@ textarea {
 }
 
 @media (max-width: 395px) {
+  /* Buttons */
+
+  .btn-read-poster {
+    font-size: 0.75rem;
+  }
+
   /* Dishes menu */
 
   .menu-section-header {
@@ -641,6 +697,25 @@ textarea {
   }
 
   .reviews-call-to-action-text {
+    font-size: 0.75rem;
+  }
+
+  /* Posters */
+
+  #posters-header {
+    font-size: 1.375rem;
+  }
+
+  .poster-date {
+    font-size: 0.625rem;
+  }
+
+  .big-item .item-header,
+  .small-item .item-header {
+    font-size: 1.375rem;
+  }
+
+  .item-descreption {
     font-size: 0.75rem;
   }
 }

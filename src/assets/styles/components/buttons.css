@@ -50,6 +50,11 @@
   height: 42px;
 }
 
+.btn-read-poster {
+  max-width: 163px;
+  height: 43px;
+}
+
 /* Secondary buttons */
 
 .btn-secondary {
@@ -269,5 +274,10 @@
     column-gap: 0rem;
 
     min-width: 170px;
+  }
+
+  .btn-read-poster {
+    max-width: 120px;
+    height: 2rem;
   }
 }

@@ -65,6 +65,11 @@
 }
 
 @media (max-width: 395px) {
+  
+  .map-container > * {
+    flex: 1 0 300px;
+  }
+
   .map-call-to-action {
     max-width: 375px;
   }

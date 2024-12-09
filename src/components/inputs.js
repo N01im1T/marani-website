@@ -126,38 +126,40 @@ const inputs = (container = document) => {
 
   const label = document.getElementById("custom-label");
   const dropdown = document.getElementById("custom-dropdown");
-  const options = dropdown.querySelectorAll(".select-option");
 
-  // Show/hide dropdown list
-  label.addEventListener("click", () => {
-    dropdown.classList.toggle("open");
-    label.classList.toggle("focused");
-  });
+  // Проверяем, существуют ли label и dropdown
+  if (label && dropdown) {
+    const options = dropdown.querySelectorAll(".select-option");
 
-  // Delete focus 
-  document.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target) && !label.contains(e.target)) {
-      dropdown.classList.remove("open");
-      label.classList.remove("focused");
-    }
-  });
-
-  // Handler change option
-  options.forEach((option) => {
-    option.addEventListener("click", () => {
-      const text = option.textContent;
-
-      label.textContent = text;
-
-      label.classList.add("selected");
-
-      label.classList.remove("focused");
-
-      dropdown.classList.remove("open");
+    // Show/hide dropdown list
+    label.addEventListener("click", () => {
+      dropdown.classList.toggle("open");
+      label.classList.toggle("focused");
     });
-  });
 
+    // Delete focus 
+    document.addEventListener("click", (e) => {
+      if (!dropdown.contains(e.target) && !label.contains(e.target)) {
+        dropdown.classList.remove("open");
+        label.classList.remove("focused");
+      }
+    });
 
+    // Handler change option
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        const text = option.textContent;
+
+        label.textContent = text;
+
+        label.classList.add("selected");
+
+        label.classList.remove("focused");
+
+        dropdown.classList.remove("open");
+      });
+    });
+  }
 };
 
 export default inputs;

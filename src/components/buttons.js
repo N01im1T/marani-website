@@ -4,6 +4,11 @@ const buttons = () => {
   const cart = document.querySelector(".cart");
   const closeIcon = document.querySelector(".cart .close-icon");
 
+  // Проверка на существование всех обязательных элементов
+  if (!cartDishesContainer || !btnOpenCart || !cart || !closeIcon) {
+    return;
+  }
+
   // Флаг, чтобы отслеживать, открыта ли корзина
   let isCartOpen = false;
 
@@ -44,6 +49,8 @@ const buttons = () => {
   });
 
   closeIcon.addEventListener("click", () => {
+    if (!cartDishesContainer || !cart || !btnOpenCart) return;
+
     const hasItemsInCart = cartDishesContainer.querySelectorAll(".cart-dish-card").length > 0;
     const isSmallScreen = window.innerWidth <= 960;
 

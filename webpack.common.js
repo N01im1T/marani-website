@@ -42,6 +42,7 @@ module.exports = {
     index: path.resolve(__dirname, './src/index.js'),
     checkout: path.resolve(__dirname, './src/checkout.js'),
     posters: path.resolve(__dirname, './src/posters.js'),
+    poster: path.resolve(__dirname, './src/poster.js'),
   },
   output: {
     filename: `src/js/${filename("js")}`,
@@ -140,6 +141,14 @@ module.exports = {
       filename: `public/html/checkout.html`,
       template: path.resolve(__dirname, `./public/html/checkout.html`),
       chunks: ['main', 'checkout'],
+      minify: {
+        collapseWhitespace: isProd,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      filename: `public/html/poster.html`,
+      template: path.resolve(__dirname, `./public/html/poster.html`),
+      chunks: ['main', 'poster'],
       minify: {
         collapseWhitespace: isProd,
       },

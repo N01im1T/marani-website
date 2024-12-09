@@ -547,6 +547,46 @@ textarea {
   font-size: 1.25rem;
 }
 
+/* Poster */
+
+.breadcrumb {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-light);
+  font-size: 1rem;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  color: #999;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #000;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2.5px;
+}
+
+.breadcrumb li[aria-current="page"] {
+  color: #666;
+  text-decoration: underline;
+  text-underline-offset: 2.5px;
+}
+
+.article-header {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-semibold);
+  font-size: 3.5rem;
+}
+
+.recomendations-header {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-semibold);
+  font-size: 2.5rem;
+  color: var(--text-color-dark);
+}
+
 @media (max-width: 1280px) {
   /* Header */
   .dish-name {
@@ -593,6 +633,12 @@ textarea {
 
   .big-item .item-header {
     font-size: 2rem;
+  }
+
+  /* Poster */
+
+  .article-header {
+    font-size: 2.5rem;
   }
 }
 
@@ -675,6 +721,24 @@ textarea {
     color: var(--text-color-dark);
   }
 
+  /* Poster */
+
+  .breadcrumb {
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb a {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .article-header {
+    font-size: 2rem;
+  }
+  
+  .recomendations-header {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 395px) {
@@ -716,6 +780,20 @@ textarea {
   }
 
   .item-descreption {
+    font-size: 0.75rem;
+  }
+
+  /* Posters */
+
+  .article-header {
+    font-size: 1.375rem;
+  }
+  
+  .recomendations-header {
+    font-size: 1.375rem;
+  }
+
+  .article-text {
     font-size: 0.75rem;
   }
 }

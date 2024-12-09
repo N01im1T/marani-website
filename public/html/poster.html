@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Language" content="ru" />
+    <meta name="application-name" content="Марани" />
+    <title>Афиша</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="../assets/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/favicon.svg"
+    />
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/apple-touch-icon.png"
+    />
+    <link
+      rel="webmanifest"
+      crossorigin="use-credentials"
+      href="../assets/site.webmanifest"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <section class="header-top">
+          <a class="header-top-logo" href="http://" target="_blank" rel="noopener noreferrer">
+            <img class="site-logo-img" src="../assets/images/site-logo.svg" alt="site-logo">
+          </a>
+          <button class="btn btn-primary btn-book-table" type="button">
+            <img src="../assets/images/khinkali-icon.svg" alt="khinkali-icon">
+            <span>Забронировать стол</span>
+          </button>
+          <nav class="header-top-nav">
+            <ul class="header-top-nav-list">
+              <li class="header-top-nav-item">
+                <a
+                  class="nav-item-link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >
+                  Доставка
+                </a>
+              </li>
+              <li class="header-top-nav-item">
+                <a
+                  class="nav-item-link active"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >
+                  Афиша
+                </a>
+              </li>
+              <li class="header-top-nav-item">
+                <a
+                  class="nav-item-link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  О нас
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <a class="header-top-telephone" href="tel:+74212777777">
+            <img src="../assets/images/phone-icon.svg" alt="phone-icon">
+            <span>+74212 77-77-77</span>
+          </a>
+          <div class="mobile-menu">
+            <div class="mobile-menu-container">
+              <button class="btn mobile-btn-close-top-menu" type="button">
+                <img src="../assets/images/close-icon.svg" alt="close-icon">
+              </button>
+              <button class="btn btn-primary btn-book-table btn-mobile-book-table" type="button">
+                <img src="../assets/images/khinkali-icon.svg" alt="khinkali-icon">
+                <span>Забронировать стол</span>
+              </button>
+              <nav class="mobile-header-top-nav">
+                <ul class="mobile-header-top-nav-list">
+                  <li class="mobile-header-top-nav-item">
+                    <a
+                      class="nav-item-link"
+                      href="http://"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >
+                      Доставка
+                    </a>
+                  </li>
+                  <li class="mobile-header-top-nav-item">
+                    <a
+                      class="nav-item-link"
+                      href="http://"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >
+                      Афиша
+                    </a>
+                  </li>
+                  <li class="mobile-header-top-nav-item">
+                    <a
+                      class="nav-item-link"
+                      href="http://"
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      О нас
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="tel-link">
+                <a class="mobile-header-top-telephone" href="tel:+74212777777" target="_blank" rel="noopener noreferrer">
+                  <span>+74212 77-77-77</span>
+                </a>
+                <span class="tel-link-text">
+                  Ресторан грузинкской кухни “Марани”
+                </span>
+              </div>
+              <a class="btn btn-primary btn-build-route" role="button" href="http://" target="_blank" rel="noopener noreferrer">
+                Построить маршрут
+              </a>
+              <nav class="mobile-social-media">
+                <ul class="mobile-social-medial-list">
+                  <li class="mobile-social-medial-list-item">
+                    <a href="http://" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="../assets/images/mobile-vk-icon.svg"
+                        alt="mobile-vk-icon"
+                      >
+                    </a>
+                  </li>
+                  <li class="mobile-social-medial-list-item">
+                    <a href="http://" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="../assets/images/mobile-telegram-icon.svg"
+                        alt="mobile-telegram-icon"
+                      >
+                    </a>
+                  </li>
+                  <li class="mobile-social-medial-list-item">
+                    <a href="http://" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="../assets/images/mobile-whatsapp-icon.svg"
+                        alt="mobile-whatsapp-icon"
+                      >
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <button class="btn btn-mobile-burger" type="button">
+            <img src="../assets/images/burger-icon.svg" alt="burger-icon">
+          </button>
+        </section>
+        <section class="header-bottom">
+          <div id="static-nav-menu" class="header-bottom-page-nav-glide">
+            <nav class="header-bottom-page-nav-track">
+              <ul class="page-nav-slides">
+                <li class="page-nav-slide active">
+                  <a href="#new-items" role="button">
+                    Новинки
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#khinkali">
+                    Хинкали
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#lavash">
+                    Лаваши
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#georgian-shashlik">
+                    Шашлык по грузински
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#salats">
+                    Салаты
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#new-items">
+                    Новинки
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#khinkali">
+                    Хинкали
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#lavash">
+                    Лаваши
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#georgian-shashlik">
+                    Шашлык по грузински
+                  </a>
+                </li>
+                <li class="page-nav-slide">
+                  <a href="#new-items" role="button">
+                    Новинки
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#khinkali">
+                    Хинкали
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#lavash">
+                    Лаваши
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#georgian-shashlik">
+                    Шашлык по грузински
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#salats">
+                    Салаты
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#new-items">
+                    Новинки
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#khinkali">
+                    Хинкали
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#lavash">
+                    Лаваши
+                  </a>
+                </li>
+                <li class="page-nav-slide" role="button">
+                  <a href="#georgian-shashlik">
+                    Шашлык по грузински
+                  </a>
+                </li>             
+              </ul>
+            </nav>
+          </div>
+        </section>
+      </div>
+    </header>
+    
+    <main>
+      <nav aria-label="breadcrumb" class="breadcrumb">
+        <ol>
+          <li>
+            <a class="home-link" href="http://" target="_blank" rel="noopener noreferrer">
+              <span class="icon-home"></span>
+            </a>
+          </li>
+          <li>
+            <a href="/promotions">Акции и афиша</a>
+          </li>
+          <li aria-current="page">Хинкальный день</li>
+        </ol>
+      </nav>
+      <article class="article">
+        <div class="article-container">
+          <div class="article-img">
+            <img src="../assets/images/article-img.png" alt="article-img">
+          </div>
+          <div class="article-textcontent">
+            <h1 class="article-header">
+              Грузинские песни
+            </h1>
+
+            <p class="article-text">
+              Встречайте осень с теплом и вкусом нашего нового осеннего меню. Мы собрали для вас лучшее из грузинской кухни и добавили осенние акценты, чтобы каждый ужин стал настоящим кулинарным наслаждением.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="recomendations">
+        <div class="recomendations-container">
+          <h2 class="recomendations-header">
+            Смотрите также
+          </h2>
+          <div class="recomendations-wrapper">
+            <div class="poster-container-item small-item">
+              <img
+                class="poster-img"
+                src="../assets/images/poster-bg-img2.png"
+                alt="poster-bg-img6"
+              >
+              <div class="poster-item-content">
+                <span class="poster-date">08.12.2024</span>
+                <div class="poster-item-textcontent">
+                  <h3 class="item-header">Грузинская акция</h3>
+                  <p class="item-descreption">
+                    Каждую неделю у нас проходят вечера грузинской музыки и танцев, создавая уникальную атмосферу праздника
+                  </p>
+                  <a
+                    class="btn btn-primary btn-read-poster"
+                    href="http://"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    role="button"
+                  >
+                    Читать
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="poster-container-item small-item">
+              <img
+                class="poster-img"
+                src="../assets/images/poster-bg-img1.png"
+                alt="poster-bg-img7"
+              >
+              <div class="poster-item-content">
+                <span class="poster-date">08.12.2024</span>
+                <div class="poster-item-textcontent">
+                  <h3 class="item-header">Грузинская акция</h3>
+                  <p class="item-descreption">
+                    Каждую неделю у нас проходят вечера грузинской музыки и танцев, создавая уникальную атмосферу праздника
+                  </p>
+                  <a
+                    class="btn btn-primary btn-read-poster"
+                    href="http://"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    role="button"
+                  >
+                    Читать
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="poster-container-item small-item">
+              <img
+                class="poster-img"
+                src="../assets/images/poster-bg-img2.png"
+                alt="poster-bg-img8"
+              >
+              <div class="poster-item-content">
+                <span class="poster-date">08.12.2024</span>
+                <div class="poster-item-textcontent">
+                  <h3 class="item-header">Грузинская акция</h3>
+                  <p class="item-descreption">
+                    Каждую неделю у нас проходят вечера грузинской музыки и танцев, создавая уникальную атмосферу праздника
+                  </p>
+                  <a
+                    class="btn btn-primary btn-read-poster"
+                    href="http://"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    role="button"
+                  >
+                    Читать
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+    
+    <article class="reviews">
+      <div class="reviews-container">
+        <section class="reviews-text-container">
+          <h2 class="reviews-header">
+            Отзывы любимых гостей
+          </h2>
+          <p class="reviews-call-to-action-text">
+            Почитатйте отзывы реальных посетителей из 2ГИС
+          </p>
+          <a
+            class="btn btn-primary btn-look-reviews"
+            href="http://"
+            target="_blank"
+            rel="noopener noreferrer"
+            role="button"
+            >
+            Перейти
+          </a>
+        </section>
+        <section class="reviews-images">
+          <img src="../assets/images/reviews-img.png" alt="reviews-img">
+          <div class="feedback-image-glider"></div>
+        </section>
+      </div>
+    </article>
+
+    <article class="map">
+      <div class="map-container">
+        <section class="map-frame">
+          <a
+            class="dg-widget-link"
+            href="http://2gis.ru/khabarovsk/firm/70000001074609459/center/135.09207487106326,48.49465375716905/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap"
+            >
+              Посмотреть на карте Хабаровска
+          </a>
+          <div class="dg-widget-link">
+            <a
+              href="http://2gis.ru/khabarovsk/firm/70000001074609459/photos/70000001074609459/center/135.09207487106326,48.49465375716905/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos"
+              >
+                Фотографии компании
+            </a>
+          </div>
+          <div class="dg-widget-link">
+            <a 
+              href="http://2gis.ru/khabarovsk/center/135.092066,48.493192/zoom/16/routeTab/rsType/bus/to/135.092066,48.493192╎Марани, кафе?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route"
+              >
+                Найти проезд до Марани, кафе
+            </a>
+          </div>
+          <script
+            charset="utf-8"
+            src="https://widgets.2gis.com/js/DGWidgetLoader.js"
+            >
+          </script>
+          <script charset="utf-8">
+            new DGWidgetLoader({
+              "maxWidth": "718px",
+              "maxHeight": "502px",
+              "width": "100%",
+              "height": "100%",
+              "borderColor":"#FFFFFF",
+              "pos":{
+                "lat":48.49465375716905,
+                "lon":135.09207487106326,
+                "zoom":16
+              },
+              "opt":{
+                "city":"khabarovsk"
+              },
+              "org":[{"id":"70000001074609459"}]
+            });
+          </script>
+          <noscript
+            style="color:#c00;font-size:16px;font-weight:bold;"
+            >
+              Виджет карты использует JavaScript. Включите его в настройках вашего браузера.
+          </noscript>
+        </section>
+        <section class="map-call-to-action">
+          <p class="map-call-to-action-address">
+            г. Хабаровск, Карла Маркса, 96а 1 этаж 
+          </p>
+
+          <a
+            class="btn btn-primary btn-build-route"
+            href="http://"
+            target="_blank"
+            rel="noopener noreferrer"
+            role="button"
+            >
+            Построить маршрут
+          </a>
+        </section>
+      </div>
+    </article>
+
+    <article class="footer">
+      <div class="footer-container">
+        <section class="footer-branding">
+          <a
+            class="footer-branding-logo"
+            href="http://"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            <img
+              src="../assets/images/site-logo-footer.svg"
+              alt="site-logo-footer"
+            >
+          </a>
+          <ul class="footer-branding-socials-list">
+            <li class="socials-list-item">
+              <a href="http://" target="_blank" rel="noopener noreferrer">
+                <img src="../assets/images/telegram-icon.svg" alt="telegram-icon">
+              </a>
+            </li>
+            <li class="socials-list-item">
+              <a href="http://" target="_blank" rel="noopener noreferrer">
+                <img src="../assets/images/vk-icon.svg" alt="vk-icon">
+              </a>
+            </li>
+          </ul>
+          
+        </section>
+        <section class="contacts">
+          <h4 class="contacts-header">
+            Контакты
+          </h4>
+          <ul class="contacts-list">
+            <li class="contacts-list-item">
+              <a
+                class="contacts-item-link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                г. Хабаровск,
+                Карла Маркса, 96а 1 этаж
+              </a>
+            </li>
+            <li class="contacts-list-item">
+              <a class="contacts-item-link" href="tel:+79625017878">
+              Телефон: +7 962 501 78 78
+              </a>
+            </li>
+            <li class="contacts-list-item">
+              <a class="contacts-item-link" href="mailto:Marani@info.ru">
+              Email: Marani@info.ru
+              </a>
+            </li>
+          </ul>
+          
+        </section>
+        <section class="useful-information">
+          <h4 class="useful-information-header">
+            Полезная информация
+          </h4>
+          <ul class="useful-information-list">
+            <li class="useful-information-item">
+              <a
+                class="useful-information-item-link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                Меню
+              </a>
+            </li>
+            <li class="useful-information-item">
+              <a
+                class="useful-information-item-link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                О компании
+              </a>
+            </li>
+            <li class="useful-information-item">
+              <a
+                class="useful-information-item-link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                Новости
+              </a>
+            </li>
+            <li class="useful-information-item">
+              <a
+                class="useful-information-item-link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                
+                Доставка
+              </a>
+            </li>
+          </ul>
+          
+        </section>
+      </div>
+    </article>
+
+    <div class="sticky-nav-menu">
+      <nav class="sticky-nav-menu-track">
+        <ul class="page-nav-slides">
+          <li class="page-nav-slide active">
+            <a href="#new-items" role="button">
+              Новинки
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#khinkali">
+              Хинкали
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#lavash">
+              Лаваши
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#georgian-shashlik">
+              Шашлык по грузински
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#salats">
+              Салаты
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#new-items">
+              Новинки
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#khinkali">
+              Хинкали
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#lavash">
+              Лаваши
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#georgian-shashlik">
+              Шашлык по грузински
+            </a>
+          </li>
+          <li class="page-nav-slide">
+            <a href="#new-items" role="button">
+              Новинки
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#khinkali">
+              Хинкали
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#lavash">
+              Лаваши
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#georgian-shashlik">
+              Шашлык по грузински
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#salats">
+              Салаты
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#new-items">
+              Новинки
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#khinkali">
+              Хинкали
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#lavash">
+              Лаваши
+            </a>
+          </li>
+          <li class="page-nav-slide" role="button">
+            <a href="#georgian-shashlik">
+              Шашлык по грузински
+            </a>
+          </li>             
+        </ul>
+      </nav>
+    </div>
+
+    <script type="module" src="/src/poster.js"></script>
+    <script type="module" src="/src/main.js" defer></script>
+  </body>
+</html>

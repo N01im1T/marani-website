@@ -5,7 +5,9 @@
 
   border: none;
 
-  transition: background-color 0.3s ease, box-shadow 0.3 ease;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3 ease;
 }
 
 /* Primary buttons */
@@ -96,7 +98,7 @@
 }
 
 .btn-order-table:hover {
-  background-color: #982A2D;
+  background-color: #982a2d;
 }
 
 .btn-order-table:not(:disabled):active {
@@ -187,7 +189,7 @@
   z-index: 6;
 }
 
-@media (max-width: 1280px) {
+@media (width <= 1280px) {
   /* Header slider buttons*/
   .dishes-glide-arrows {
     position: absolute;
@@ -200,7 +202,7 @@
   }
 }
 
-@media (max-width: 960px) {
+@media (width <= 960px) {
   /* Header slider buttons */
 
   .dishes-glide-arrows {
@@ -245,7 +247,7 @@
     justify-content: center;
     align-items: center;
 
-    background-color: #82DA69;
+    background-color: #82da69;
 
     width: 2.25rem;
     height: 2.25rem;
@@ -253,7 +255,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .btn-book-table {
     max-height: 2rem;
   }
@@ -263,13 +265,13 @@
   }
 }
 
-@media (max-width: 681px) {
+@media (width <= 681px) {
   .btn-look-reviews {
     display: none;
   }
 }
 
-@media (max-width: 575px) {
+@media (width <= 575px) {
   .btn-book-table {
     column-gap: 0rem;
 

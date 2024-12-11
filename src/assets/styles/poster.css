@@ -12,11 +12,11 @@
   color: var(--secondary-color);
 }
 
-.header-top-telephone img{
+.header-top-telephone img {
   filter: invert(1);
 }
 
-.header-top-telephone span{
+.header-top-telephone span {
   color: var(--text-color-dark);
 }
 
@@ -69,7 +69,7 @@
   display: inline-block;
   width: 1rem;
   height: 1rem;
-  background: url('/public/assets/images/home-icon.svg') no-repeat center;
+  background: url("/public/assets/images/home-icon.svg") no-repeat center;
   background-size: contain;
 }
 
@@ -89,7 +89,7 @@
   background: #fff;
 
   border-radius: 0.625rem;
-  
+
   box-shadow: 0 -6px 35px 6px rgba(0, 0, 0, 0.05);
 }
 
@@ -203,11 +203,11 @@
     color: var(--secondary-color);
   }
 
-  .header-top-telephone img{
+  .header-top-telephone img {
     filter: invert(0);
   }
 
-  .header-top-telephone span{
+  .header-top-telephone span {
     color: var(--text-color);
   }
 
@@ -224,7 +224,7 @@
   .article {
     padding: 0.625rem;
   }
-  
+
   .article-container {
     row-gap: 1.5rem;
   }
@@ -233,7 +233,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 1.5rem;
-  
+
     padding: 0 1.5rem 1.5rem;
   }
 
@@ -242,13 +242,13 @@
   .recomendations {
     padding: 0.625rem;
   }
-  
+
   .recomendations-container {
     display: flex;
     flex-direction: column;
     row-gap: 1.25rem;
   }
-  
+
   .recomendations-wrapper {
     gap: 0.675rem;
   }

@@ -22,7 +22,7 @@
   row-gap: 1.25rem;
 }
 
-@media (max-width: 960px) {
+@media (width <= 960px) {
   .reviews {
     padding: 1.25rem 0.625rem;
   }
@@ -38,13 +38,13 @@
   }
 }
 
-@media (max-width: 681px) {
+@media (width <= 681px) {
   .reviews-text-container {
     align-items: center;
   }
 }
 
-@media (max-width: 395px) {
+@media (width <= 395px) {
   .reviews-container {
     padding: 0;
   }

@@ -106,7 +106,7 @@
   position: fixed;
   top: 169px;
 
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 
   max-width: 365px;
   width: 100%;
@@ -116,7 +116,10 @@
 
   box-shadow: 0 -6px 36px 6px rgba(0, 0, 0, 0.05);
   z-index: 6;
-  transition: bottom 0.3s ease, top 0.3s ease, position 0.3s ease;
+  transition:
+    bottom 0.3s ease,
+    top 0.3s ease,
+    position 0.3s ease;
 }
 
 .cart.sticky {
@@ -154,7 +157,10 @@
 
   opacity: 0;
   visibility: hidden;
-  transition: display 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    display 0.3s ease,
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .cart-container-delivery.active,
@@ -233,7 +239,7 @@
 
   max-height: 29px;
   padding: 6px 9px;
-  border: 1px solid #D4D4D4;
+  border: 1px solid #d4d4d4;
   border-radius: 4px;
 }
 
@@ -246,7 +252,7 @@
 }
 
 /* Choose address form modal */
-.modal-change-address .modal-container{
+.modal-change-address .modal-container {
   height: 439px;
 }
 
@@ -261,12 +267,15 @@
 .pickup-form,
 .delivery-form {
   display: none;
-  
+
   width: 100%;
 
   opacity: 0;
   visibility: hidden;
-  transition: display 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    display 0.3s ease,
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .pickup-form.active,
@@ -288,7 +297,7 @@
   max-width: 400px;
 }
 
-@media (max-width: 960px) {
+@media (width <= 960px) {
   .cart {
     position: fixed;
     display: none;
@@ -309,7 +318,7 @@
   .cart.visible {
     display: block;
   }
-  
+
   @keyframes slidein {
     from {
       transform: translateY(60%);
@@ -324,12 +333,12 @@
   .cart.hidden {
     display: none;
   }
-  
+
   .cart.slide-out {
     animation: slideout 0.5s;
     transform: translateY(60%);
   }
-  
+
   @keyframes slideout {
     from {
       transform: translateY(0.5%);
@@ -352,19 +361,19 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .modal-container {
     max-width: 580px;
   }
 }
 
-@media (max-width: 622px) {
+@media (width <= 622px) {
   .modal-container {
     max-width: 400px;
   }
 }
 
-@media (max-width: 420px) {
+@media (width <= 420px) {
   .modal-container {
     max-width: 289px;
     padding: 2rem 1rem 2rem 1rem;

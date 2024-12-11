@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function enableDragAndScroll(containerSelector) {
     const container = document.querySelector(containerSelector);
     if (!container) return;
-  
+
     let isDragging = false;
     let startX, scrollLeft;
-  
+
     // Start of dragging
     container.addEventListener("mousedown", (e) => {
       if (e.target.tagName !== "A") {
@@ -20,20 +20,20 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollLeft = container.scrollLeft;
       container.style.cursor = "grabbing";
     });
-  
+
     // End of dragging
     container.addEventListener("mouseleave", () => {
       isDragging = false;
       container.classList.remove("dragging");
       container.style.cursor = "auto";
     });
-  
+
     container.addEventListener("mouseup", () => {
       isDragging = false;
       container.classList.remove("dragging");
       container.style.cursor = "auto";
     });
-  
+
     // Dragging
     container.addEventListener("mousemove", (e) => {
       if (!isDragging) return;
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const walk = (x - startX) * 1.5;
       container.scrollLeft = scrollLeft - walk;
     });
-  
+
     // Scroll with the wheel
     container.addEventListener("wheel", (e) => {
       e.preventDefault();
@@ -102,40 +102,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateMetrics();
 
-  // Управление состоянием корзины
+  // Managing Cart state
   const handleScroll = () => {
-    const scrollPosition = window.scrollY; // Позиция прокрутки
-    const cartHeight = cart.offsetHeight; // Высота корзины
-    const cartTop = cart.getBoundingClientRect().top; // Верхняя граница корзины относительно окна просмотра
-    const cartBottom = cart.getBoundingClientRect().bottom; // Нижняя граница корзины
+    const scrollPosition = window.scrollY;
+    const cartHeight = cart.offsetHeight;
+    const cartTop = cart.getBoundingClientRect().top;
+    const cartBottom = cart.getBoundingClientRect().bottom;
 
-    // Если нижняя граница корзины достигает верхнюю границу stopBlock
+    // If the lower border of the basket reaches the upper border of stopBlock
     if (
-      !cart.classList.contains("stop") && // Проверяем, что корзина не в состоянии stop
+      !cart.classList.contains("stop") &&
       scrollPosition + cartBottom >= stopBlockTop - 20
     ) {
       cart.classList.remove("sticky");
       cart.classList.add("stop");
-  
-      // Фиксируем корзину относительно верхней границы stopBlock
-      const topDistance = stopBlockTop - cartHeight - 20; // Отнимаем высоту корзины и отступ
+
+      const topDistance = stopBlockTop - cartHeight - 20;
       cart.style.top = `${topDistance}px`;
     }
-    // Если корзина возвращается в фиксированное состояние при скролле вверх
+    // If the cart returns to a fixed state when scrolling up
     else if (
-      cart.classList.contains("stop") && // Проверяем, что корзина в состоянии stop
-      scrollPosition + cartHeight < stopBlockTop - 180 // Условие для возврата вверх
+      cart.classList.contains("stop") && 
+      scrollPosition + cartHeight < stopBlockTop - 180
     ) {
       cart.classList.remove("stop");
       cart.classList.add("sticky");
-      cart.style.top = ""; // Сбрасываем динамический top
+      cart.style.top = "";
     }
   };
 
-  // Логика для диапазона <= 960px
-  const handleSmallScreen = () => {
-    
-  };
+  // Logic for <= 960px
+  const handleSmallScreen = () => {};
 
   const updateLogic = () => {
     const screenWidth = window.innerWidth;
@@ -153,46 +150,51 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Инициализация
   updateLogic();
 
-  // Слушатель для изменения размеров окна
   window.addEventListener("resize", updateLogic);
 
   document.body.addEventListener("click", (event) => {
     const target = event.target;
-  
-    if (target.classList.contains("counter-plus") || target.classList.contains("counter-minus")) {
+
+    if (
+      target.classList.contains("counter-plus") ||
+      target.classList.contains("counter-minus")
+    ) {
       const amountCounter = target.closest(".amount-counter");
       if (!amountCounter) return;
-  
+
       const amountSpan = amountCounter.querySelector(".counter-amount");
       let currentAmount = parseInt(amountSpan.textContent, 10);
-  
+
       if (target.classList.contains("counter-plus")) {
         currentAmount++;
       } else if (target.classList.contains("counter-minus")) {
         currentAmount = Math.max(1, currentAmount - 1); // Минимум 1
       }
-  
+
       amountSpan.textContent = currentAmount;
     }
   });
 
   // Listener for active links in page navigations
   function syncActiveLinks(navSelectors) {
-    const navs = navSelectors.map((selector) => document.querySelector(selector)).filter(Boolean);
+    const navs = navSelectors
+      .map((selector) => document.querySelector(selector))
+      .filter(Boolean);
     if (navs.length < 2) return; // Necessary min 2
-  
+
     const updateActiveClass = (target, links) => {
       links.forEach((link) => link.classList.remove("active"));
       target.classList.add("active");
     };
-  
+
     const syncLinks = (clickedLink, clickedNav) => {
-      const clickedNavLinks = [...clickedNav.querySelectorAll(".page-nav-slide")];
+      const clickedNavLinks = [
+        ...clickedNav.querySelectorAll(".page-nav-slide"),
+      ];
       const clickedIndex = clickedNavLinks.indexOf(clickedLink);
-  
+
       if (clickedIndex !== -1) {
         navs.forEach((nav) => {
           const navLinks = [...nav.querySelectorAll(".page-nav-slide")];
@@ -200,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     };
-  
+
     navs.forEach((nav) => {
       nav.addEventListener("click", (e) => {
         const link = e.target.closest(".page-nav-slide");
@@ -208,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-  
+
   syncActiveLinks([
     ".sticky-nav-menu .page-nav-slides",
     "#static-nav-menu .page-nav-slides",

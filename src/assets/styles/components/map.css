@@ -44,7 +44,7 @@
   max-width: 560px;
 }
 
-@media (max-width: 960px) {
+@media (width <= 960px) {
   .map {
     padding: 1.25rem 0.675rem;
   }
@@ -54,18 +54,17 @@
   }
 }
 
-@media (max-width: 740px) {
+@media (width <= 740px) {
   .map-call-to-action {
     min-height: 340px;
   }
-  
+
   .map-frame {
     min-height: 340px;
   }
 }
 
-@media (max-width: 395px) {
-  
+@media (width <= 395px) {
   .map-container > * {
     flex: 1 0 300px;
   }

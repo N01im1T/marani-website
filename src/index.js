@@ -5,7 +5,6 @@ import "/node_modules/@glidejs/glide/dist/css/glide.core.css";
 import Glide from "/node_modules/@glidejs/glide";
 
 document.addEventListener("DOMContentLoaded", () => {
-
   // Header dish slider
   const headerDishSlider = new Glide(".header-bottom-dishes-glide", {
     type: "carousel",
@@ -18,17 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
     rewindDuration: 3000,
     keyboard: true,
   });
-  
+
   headerDishSlider.mount();
 
   // Drag and scroll for sliders
   function enableDragAndScroll(containerSelector) {
     const container = document.querySelector(containerSelector);
     if (!container) return;
-  
+
     let isDragging = false;
     let startX, scrollLeft;
-  
+
     // Start of dragging
     container.addEventListener("mousedown", (e) => {
       if (e.target.tagName !== "A") {
@@ -40,20 +39,20 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollLeft = container.scrollLeft;
       container.style.cursor = "grabbing";
     });
-  
+
     // End of dragging
     container.addEventListener("mouseleave", () => {
       isDragging = false;
       container.classList.remove("dragging");
       container.style.cursor = "auto";
     });
-  
+
     container.addEventListener("mouseup", () => {
       isDragging = false;
       container.classList.remove("dragging");
       container.style.cursor = "auto";
     });
-  
+
     // Dragging
     container.addEventListener("mousemove", (e) => {
       if (!isDragging) return;
@@ -62,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const walk = (x - startX) * 1.5;
       container.scrollLeft = scrollLeft - walk;
     });
-  
+
     // Scroll with the wheel
     container.addEventListener("wheel", (e) => {
       e.preventDefault();
@@ -83,12 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const stopBlock = document.querySelector(".dishes-menu");
   const dishesMenuBlock = document.querySelector(".dishes-menu");
 
-  // Переменные для расчёта
   var stopBlockBottom;
   var pageHeight;
   var viewportHeight;
 
-  // Функция обновления метрик
   const updateMetrics = () => {
     if (!stopBlock || !cart || !dishesMenuBlock) return;
 
@@ -96,40 +93,34 @@ document.addEventListener("DOMContentLoaded", () => {
     pageHeight = document.documentElement.scrollHeight;
     viewportHeight = window.innerHeight;
 
-    // Вычисление правого отступа относительно dishesMenuBlock
     const referenceRect = dishesMenuBlock.getBoundingClientRect();
     cart.style.right = `${document.documentElement.clientWidth - referenceRect.right + 25}px`;
   };
 
-  // Функция управления состоянием корзины (от 961px)
   const handleScroll = () => {
     if (!cart || !stopBlock) return;
 
     const scrollPosition = window.scrollY;
     const cartHeight = cart.offsetHeight;
 
-    // Если корзина достигает нижнего блока
     if (scrollPosition + cartHeight + 120 > stopBlockBottom + 40) {
       cart.classList.remove("sticky");
       cart.classList.add("stop");
 
-      // Расчёт расстояния от нижней границы stopBlock до конца страницы
       const bottomDistance = pageHeight - stopBlockBottom;
       cart.style.bottom = `${bottomDistance}px`;
-    } else if (cart.classList.contains("stop") && cart.getBoundingClientRect().top >= 200) {
-      // Возврат в фиксированное состояние
+    } else if (
+      cart.classList.contains("stop") &&
+      cart.getBoundingClientRect().top >= 200
+    ) {
       cart.classList.remove("stop");
       cart.classList.add("sticky");
-      cart.style.bottom = ""; // Удаление динамического отступа
+      cart.style.bottom = "";
     }
   };
 
-  // Логика для диапазона <= 960px
-  const handleSmallScreen = () => {
-    
-  };
+  const handleSmallScreen = () => {};
 
-  // Обновление логики при изменении размера окна
   const updateLogic = () => {
     const screenWidth = window.innerWidth;
 
@@ -146,10 +137,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Инициализация
   updateLogic();
 
-  // Слушатель для изменения размеров окна
   window.addEventListener("resize", updateLogic);
 
   //Sticky menu navigation handler
@@ -174,18 +163,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Listener for active links in page navigations
   function syncActiveLinks(navSelectors) {
-    const navs = navSelectors.map((selector) => document.querySelector(selector)).filter(Boolean);
+    const navs = navSelectors
+      .map((selector) => document.querySelector(selector))
+      .filter(Boolean);
     if (navs.length < 2) return; // Necessary min 2
-  
+
     const updateActiveClass = (target, links) => {
       links.forEach((link) => link.classList.remove("active"));
       target.classList.add("active");
     };
-  
+
     const syncLinks = (clickedLink, clickedNav) => {
-      const clickedNavLinks = [...clickedNav.querySelectorAll(".page-nav-slide")];
+      const clickedNavLinks = [
+        ...clickedNav.querySelectorAll(".page-nav-slide"),
+      ];
       const clickedIndex = clickedNavLinks.indexOf(clickedLink);
-  
+
       if (clickedIndex !== -1) {
         navs.forEach((nav) => {
           const navLinks = [...nav.querySelectorAll(".page-nav-slide")];
@@ -193,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     };
-  
+
     navs.forEach((nav) => {
       nav.addEventListener("click", (e) => {
         const link = e.target.closest(".page-nav-slide");
@@ -201,19 +194,21 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-  
+
   syncActiveLinks([
     ".sticky-nav-menu .page-nav-slides",
     "#static-nav-menu .page-nav-slides",
   ]);
 
   // Stories slider modal
-  const storiesElements = document.querySelectorAll('.story');
-  const modal = document.querySelector('.instagram-stories-modal');
-  const modalContainer = document.querySelector('.instagram-stories-modal-container');
-  const btnNext = document.querySelector('.instagram-stories-btn-next');
-  const btnPrev = document.querySelector('.instagram-stories-btn-prev');
-  const closeBtn = document.querySelector('.instagram-stories-btn-close-modal');
+  const storiesElements = document.querySelectorAll(".story");
+  const modal = document.querySelector(".instagram-stories-modal");
+  const modalContainer = document.querySelector(
+    ".instagram-stories-modal-container"
+  );
+  const btnNext = document.querySelector(".instagram-stories-btn-next");
+  const btnPrev = document.querySelector(".instagram-stories-btn-prev");
+  const closeBtn = document.querySelector(".instagram-stories-btn-close-modal");
 
   // Current img index
   var currentIndex = 0;
@@ -225,7 +220,9 @@ document.addEventListener("DOMContentLoaded", () => {
   var isPaused = false;
   var currentProgress = 0;
 
-  const images = Array.from(document.querySelectorAll('.story-photo-source')).map(i => i.dataset.full);
+  const images = Array.from(
+    document.querySelectorAll(".story-photo-source")
+  ).map((i) => i.dataset.full);
 
   const updateModalContent = () => {
     const progressBars = images.map(
@@ -241,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     modalContainer.innerHTML = `
       <div class="instagram-storie-progress">
-        ${progressBars.join('')}
+        ${progressBars.join("")}
       </div>
       <div class="instagram-storie-wrapper">
         <img
@@ -255,13 +252,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const startProgress = () => {
     if (isPaused) return;
-  
+
     const progressBar = modalContainer.querySelector(
       `.instagram-storie-progress-item-bar[data-index="${currentIndex}"]`
     );
-  
+
     clearInterval(progressIntervals[currentIndex]);
-  
+
     progressIntervals[currentIndex] = setInterval(() => {
       if (!isPaused) {
         currentProgress += 2;
@@ -306,11 +303,11 @@ document.addEventListener("DOMContentLoaded", () => {
     currentIndex = index;
     isModalOpen = true;
 
-    modal.style.display = 'block';
-    modal.classList.add('fade-in');
-    modalContainer.classList.add('slide-in');
-    modal.classList.remove('fade-out');
-    modalContainer.classList.remove('slide-out');
+    modal.style.display = "block";
+    modal.classList.add("fade-in");
+    modalContainer.classList.add("slide-in");
+    modal.classList.remove("fade-out");
+    modalContainer.classList.remove("slide-out");
 
     updateModalContent();
     startProgress();
@@ -320,35 +317,36 @@ document.addEventListener("DOMContentLoaded", () => {
     stopProgress();
     isModalOpen = false;
 
-    modal.style.display = 'none';
-    modal.classList.remove('fade-in');
-    modal.classList.add('fade-out');
-    modal.classList.remove('fade-in');
-    modalContainer.classList.remove('slide-in');
+    modal.style.display = "none";
+    modal.classList.remove("fade-in");
+    modal.classList.add("fade-out");
+    modal.classList.remove("fade-in");
+    modalContainer.classList.remove("slide-in");
   };
 
   // Story items click listener
   storiesElements.forEach((storyElement, index) => {
-    storyElement.addEventListener('click', () => openModal(index));
+    storyElement.addEventListener("click", () => openModal(index));
   });
 
   // Next and Previous button handlers
-  btnNext.addEventListener('click', () => {
+  btnNext.addEventListener("click", () => {
     stopProgress();
     nextImage();
   });
 
-  btnPrev.addEventListener('click', () => {
+  btnPrev.addEventListener("click", () => {
     stopProgress();
     prevImage();
   });
 
   // Modal window click listener (Next and Prev img)
-  modal.addEventListener('click', (e) => {
+  modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       const clickX = e.clientX;
-      const modalWidth = modal.offsetWidth;а
-  
+      const modalWidth = modal.offsetWidth;
+      а;
+
       if (clickX < modalWidth / 2) {
         stopProgress();
         prevImage(); // The left side brings up the previous story
@@ -359,9 +357,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  modalContainer.addEventListener('click', (e) => {
+  modalContainer.addEventListener("click", (e) => {
     const clickedElement = e.target;
-    if (clickedElement.classList.contains('instagram-storie-image')) {
+    if (clickedElement.classList.contains("instagram-storie-image")) {
       if (isPaused) {
         isPaused = false;
         startProgress();
@@ -372,5 +370,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  closeBtn.addEventListener('click', () => closeModal());
+  closeBtn.addEventListener("click", () => closeModal());
 });

@@ -3,7 +3,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  
+
   min-height: 720px;
   width: 100%;
   padding-bottom: 2.75rem;
@@ -75,12 +75,15 @@ main {
 
   margin-top: 2rem;
   padding: 1.5rem;
-  border: 1px solid #EDF2F6;
+  border: 1px solid #edf2f6;
   border-radius: 0.625rem;
 
   opacity: 0;
   visibility: hidden;
-  transition: display 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    display 0.3s ease,
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .checkout-delivery-address.active,
@@ -90,7 +93,6 @@ main {
   opacity: 1;
   visibility: visible;
 }
-
 
 #choose-time-header,
 #payment-method-header,
@@ -120,7 +122,7 @@ main {
   display: flex;
   flex-direction: column;
 
-  background-color: #EDF2F7;
+  background-color: #edf2f7;
 
   padding: 1.5rem 1.5rem;
   border-radius: 0.625rem;
@@ -136,7 +138,7 @@ main {
   row-gap: 1rem;
 }
 
-@media (max-width: 960px) {
+@media (width <= 960px) {
   .header-bottom {
     padding: 0;
   }
@@ -146,7 +148,7 @@ main {
   }
 }
 
-@media (max-width: 495px) {
+@media (width <= 495px) {
   .checkout-form {
     padding: 0.625rem;
   }

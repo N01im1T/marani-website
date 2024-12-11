@@ -36,7 +36,7 @@
 }
 
 .contacts,
-.useful-information  {
+.useful-information {
   display: flex;
   flex: 1 0 276px;
   flex-direction: column;
@@ -55,7 +55,7 @@
   row-gap: 1rem;
 }
 
-@media (max-width: 960px) {
+@media (width <= 960px) {
   .footer {
     background-color: var(--secondary-color);
 
@@ -68,6 +68,7 @@
   }
 
   .socials-list-item a img {
-    filter: invert(150%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    filter: invert(150%) sepia(0%) saturate(0%) hue-rotate(0deg)
+      brightness(100%) contrast(100%);
   }
 }

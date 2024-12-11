@@ -2,21 +2,21 @@ const buttons = () => {
   const cartDishesContainer = document.querySelector(".cart-dishes");
   const btnOpenCart = document.querySelector(".btn-open-cart");
   const cart = document.querySelector(".cart");
-  const closeIcon = document.querySelector(".cart .close-icon");
+  const closeIcon = document.querySelector("cart .close-icon");
 
-  // Проверка на существование всех обязательных элементов
+  // Check existense of the elements
   if (!cartDishesContainer || !btnOpenCart || !cart || !closeIcon) {
     return;
   }
 
-  // Флаг, чтобы отслеживать, открыта ли корзина
   let isCartOpen = false;
 
   // Mobile open cart button visibility function
   function updateCartButtonVisibility() {
     if (!cartDishesContainer || !btnOpenCart) return;
 
-    const hasItemsInCart = cartDishesContainer.querySelectorAll(".cart-dish-card").length > 0;
+    const hasItemsInCart =
+      cartDishesContainer.querySelectorAll(".cart-dish-card").length > 0;
     const isSmallScreen = window.innerWidth <= 960;
 
     if (isSmallScreen) {
@@ -51,7 +51,8 @@ const buttons = () => {
   closeIcon.addEventListener("click", () => {
     if (!cartDishesContainer || !cart || !btnOpenCart) return;
 
-    const hasItemsInCart = cartDishesContainer.querySelectorAll(".cart-dish-card").length > 0;
+    const hasItemsInCart =
+      cartDishesContainer.querySelectorAll(".cart-dish-card").length > 0;
     const isSmallScreen = window.innerWidth <= 960;
 
     if (isSmallScreen) {

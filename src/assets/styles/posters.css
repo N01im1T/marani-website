@@ -12,11 +12,11 @@
   color: var(--secondary-color);
 }
 
-.header-top-telephone img{
+.header-top-telephone img {
   filter: invert(1);
 }
 
-.header-top-telephone span{
+.header-top-telephone span {
   color: var(--text-color-dark);
 }
 
@@ -150,14 +150,13 @@
   grid-column-end: 7;
 }
 
-@media (max-width: 1280px) {
+@media (width <= 1280px) {
   .posters-container {
     grid-template-rows: repeat(7, minmax(90px, 1fr));
   }
-  
 }
 
-@media (max-width: 960px) {
+@media (width <= 960px) {
   /* Heeader */
 
   .site-logo-img {
@@ -172,11 +171,11 @@
     color: var(--secondary-color);
   }
 
-  .header-top-telephone img{
+  .header-top-telephone img {
     filter: invert(0);
   }
 
-  .header-top-telephone span{
+  .header-top-telephone span {
     color: var(--text-color);
   }
 
@@ -198,7 +197,6 @@
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-template-rows: repeat(4, minmax(400px, 1fr));
 
-    
     padding: 0 0.625rem;
   }
 
@@ -215,7 +213,7 @@
   }
 }
 
-@media (max-width: 743px) {
+@media (width <= 743px) {
   /* Posters */
 
   .posters-container {
@@ -224,7 +222,7 @@
   }
 }
 
-@media (max-width: 395px) {
+@media (width <= 395px) {
   .posters-container {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-template-rows: repeat(8, minmax(350px, 1fr));

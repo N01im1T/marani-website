@@ -3,6 +3,67 @@ import Choices from "choices.js";
 import "choices.js/public/assets/styles/choices.min.css";
 
 const inputs = (container = document) => {
+  // Cart toggle
+  const checkboxes = document.querySelectorAll(".checkbox");
+
+  // Selector for elements that may not exist
+  const elements = {
+    deliveryContainer: document.querySelector(".cart-container-delivery"),
+    pickupContainer: document.querySelector(".cart-container-pickup"),
+    deliveryForm: document.querySelector(".delivery-form"),
+    pickupForm: document.querySelector(".pickup-form"),
+    deliveryCheckout: document.querySelector(".checkout-delivery-address"),
+    pickupCheckout: document.querySelector(".checkout-pickup-address"),
+    headerText: document.querySelector("#header-change-address"),
+  };
+
+  // Function to enable/disable classes on elements
+  const toggleClass = (element, className, add) => {
+    if (element) {
+      add
+        ? element.classList.add(className)
+        : element.classList.remove(className);
+    }
+  };
+
+  // Component switching function
+  const toggleComponents = (checked) => {
+    const action = checked ? "remove" : "add";
+
+    toggleClass(elements.deliveryContainer, "active", !checked);
+    toggleClass(elements.pickupContainer, "active", checked);
+    toggleClass(elements.deliveryForm, "active", !checked);
+    toggleClass(elements.pickupForm, "active", checked);
+    toggleClass(elements.deliveryCheckout, "active", !checked);
+    toggleClass(elements.pickupCheckout, "active", checked);
+
+    if (elements.headerText) {
+      elements.headerText.textContent = checked
+        ? "Выберете адрес самовывоза"
+        : "Выберете адрес доставки";
+    }
+  };
+
+  // Synchronizing the state of checkboxes
+  const syncCheckboxes = (checked) => {
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = checked;
+    });
+    toggleComponents(checked);
+  };
+
+  // Setting event handlers for all checkboxes
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      syncCheckboxes(checkbox.checked);
+    });
+  });
+
+  // Setting the initial state
+  if (checkboxes.length > 0) {
+    toggleComponents(checkboxes[0].checked);
+  }
+
   const phoneMask = new Inputmask({
     mask: "+7(999) - 999 - 99 - 99",
     showMaskOnHover: false,

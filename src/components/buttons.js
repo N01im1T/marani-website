@@ -2,14 +2,14 @@ const buttons = () => {
   const cartDishesContainer = document.querySelector(".cart-dishes");
   const btnOpenCart = document.querySelector(".btn-open-cart");
   const cart = document.querySelector(".cart");
-  const closeIcon = document.querySelector("cart .close-icon");
+  const closeIcon = document.querySelector(".cart .close-icon");
 
   // Check existense of the elements
   if (!cartDishesContainer || !btnOpenCart || !cart || !closeIcon) {
     return;
   }
 
-  let isCartOpen = false;
+  var isCartOpen = false;
 
   // Mobile open cart button visibility function
   function updateCartButtonVisibility() {

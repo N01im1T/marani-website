@@ -82,18 +82,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const stopBlock = document.querySelector(".map");
   const dishesMenuBlock = document.querySelector(".checkout-form");
 
-  // Переменные для расчетов
-  let stopBlockTop = stopBlock.offsetTop; // Верхняя граница stopBlock
-  let pageHeight = document.documentElement.scrollHeight;
-  let viewportHeight = window.innerHeight;
+  var stopBlockTop = stopBlock.offsetTop;
+  var pageHeight = document.documentElement.scrollHeight;
+  var viewportHeight = window.innerHeight;
 
-  // Функция обновления метрик
+  // Funcion for update metrics
   const updateMetrics = () => {
-    stopBlockTop = stopBlock.offsetTop; // Обновляем верхнюю границу stopBlock
+    stopBlockTop = stopBlock.offsetTop;
     pageHeight = document.documentElement.scrollHeight;
     viewportHeight = window.innerHeight;
 
-    // Вычисляем отступ справа относительно dishesMenuBlock
     if (dishesMenuBlock) {
       const referenceRect = dishesMenuBlock.getBoundingClientRect();
       cart.style.right = `${document.documentElement.clientWidth - referenceRect.right + 25}px`;

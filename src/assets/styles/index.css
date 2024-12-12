@@ -398,9 +398,9 @@
 }
 
 .dish-card img {
-  height: auto;
+  height: 100%;
   max-height: 184px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .dish-text-content {

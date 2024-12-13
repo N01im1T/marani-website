@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startAt: 0,
     focusAt: "center",
     perView: 1,
+    gap: 40,
     animationDuration: 1000,
     autoplay: 4000,
     hoverpause: true,

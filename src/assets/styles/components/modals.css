@@ -310,6 +310,22 @@
     border-radius: 0.625rem 0.625rem 0 0;
   }
 
+  .cart.sticky {
+    position: fixed;
+    top: unset;
+    bottom: 0;
+
+    transition: bottom 0.3s ease;
+  }
+
+  .cart.stop {
+    position: fixed;
+    top: unset;
+    bottom: 0;
+
+    transition: bottom 0.3s ease;
+  }
+
   .cart.slide-in {
     animation: slidein 0.5s;
     transform: translateY(0.5%);

@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(containerSelector);
     if (!container) return;
 
-    let isDragging = false;
-    let startX, scrollLeft;
+    var isDragging = false;
+    var startX, scrollLeft;
 
     // Start of dragging
     container.addEventListener("mousedown", (e) => {
@@ -103,44 +103,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const scrollPosition = window.scrollY;
     const cartHeight = cart.offsetHeight;
+    const cartTop = scrollPosition + cartHeight + 200;
 
-    if (scrollPosition + cartHeight + 120 > stopBlockBottom + 40) {
+    if (cartTop > stopBlockBottom) {
       cart.classList.remove("sticky");
       cart.classList.add("stop");
 
       const bottomDistance = pageHeight - stopBlockBottom;
+      cart.style.position = "absolute";
       cart.style.bottom = `${bottomDistance}px`;
-    } else if (
-      cart.classList.contains("stop") &&
-      cart.getBoundingClientRect().top >= 200
-    ) {
+    } else {
       cart.classList.remove("stop");
       cart.classList.add("sticky");
+
+      cart.style.position = "fixed";
       cart.style.bottom = "";
     }
   };
 
-  const handleSmallScreen = () => {};
+  const resetCartPosition = () => {
+    cart.classList.remove("sticky", "stop");
+    cart.style.top = "";
+    cart.style.bottom = "";
+    cart.style.right = "";
+  };
 
   const updateLogic = () => {
     const screenWidth = window.innerWidth;
 
-    window.removeEventListener("scroll", handleScroll);
-    window.removeEventListener("resize", updateMetrics);
-
-    if (screenWidth > 960) {
-      updateMetrics();
-      handleScroll();
-      window.addEventListener("scroll", handleScroll);
-      window.addEventListener("resize", updateMetrics);
-    } else {
-      handleSmallScreen();
+    // Remove listeners below 960px
+    if (screenWidth <= 960) {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateMetrics);
+      resetCartPosition();
+      return;
     }
+
+    // Add listeners after 960px
+    updateMetrics();
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", updateMetrics);
   };
 
   updateLogic();
 
   window.addEventListener("resize", updateLogic);
+
 
   //Sticky menu navigation handler
   const stickyMenu = document.querySelector(".sticky-nav-menu");
@@ -161,45 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   observer.observe(triggerElement);
-
-  // Listener for active links in page navigations
-  function syncActiveLinks(navSelectors) {
-    const navs = navSelectors
-      .map((selector) => document.querySelector(selector))
-      .filter(Boolean);
-    if (navs.length < 2) return; // Necessary min 2
-
-    const updateActiveClass = (target, links) => {
-      links.forEach((link) => link.classList.remove("active"));
-      target.classList.add("active");
-    };
-
-    const syncLinks = (clickedLink, clickedNav) => {
-      const clickedNavLinks = [
-        ...clickedNav.querySelectorAll(".page-nav-slide"),
-      ];
-      const clickedIndex = clickedNavLinks.indexOf(clickedLink);
-
-      if (clickedIndex !== -1) {
-        navs.forEach((nav) => {
-          const navLinks = [...nav.querySelectorAll(".page-nav-slide")];
-          updateActiveClass(navLinks[clickedIndex], navLinks);
-        });
-      }
-    };
-
-    navs.forEach((nav) => {
-      nav.addEventListener("click", (e) => {
-        const link = e.target.closest(".page-nav-slide");
-        if (link) syncLinks(link, nav);
-      });
-    });
-  }
-
-  syncActiveLinks([
-    ".sticky-nav-menu .page-nav-slides",
-    "#static-nav-menu .page-nav-slides",
-  ]);
 
   // Stories slider modal
   const storiesElements = document.querySelectorAll(".story");
@@ -346,7 +316,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === modal) {
       const clickX = e.clientX;
       const modalWidth = modal.offsetWidth;
-      а;
 
       if (clickX < modalWidth / 2) {
         stopProgress();

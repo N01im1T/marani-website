@@ -196,7 +196,7 @@
           <div id="static-nav-menu" class="header-bottom-page-nav-glide">
             <nav class="header-bottom-page-nav-track">
               <ul class="page-nav-slides">
-                <li class="page-nav-slide active">
+                <li class="page-nav-slide">
                   <a href="#new-items" role="button"> Новинки </a>
                 </li>
                 <li class="page-nav-slide" role="button">
@@ -653,7 +653,7 @@
           <section id="khinkali" class="menu-section">
             <h4 class="menu-section-header">Хинкали</h4>
             <div class="menu-section-wrapper">
-              <section class="dish-card">
+              <section class="dish-card" data-attr="variable">
                 <img src="../assets/images/square-image.png" alt="dish-img" />
                 <div class="dish-text-content">
                   <h5 class="dish-header">Хинкали с бараниной и тестом</h5>
@@ -1138,7 +1138,7 @@
     <div class="sticky-nav-menu">
       <nav class="sticky-nav-menu-track">
         <ul class="page-nav-slides">
-          <li class="page-nav-slide active">
+          <li class="page-nav-slide">
             <a href="#new-items" role="button"> Новинки </a>
           </li>
           <li class="page-nav-slide" role="button">
@@ -1403,6 +1403,70 @@
           </div>
           <button class="btn btn-secondary btn-order-table" type="button">
             Забронировать стол
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal modal-choose-option">
+      <div class="modal-container">
+        <button class="btn close-icon" type="button">
+          <img src="../assets/images/close-icon.svg" alt="close-icon" />
+        </button>
+        <div class="modal-dish-card">
+          <img class="dish-card-img" src="../assets/images/cart-dish-img.png" alt="cart-dish-img" />
+          <div class="dish-card-wrapper">
+            <p class="dish-card-name">
+              Хинкали жареные с телятиной 4шт.
+            </p>
+            <div class="modal-dish-info">
+              <p class="price-weight">
+                <span class="price">1250</span>
+                <span class="currency">₽</span>
+                <span class="weight">250</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="options-wrapper">
+          <div class="dish-option">
+            <label class="radio-label">
+              <input type="radio" name="dish-option" class="radio-input" />
+              <span class="radio-custom"></span>
+              <span class="choose-time-checkbox-text"> Вареный </span>
+            </label>
+            <span class="option-price">Бесплатно</span>
+          </div>
+          <div class="dish-option">
+            <label class="radio-label">
+              <input type="radio" name="dish-option" class="radio-input" />
+              <span class="radio-custom"></span>
+              <span class="choose-time-checkbox-text"> Жаренный </span>
+            </label>
+            <span class="option-price">+150р</span>
+          </div>
+          <div class="dish-option">
+            <label class="radio-label">
+              <input type="radio" name="dish-option" class="radio-input" />
+              <span class="radio-custom"></span>
+              <span class="choose-time-checkbox-text"> Пареный </span>
+            </label>
+            <span class="option-price">Бесплатно</span>
+          </div>
+        </div>
+        <div class="modal-wrapper">
+          <div class="amount-counter">
+            <button class="btn counter-minus" type="button">
+              -
+            </button>
+            <span class="counter-amount">1</span>
+            <button class="btn counter-plus" type="button">
+              +
+            </button>
+          </div>
+          <button class="btn btn-secondary btn-add-option" type="button">
+            В корзину за
+            <span class="total-price">825₽</span>
           </button>
         </div>
       </div>

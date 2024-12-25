@@ -69,11 +69,6 @@
   position: absolute;
   top: 3px;
   
-  font-size: 0.875rem;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1;
-  
   width: 149px;
   height: 33px;
   padding: 10px 27px;
@@ -87,11 +82,6 @@
   position: absolute;
   top: 3px;
   
-  font-size: 0.875rem;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1;
-  
   width: calc((100% - 25px) / 2);
   height: 33px;
   padding: 10px 27px;
@@ -103,49 +93,38 @@
   content: "";
   left: 5px;
   
-  background-color: #ffffff;
+  background-color: var(--primary-color);
 }
 
 .button-switch .knobs:after {
   content: "Самовывоз";
   right: 5px;
-  
-  color: #909294;
 }
 
 .button-switch .knobs span {
   display: inline-block;
   left: 5px;
   
-  color: #909294;
-  
   z-index: 1;
-}
-
-.button-switch .checkbox:checked + .knobs span {
-  color: #909294;
 }
 
 .button-switch .checkbox:checked + .knobs:before {
   left: 169px;
-  background-color: #ffffff;
+
+  background-color: var(--primary-color);
+
   border-radius: 0 0.625rem 0.625rem 0;
-  color: #909294;
 }
 
 .placing-order .button-switch .checkbox:checked + .knobs:before {
   left: calc((100% - 25px) / 2 + 20px);
   
-  color: #909294;
-  
-  background-color: #ffffff;
+  background-color: var(--primary-color);
   
   border-radius: 0 0.625rem 0.625rem 0;
 }
 
 .button-switch .checkbox:checked + .knobs:after {
-  color: #909294;
-
   z-index: 1;
 }
 
@@ -173,9 +152,6 @@
 }
 
 .form-label {
-  font-size: 0.875rem;
-  font-weight: normal;
-
   margin-bottom: 5px;
 }
 
@@ -191,24 +167,25 @@
 
 .input-wrapper:has(.form-input:focus) {
   border-color: #4e9f37;
-  box-shadow: 0 0 3px rgba(0, 123, 255, 0.3);
   outline: none;
+
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.3);
 }
 
 .modal-book-table .input-wrapper:has(.form-input:focus),
 .placing-order .input-wrapper:has(.form-input:focus) {
   border-color: var(--secondary-color);
-  box-shadow: 0 0 3px rgba(0, 123, 255, 0.3);
   outline: none;
+
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.3);
 }
 
 .form-input,
-.form-select {
-  font-size: 0.875rem;
-  
+.form-select {  
   width: 100%;
   border: none;
   box-sizing: border-box;
+
   appearance: none;
 }
 
@@ -217,8 +194,6 @@
 }
 
 .required {
-  color: red;
-
   margin-left: 5px;
 }
 
@@ -245,14 +220,7 @@
   padding: 0.625rem 1rem;
 }
 
-.form-input {
-  font-size: 0.875rem;
-  
-  width: 100%;
-}
-
 .form-input::placeholder {
-  color: #aaa;
   opacity: 1;
 }
 
@@ -263,9 +231,6 @@
 .placeholder-star {
   position: absolute;
   top: 50%;
-  
-  font-size: 0.875rem;
-  color: red;
   
   opacity: 0;
   
@@ -306,8 +271,8 @@
 .custom-select {
   position: relative;
   display: inline-block;
+
   width: 100%;
-  font-size: 14px;
 }
 
 .select-label {
@@ -317,8 +282,6 @@
   align-items: center;
   
   background-color: #fff;
-  
-  color: #aaa;
   
   padding: 0.625rem 1rem;
   border: 1px solid #ddd;
@@ -376,10 +339,6 @@
   display: block;
 }
 
-.select-label.selected {
-  color: #000;
-}
-
 .select-label:focus,
 .select-label.focused {
   border-color: #4e9f37;
@@ -398,8 +357,6 @@
 .radio-label {
   display: flex;
   align-items: center;
-  
-  font-size: 1rem;
 
   cursor: pointer;
 }
@@ -433,7 +390,8 @@
   content: "";
   position: absolute;
   top: 3px;
-  left: 3px;
+  right: 3px;
+
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
@@ -444,9 +402,7 @@
   border-color: var(--secondary-color);
 }
 
-.form-textarea {
-  color: #000;
-  
+.form-textarea {  
   min-height: 7.5rem;
   width: 100%;
   padding: 0.75rem 1rem;
@@ -463,14 +419,8 @@
 
 .form-textarea:focus {
   border-color: var(--secondary-color);
+
   box-shadow: 0 0 5px rgba(126, 53, 53, 0.3);
-}
-
-/* Textarea */
-
-.form-textarea::placeholder {
-  font-size: 1rem;
-  color: #b1b1b1;
 }
 
 @media (width <= 960px) {

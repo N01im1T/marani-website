@@ -217,6 +217,85 @@ textarea {
   color: var(--text-color);
 }
 
+.btn-add-option,
+.btn-add-option .total-price {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-light);
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* Inputs */
+
+.button-switch .knobs:before,
+.button-switch .knobs:after,
+.button-switch .knobs span {
+  font-weight: var(--weight-bold);
+  font-size: 0.875rem;
+  text-align: center;
+  line-height: 1;
+}
+
+.button-switch .knobs:after,
+.button-switch .knobs span,
+.button-switch .checkbox:checked+.knobs span,
+.button-switch .checkbox:checked+.knobs:before,
+.placing-order .button-switch .checkbox:checked+.knobs:before,
+.button-switch .checkbox:checked+.knobs:after {
+  color: #909294;
+}
+
+.placing-order .button-switch .knobs:before,
+.placing-order .button-switch .knobs:after,
+.placing-order .button-switch .knobs span {
+  font-weight: var(--weight-bold);
+  font-size: 0.875rem;
+  text-align: center;
+  line-height: 1;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+
+.form-input,
+.form-select {
+  font-size: 0.875rem;
+}
+
+.form-input::placeholder,
+.select-label {
+  color: #aaa;
+}
+
+.placeholder-star {
+  font-size: 0.875rem;
+  color: red;
+}
+
+.required {
+  color: red;
+}
+
+.custom-select {
+  font-size: 0.875rem;
+}
+
+.select-label.selected,
+.form-textarea {
+  color: var(--text-color-dark);
+}
+
+.radio-label {
+  font-size: 1rem;
+}
+
+.form-textarea::placeholder {
+  font-size: 1rem;
+  color: #b1b1b1;
+}
+
 /* Modals */
 
 .modal-container h4 {
@@ -246,6 +325,26 @@ textarea {
 
 .policy-agreement a:hover {
   text-decoration: none;
+}
+
+.modal-dish-card .dish-card-name {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-regular);
+  font-size: 1rem;
+  color: var(--text-color-dark);
+}
+
+.modal-dish-info .price-weight .price,
+.modal-dish-info .price-weight .currency,
+.modal-dish-info .price-weight .weight {
+  font-size: 1rem;
+}
+
+.dish-option .option-price {
+  font-family: var(--font-montserrat);
+  font-weight: var(--weight-regular);
+  font-size: 1rem;
+  color: #8C8C8C;
 }
 
 /* Header */
@@ -434,7 +533,7 @@ textarea {
 .dish-description {
   font-family: var(--font-montserrat);
   font-weight: var(--weight-light);
-  font-size: 11px;
+  font-size: 0.75rem;
   color: #757575;
   line-height: 14px;
 }
@@ -655,6 +754,20 @@ textarea {
   #header-change-address,
   #header-book-table {
     font-size: 1.25rem;
+  }
+
+  .modal-dish-card .dish-card-name {
+    font-size: 0.75rem;
+  }
+
+  .modal-dish-info .price-weight .price,
+  .modal-dish-info .price-weight .currency,
+  .modal-dish-info .price-weight .weight {
+    font-size: 0.75rem;
+  }
+
+  .dish-option .option-price {
+    font-size: 0.75rem;
   }
 
   /* Header */

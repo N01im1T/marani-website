@@ -18,7 +18,7 @@
   background-color: var(--btn-color-default-primary);
 
   padding: 0.25rem 0.875rem;
-  border-radius: 150px;
+  border-radius: 9.375rem;
 }
 
 .btn-primary:hover {
@@ -63,7 +63,7 @@
   background-color: var(--btn-color-default-secondary);
 
   height: 45px;
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 
 .btn-secondary:hover {
@@ -114,6 +114,15 @@
 
   width: 131px;
   height: 23px;
+}
+
+.btn-add-option {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.5rem;
+
+  max-width: 230px;
+  width: 100%;  
 }
 
 /* Header slider arrow buttons */

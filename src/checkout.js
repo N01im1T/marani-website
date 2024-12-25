@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(containerSelector);
     if (!container) return;
 
-    let isDragging = false;
-    let startX, scrollLeft;
+    var isDragging = false;
+    var startX, scrollLeft;
 
     // Start of dragging
     container.addEventListener("mousedown", (e) => {
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // If the cart returns to a fixed state when scrolling up
     else if (
-      cart.classList.contains("stop") && 
+      cart.classList.contains("stop") &&
       scrollPosition + cartHeight < stopBlockTop - 180
     ) {
       cart.classList.remove("stop");
@@ -151,66 +151,4 @@ document.addEventListener("DOMContentLoaded", () => {
   updateLogic();
 
   window.addEventListener("resize", updateLogic);
-
-  document.body.addEventListener("click", (event) => {
-    const target = event.target;
-
-    if (
-      target.classList.contains("counter-plus") ||
-      target.classList.contains("counter-minus")
-    ) {
-      const amountCounter = target.closest(".amount-counter");
-      if (!amountCounter) return;
-
-      const amountSpan = amountCounter.querySelector(".counter-amount");
-      let currentAmount = parseInt(amountSpan.textContent, 10);
-
-      if (target.classList.contains("counter-plus")) {
-        currentAmount++;
-      } else if (target.classList.contains("counter-minus")) {
-        currentAmount = Math.max(1, currentAmount - 1); // Минимум 1
-      }
-
-      amountSpan.textContent = currentAmount;
-    }
-  });
-
-  // Listener for active links in page navigations
-  function syncActiveLinks(navSelectors) {
-    const navs = navSelectors
-      .map((selector) => document.querySelector(selector))
-      .filter(Boolean);
-    if (navs.length < 2) return; // Necessary min 2
-
-    const updateActiveClass = (target, links) => {
-      links.forEach((link) => link.classList.remove("active"));
-      target.classList.add("active");
-    };
-
-    const syncLinks = (clickedLink, clickedNav) => {
-      const clickedNavLinks = [
-        ...clickedNav.querySelectorAll(".page-nav-slide"),
-      ];
-      const clickedIndex = clickedNavLinks.indexOf(clickedLink);
-
-      if (clickedIndex !== -1) {
-        navs.forEach((nav) => {
-          const navLinks = [...nav.querySelectorAll(".page-nav-slide")];
-          updateActiveClass(navLinks[clickedIndex], navLinks);
-        });
-      }
-    };
-
-    navs.forEach((nav) => {
-      nav.addEventListener("click", (e) => {
-        const link = e.target.closest(".page-nav-slide");
-        if (link) syncLinks(link, nav);
-      });
-    });
-  }
-
-  syncActiveLinks([
-    ".sticky-nav-menu .page-nav-slides",
-    "#static-nav-menu .page-nav-slides",
-  ]);
 });

@@ -78,14 +78,13 @@ document.addEventListener("DOMContentLoaded", () => {
   enableDragAndScroll(".sticky-nav-menu .page-nav-slides");
   enableDragAndScroll(".scroll-stories");
 
-  // Cart scroll
+  // Cart scroll and animations
   const cart = document.querySelector(".cart");
-  const stopBlock = document.querySelector(".dishes-menu");
   const dishesMenuBlock = document.querySelector(".dishes-menu");
+  const stopBlock = document.querySelector(".dishes-menu");
+  const storiesSliderBlock = document.querySelector(".stories-slider");
 
-  var stopBlockBottom;
-  var pageHeight;
-  var viewportHeight;
+  let stopBlockBottom, pageHeight, viewportHeight;
 
   const updateMetrics = () => {
     if (!stopBlock || !cart || !dishesMenuBlock) return;
@@ -96,14 +95,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const referenceRect = dishesMenuBlock.getBoundingClientRect();
     cart.style.right = `${document.documentElement.clientWidth - referenceRect.right + 25}px`;
+
+    if (cart.dataset.attr === "static") {
+      cart.style.position = "absolute";
+      cart.style.top = "169px";
+    } else if (cart.dataset.attr === "scrollable") {
+      cart.style.position = "";
+      cart.style.top = "";
+    }
   };
 
   const handleScroll = () => {
-    if (!cart || !stopBlock) return;
+    if (!cart || !stopBlock || cart.dataset.attr === "static") return;
 
     const scrollPosition = window.scrollY;
     const cartHeight = cart.offsetHeight;
-    const cartTop = scrollPosition + cartHeight + 200;
+    const cartTop = scrollPosition + cartHeight + 100;
 
     if (cartTop > stopBlockBottom) {
       cart.classList.remove("sticky");
@@ -121,36 +128,72 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const resetCartPosition = () => {
-    cart.classList.remove("sticky", "stop");
-    cart.style.top = "";
-    cart.style.bottom = "";
-    cart.style.right = "";
+  const toggleAnimations = () => {
+    if (!dishesMenuBlock || !storiesSliderBlock || !cart) return;
+
+    const screenWidth = window.innerWidth;
+
+    if (cart.dataset.attr === "scrollable" && screenWidth > 960) {
+      dishesMenuBlock.classList.add("shift-left");
+      storiesSliderBlock.classList.add("shift-left");
+
+      dishesMenuBlock.classList.remove("shift-right");
+      storiesSliderBlock.classList.remove("shift-right");
+    } else if (cart.dataset.attr === "static" && screenWidth > 960) {
+      dishesMenuBlock.classList.remove("shift-left");
+      storiesSliderBlock.classList.remove("shift-left");
+      
+      dishesMenuBlock.classList.add("shift-right");
+      storiesSliderBlock.classList.add("shift-right");
+    }
   };
 
   const updateLogic = () => {
     const screenWidth = window.innerWidth;
 
-    // Remove listeners below 960px
     if (screenWidth <= 960) {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", updateMetrics);
-      resetCartPosition();
+
+      cart.classList.remove("sticky", "stop");
+      cart.style.top = "";
+      cart.style.bottom = "";
+      cart.style.right = "";
+      dishesMenuBlock.classList.remove("shift-left");
+      storiesSliderBlock.classList.remove("shift-left");
+      dishesMenuBlock.classList.remove("shift-right");
+      storiesSliderBlock.classList.remove("shift-right");
+
+      toggleAnimations();
       return;
     }
 
-    // Add listeners after 960px
+    if (cart.dataset.attr === "static") {
+      updateMetrics();
+      toggleAnimations();
+      return;
+    }
+
     updateMetrics();
     handleScroll();
+    toggleAnimations();
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", updateMetrics);
   };
 
+  const cartObserver = new MutationObserver(() => {
+    updateLogic();
+  });
+
+  cartObserver.observe(cart, {
+    attributes: true,
+    attributeFilter: ["data-attr"],
+  });
+
   updateLogic();
-
   window.addEventListener("resize", updateLogic);
-
-
+  
+  
   //Sticky menu navigation handler
   const stickyMenu = document.querySelector(".sticky-nav-menu");
   const triggerElement = document.querySelector("#static-nav-menu");

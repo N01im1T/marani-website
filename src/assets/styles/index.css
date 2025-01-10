@@ -515,8 +515,8 @@
   }
 
   .dishes-glide-slide {
-    max-height: none;
-    min-height: none;
+    max-height: unset;
+    min-height: unset;
   }
 
   .dish-img {
@@ -569,7 +569,7 @@
   /* Dishes slider */
 
   .dishes-glide-slide {
-    min-height: none;
+    min-height: unset;
     margin-top: auto;
   }
 
@@ -600,7 +600,7 @@
 
 @media (width <= 395px) {
   .dishes-glide-slide {
-    min-height: none;
+    min-height: unset;
   }
 
   .dish-img {

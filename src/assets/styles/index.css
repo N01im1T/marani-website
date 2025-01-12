@@ -97,15 +97,17 @@
   from {
     padding-right: 1.5rem;
   }
+
   to {
     padding-right: 27rem;
-  }  
+  }
 }
 
 @keyframes shiftRight {
   from {
     padding-right: 27rem;
   }
+
   to {
     padding-right: 1.5rem;
   }
@@ -208,6 +210,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -217,6 +220,7 @@
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -243,6 +247,7 @@
     transform: translate(-50%, -60%);
     opacity: 0;
   }
+
   to {
     transform: translate(-50%, -50%);
     opacity: 1;
@@ -262,6 +267,7 @@
     transform: translate(-50%, -50%);
     opacity: 1;
   }
+
   to {
     transform: translate(-50%, -60%);
     opacity: 0;
@@ -460,7 +466,7 @@
   align-items: flex-end;
 }
 
-@media (width <= 1280px) {
+@media (width <=1280px) {
   /* Header */
 
   .header {
@@ -520,7 +526,7 @@
   }
 
   .dish-img {
-    max-height: none;
+    max-height: unset;
   }
 
   .slide-dish-description {
@@ -565,7 +571,7 @@
   }
 }
 
-@media (width <= 575px) {
+@media (width <=575px) {
   /* Dishes slider */
 
   .dishes-glide-slide {
@@ -598,7 +604,7 @@
   }
 }
 
-@media (width <= 395px) {
+@media (width <=395px) {
   .dishes-glide-slide {
     min-height: unset;
   }
@@ -625,5 +631,19 @@
   .stories .scroll-stories .story .photo img {
     width: 66px;
     height: 66px;
+  }
+
+  /* Dishes menu */
+
+  .dish-card {
+    max-width: 350px;
+    max-height: 397px;
+  }
+
+  .dish-card img {
+    max-height: 244px;
+    height: 100%;
+
+    object-position: top;
   }
 }

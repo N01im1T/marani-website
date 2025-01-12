@@ -602,6 +602,20 @@
     column-gap: 1.5rem;
     row-gap: 1.75rem;
   }
+
+  /* Dishes menu */
+
+  .dish-card {
+    max-width: 350px;
+    max-height: 397px;
+  }
+
+  .dish-card img {
+    max-height: 244px;
+    height: 100%;
+
+    object-position: top;
+  }
 }
 
 @media (width <=395px) {
@@ -631,19 +645,5 @@
   .stories .scroll-stories .story .photo img {
     width: 66px;
     height: 66px;
-  }
-
-  /* Dishes menu */
-
-  .dish-card {
-    max-width: 350px;
-    max-height: 397px;
-  }
-
-  .dish-card img {
-    max-height: 244px;
-    height: 100%;
-
-    object-position: top;
   }
 }

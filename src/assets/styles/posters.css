@@ -1,6 +1,7 @@
 /* Heeader */
 
 .site-logo-img {
+  -webkit-filter: invert(1);
   filter: invert(1);
 }
 
@@ -13,6 +14,7 @@
 }
 
 .header-top-telephone img {
+  -webkit-filter: invert(1);
   filter: invert(1);
 }
 
@@ -41,7 +43,9 @@
 }
 
 .posters-container {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 1.5rem 1fr 1.5rem 1fr 1.5rem 1fr 1.5rem 1fr 1.5rem 1fr;
   grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: 1fr;
   gap: 1.5rem;
@@ -52,13 +56,23 @@
 
 .posters-container-item {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
   overflow: hidden;
 
   height: 100%;
   border-radius: 0.625rem;
+
+  -webkit-transition: background 0.3s step-end;
+
+  -o-transition: background 0.3s step-end;
 
   transition: background 0.3s step-end;
 }
@@ -67,15 +81,26 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
+  -o-object-position: center;
   object-position: center;
   z-index: -1;
 }
 
 .poster-item-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
 
   padding: 1.25rem 2.5rem;
@@ -85,7 +110,12 @@
 }
 
 .poster-item-textcontent {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   row-gap: 1.5rem;
 }
@@ -95,65 +125,98 @@
 }
 
 #item-0 {
+  -ms-grid-row: 1;
   grid-row-start: 1;
+  -ms-grid-column: 1;
   grid-column-start: 1;
+  -ms-grid-row-span: 3;
   grid-row-end: 4;
+  -ms-grid-column-span: 3;
   grid-column-end: 4;
 }
 
 #item-1 {
+  -ms-grid-row: 1;
   grid-row-start: 1;
+  -ms-grid-column: 4;
   grid-column-start: 4;
+  -ms-grid-row-span: 3;
   grid-row-end: 4;
+  -ms-grid-column-span: 3;
   grid-column-end: 7;
 }
 
 #item-2 {
+  -ms-grid-row: 4;
   grid-row-start: 4;
+  -ms-grid-column: 1;
   grid-column-start: 1;
+  -ms-grid-row-span: 2;
   grid-row-end: 6;
+  -ms-grid-column-span: 2;
   grid-column-end: 3;
 }
 
 #item-3 {
+  -ms-grid-row: 4;
   grid-row-start: 4;
+  -ms-grid-column: 3;
   grid-column-start: 3;
+  -ms-grid-row-span: 2;
   grid-row-end: 6;
+  -ms-grid-column-span: 2;
   grid-column-end: 5;
 }
 
 #item-4 {
+  -ms-grid-row: 4;
   grid-row-start: 4;
+  -ms-grid-column: 5;
   grid-column-start: 5;
+  -ms-grid-row-span: 2;
   grid-row-end: 6;
+  -ms-grid-column-span: 2;
   grid-column-end: 7;
 }
 
 #item-5 {
+  -ms-grid-row: 6;
   grid-row-start: 6;
+  -ms-grid-column: 1;
   grid-column-start: 1;
+  -ms-grid-row-span: 2;
   grid-row-end: 8;
+  -ms-grid-column-span: 2;
   grid-column-end: 3;
 }
 
 #item-6 {
+  -ms-grid-row: 6;
   grid-row-start: 6;
+  -ms-grid-column: 3;
   grid-column-start: 3;
+  -ms-grid-row-span: 2;
   grid-row-end: 8;
+  -ms-grid-column-span: 2;
   grid-column-end: 5;
 }
 
 #item-7 {
+  -ms-grid-row: 6;
   grid-row-start: 6;
+  -ms-grid-column: 5;
   grid-column-start: 5;
+  -ms-grid-row-span: 2;
   grid-row-end: 8;
+  -ms-grid-column-span: 2;
   grid-column-end: 7;
 }
 
-@media (width <= 960px) {
+@media (width <=960px) {
   /* Heeader */
 
   .site-logo-img {
+    -webkit-filter: invert(0);
     filter: invert(0);
   }
 
@@ -166,6 +229,7 @@
   }
 
   .header-top-telephone img {
+    -webkit-filter: invert(0);
     filter: invert(0);
   }
 
@@ -207,7 +271,7 @@
   }
 }
 
-@media (width <= 743px) {
+@media (width <=743px) {
   /* Posters */
 
   .posters-container {
@@ -216,7 +280,7 @@
   }
 }
 
-@media (width <= 395px) {
+@media (width <=395px) {
   .posters-container {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(350px, 1fr));

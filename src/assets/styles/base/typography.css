@@ -8,8 +8,7 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/public/assets/fonts/JTUSjIg1_i6t8kCHKm459W1hyzbi.woff2")
-    format("woff2");
+  src: url("/public/assets/fonts/JTUSjIg1_i6t8kCHKm459W1hyzbi.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -17,8 +16,7 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/public/assets/fonts/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2")
-    format("woff2");
+  src: url("/public/assets/fonts/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -74,8 +72,7 @@
 
 @font-face {
   font-family: "Pacifico";
-  src: url("/public/assets/fonts/FwZY7-Qmy14u9lezJ-6D6MmTpA.woff2")
-    format("woff2");
+  src: url("/public/assets/fonts/FwZY7-Qmy14u9lezJ-6D6MmTpA.woff2") format("woff2");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -264,6 +261,22 @@ textarea {
   font-size: 0.875rem;
 }
 
+.form-input::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.form-input::-moz-placeholder {
+  color: #aaa;
+}
+
+.form-input:-ms-input-placeholder {
+  color: #aaa;
+}
+
+.form-input::-ms-input-placeholder {
+  color: #aaa;
+}
+
 .form-input::placeholder,
 .select-label {
   color: #aaa;
@@ -289,6 +302,26 @@ textarea {
 
 .radio-label {
   font-size: 1rem;
+}
+
+.form-textarea::-webkit-input-placeholder {
+  font-size: 1rem;
+  color: #b1b1b1;
+}
+
+.form-textarea::-moz-placeholder {
+  font-size: 1rem;
+  color: #b1b1b1;
+}
+
+.form-textarea:-ms-input-placeholder {
+  font-size: 1rem;
+  color: #b1b1b1;
+}
+
+.form-textarea::-ms-input-placeholder {
+  font-size: 1rem;
+  color: #b1b1b1;
 }
 
 .form-textarea::placeholder {
@@ -363,6 +396,7 @@ textarea {
 
 .header-top-nav-item:hover,
 .page-nav-slide:not(.active):hover {
+  -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
@@ -373,12 +407,14 @@ textarea {
   font-weight: var(--weight-medium);
   font-size: 1.25rem;
   color: var(--text-color);
+  -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-wrap: nowrap;
 }
 
 .header-top-telephone:hover span {
+  -webkit-text-decoration-line: none;
   text-decoration-line: none;
 }
 
@@ -510,6 +546,7 @@ textarea {
 
 .contacts-item-link:hover,
 .useful-information-item-link:hover {
+  -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
 }
@@ -572,6 +609,7 @@ textarea {
 }
 
 .page-nav-slide:not(.active):hover a {
+  -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
@@ -654,6 +692,7 @@ textarea {
   text-decoration: none;
   color: #000;
 }
+
 .breadcrumb a:hover {
   text-decoration: underline;
   text-underline-offset: 2.5px;
@@ -678,7 +717,8 @@ textarea {
   color: var(--text-color-dark);
 }
 
-@media (width <= 1280px) {
+@media (width <=1280px) {
+
   /* Header */
   .dish-name {
     font-size: 2rem;
@@ -695,7 +735,7 @@ textarea {
   }
 }
 
-@media (width <= 960px) {
+@media (width <=960px) {
   /* Map */
 
   .map-call-to-action-address {
@@ -733,7 +773,7 @@ textarea {
   }
 }
 
-@media (width <= 681px) {
+@media (width <=681px) {
   /* Reviews */
 
   .reviews-header,
@@ -742,7 +782,7 @@ textarea {
   }
 }
 
-@media (width <= 575px) {
+@media (width <=575px) {
   /* Buttons */
 
   .btn-book-table {
@@ -833,6 +873,7 @@ textarea {
   }
 
   .breadcrumb a {
+    -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -846,7 +887,7 @@ textarea {
   }
 }
 
-@media (width <= 395px) {
+@media (width <=395px) {
   /* Buttons */
 
   .btn-read-poster {

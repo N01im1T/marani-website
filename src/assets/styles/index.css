@@ -12,9 +12,16 @@
 }
 
 .header-bottom-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   width: 100%;
@@ -29,8 +36,14 @@
 }
 
 .dishes-glide-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 1.75rem;
 
@@ -39,30 +52,55 @@
 }
 
 .dish-text-content-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   row-gap: 1.875rem;
 }
 
 .price-and-cart-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
+  -webkit-column-gap: 1.25rem;
+  -moz-column-gap: 1.25rem;
   column-gap: 1.25rem;
 
   width: 100%;
 }
 
 .price-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   row-gap: 0.25rem;
 }
 
 .btn-to-cart {
+  -ms-flex-item-align: end;
   align-self: flex-end;
 }
 
@@ -73,8 +111,14 @@
 /* Stories slider */
 
 .stories-slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
 
   max-width: 1440px;
@@ -86,11 +130,23 @@
 }
 
 .stories-slider.shift-left {
+  -webkit-animation: shiftLeft 0.5s forwards;
   animation: shiftLeft 0.5s forwards;
 }
 
 .stories-slider.shift-right {
+  -webkit-animation: shiftRight 0.5s forwards;
   animation: shiftRight 0.5s forwards;
+}
+
+@-webkit-keyframes shiftLeft {
+  from {
+    padding-right: 1.5rem;
+  }
+
+  to {
+    padding-right: 27rem;
+  }
 }
 
 @keyframes shiftLeft {
@@ -100,6 +156,16 @@
 
   to {
     padding-right: 27rem;
+  }
+}
+
+@-webkit-keyframes shiftRight {
+  from {
+    padding-right: 27rem;
+  }
+
+  to {
+    padding-right: 1.5rem;
   }
 }
 
@@ -114,6 +180,8 @@
 }
 
 .scroll {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   overflow: auto;
 
@@ -128,12 +196,21 @@
 }
 
 .stories .scroll-stories {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  -webkit-column-gap: 4rem;
+  -moz-column-gap: 4rem;
   column-gap: 4rem;
 
   width: 100%;
@@ -144,8 +221,14 @@
 }
 
 .stories .scroll-stories .story {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   text-align: center;
@@ -156,17 +239,29 @@
 }
 
 .stories .scroll-stories .story .photo {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   width: 110px;
   height: 110px;
 
+  -webkit-transition: scale 1s ease;
+
+  -o-transition: scale 1s ease;
+
   transition: scale 1s ease;
 }
 
 .stories .scroll-stories .story .photo:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
   transform: scale(1.05);
 }
 
@@ -199,11 +294,23 @@
 }
 
 .instagram-stories-modal.fade-in {
+  -webkit-animation: fadeIn 0.5s forwards;
   animation: fadeIn 0.5s forwards;
 }
 
 .instagram-stories-modal.fade-out {
+  -webkit-animation: fadeOut 0.5s forwards;
   animation: fadeOut 0.5s forwards;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
@@ -213,6 +320,16 @@
 
   to {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
   }
 }
 
@@ -237,49 +354,98 @@
   width: 100%;
   margin: 0 0.625rem;
 
+  -webkit-transform: translate(-50%, -50%);
+
+  -ms-transform: translate(-50%, -50%);
+
   transform: translate(-50%, -50%);
   z-index: 9;
   cursor: pointer;
 }
 
-@keyframes slideIn {
+@-webkit-keyframes slideIn {
   from {
+    -webkit-transform: translate(-50%, -60%);
     transform: translate(-50%, -60%);
     opacity: 0;
   }
 
   to {
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    -webkit-transform: translate(-50%, -60%);
+    transform: translate(-50%, -60%);
+    opacity: 0;
+  }
+
+  to {
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     opacity: 1;
   }
 }
 
 .instagram-stories-modal-container.slide-in {
+  -webkit-animation: slideIn 0.5s forwards;
   animation: slideIn 0.5s forwards;
 }
 
 .instagram-stories-modal-container.slide-out {
+  -webkit-animation: slideOut 0.5s forwards;
   animation: slideOut 0.5s forwards;
 }
 
-@keyframes slideOut {
+@-webkit-keyframes slideOut {
   from {
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     opacity: 1;
   }
 
   to {
+    -webkit-transform: translate(-50%, -60%);
+    transform: translate(-50%, -60%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  to {
+    -webkit-transform: translate(-50%, -60%);
     transform: translate(-50%, -60%);
     opacity: 0;
   }
 }
 
 .instagram-stories-storie {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 
   height: 100%;
   width: 100%;
+
+  -webkit-user-select: none;
+
+  -moz-user-select: none;
+
+  -ms-user-select: none;
 
   user-select: none;
 
@@ -287,6 +453,8 @@
 }
 
 .instagram-storie-wrapper {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
 
   width: 100%;
@@ -295,6 +463,8 @@
 }
 
 .instagram-storie-progress {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 
   background-color: transparent;
@@ -303,6 +473,8 @@
 }
 
 .instagram-storie-progress-item {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   overflow: hidden;
 
@@ -326,8 +498,14 @@
 .instagram-stories-btn-next,
 .instagram-stories-btn-prev {
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 
   background-color: #bebebe;
@@ -342,6 +520,8 @@
 
   cursor: pointer;
   z-index: 10;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
@@ -359,13 +539,21 @@
 .instagram-stories-btn-prev img {
   max-height: 22px;
 
+  -webkit-filter: invert(1);
+
   filter: invert(1);
 }
 
 .instagram-stories-btn-close-modal {
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   top: 5%;
   right: 10%;
@@ -396,15 +584,22 @@
 }
 
 .dishes-menu.shift-left {
+  -webkit-animation: shiftLeft 0.5s forwards;
   animation: shiftLeft 0.5s forwards;
 }
 
 .dishes-menu.shift-right {
+  -webkit-animation: shiftRight 0.5s forwards;
   animation: shiftRight 0.5s forwards;
 }
 
 .dishes-menu-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   row-gap: 3.125rem;
 
@@ -412,20 +607,33 @@
 }
 
 .menu-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   row-gap: 4rem;
 }
 
 .menu-section-wrapper {
+  display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
+  -webkit-column-gap: 3.75rem;
+  -moz-column-gap: 3.75rem;
   column-gap: 3.75rem;
   row-gap: 2.875rem;
 }
 
 .dish-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   row-gap: 0.75rem;
   overflow: hidden;
@@ -434,36 +642,60 @@
   width: 100%;
   border-radius: 10px;
 
+  -webkit-box-shadow: 0 4px 100px 5px rgba(0, 0, 0, 0.06);
+
   box-shadow: 0 4px 100px 5px rgba(0, 0, 0, 0.06);
 }
 
 .dish-card img {
   height: 100%;
   max-height: 184px;
+  min-height: 184px;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
 .dish-text-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
   flex-grow: 1;
-  row-gap: 0.5rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 
   padding: 0.75rem;
+}
+
+.dish-header {
+  margin-bottom: 0.5rem;
 }
 
 .dish-description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   -webkit-line-clamp: 3;
   overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: normal;
 }
 
 .text-content-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
   align-items: flex-end;
+
+  margin-top: auto;
 }
 
 @media (width <=1280px) {
@@ -474,6 +706,9 @@
   }
 
   .dishes-glide-slide {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
     gap: 1rem;
   }
@@ -487,18 +722,26 @@
   }
 
   .dish-text-content-wrapper {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     row-gap: 1.5rem;
   }
 
   .price-and-cart-wrapper {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
   }
 
   /* Stories */
 
   .stories .scroll-stories {
+    -webkit-column-gap: 2rem;
+    -moz-column-gap: 2rem;
     column-gap: 2rem;
   }
 }
@@ -511,7 +754,11 @@
   }
 
   .header-bottom {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     row-gap: 2rem;
   }
@@ -534,7 +781,11 @@
   }
 
   .price-and-cart-wrapper {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
+    -webkit-column-gap: 2.5rem;
+    -moz-column-gap: 2.5rem;
     column-gap: 2.5rem;
   }
 
@@ -545,6 +796,8 @@
   }
 
   .stories .scroll-stories {
+    -webkit-column-gap: 1rem;
+    -moz-column-gap: 1rem;
     column-gap: 1rem;
   }
 
@@ -597,8 +850,11 @@
   /* Dishes menu */
 
   .menu-section-wrapper {
+    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    -webkit-column-gap: 1.5rem;
+    -moz-column-gap: 1.5rem;
     column-gap: 1.5rem;
     row-gap: 1.75rem;
   }
@@ -613,6 +869,8 @@
   .dish-card img {
     max-height: 244px;
     height: 100%;
+
+    -o-object-position: top;
 
     object-position: top;
   }
@@ -634,6 +892,8 @@
   /* Stories */
 
   .stories .scroll-stories {
+    -webkit-column-gap: 0;
+    -moz-column-gap: 0;
     column-gap: 0;
   }
 

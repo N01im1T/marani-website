@@ -10,9 +10,16 @@
 }
 
 .header-bottom-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   width: 100%;
@@ -34,6 +41,10 @@ main {
   padding-left: 1.25rem;
   padding-bottom: 1.25rem;
 
+  -webkit-transition: height 0.3s ease-out;
+
+  -o-transition: height 0.3s ease-out;
+
   transition: height 0.3s ease-out;
 }
 
@@ -42,7 +53,12 @@ main {
 }
 
 .checkout-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 
   background-color: var(--primary-color);
@@ -50,26 +66,44 @@ main {
   padding: 1.875rem 4.625rem 3.5rem 4.625rem;
   border-radius: 0.625rem;
 
+  -webkit-box-shadow: 0 -6px 36px 6px rgba(0, 0, 0, 0.05);
+
   box-shadow: 0 -6px 36px 6px rgba(0, 0, 0, 0.05);
+
+  -webkit-transition: height 0.3s ease-out;
+
+  -o-transition: height 0.3s ease-out;
 
   transition: height 0.3s ease-out;
 }
 
 .checkout-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   gap: 1.875rem;
 }
 
-.checkout-wrapper > * {
+.checkout-wrapper>* {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 300px;
   flex: 1 0 300px;
 }
 
 .checkout-delivery-address,
 .checkout-pickup-address {
   display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   row-gap: 1rem;
 
@@ -80,6 +114,14 @@ main {
 
   opacity: 0;
   visibility: hidden;
+  -webkit-transition:
+    display 0.3s ease,
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  -o-transition:
+    display 0.3s ease,
+    opacity 0.3s ease,
+    visibility 0.3s ease;
   transition:
     display 0.3s ease,
     opacity 0.3s ease,
@@ -88,6 +130,8 @@ main {
 
 .checkout-delivery-address.active,
 .checkout-pickup-address.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 
   opacity: 1;
@@ -101,7 +145,12 @@ main {
 }
 
 .placing-order {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -109,8 +158,8 @@ main {
   margin-top: 3rem;
 }
 
-.choose-time > *,
-.payment-method > * {
+.choose-time>*,
+.payment-method>* {
   margin-bottom: 1rem;
 }
 
@@ -119,7 +168,12 @@ main {
 }
 
 .recomendations-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 
   background-color: #edf2f7;
@@ -133,12 +187,17 @@ main {
 }
 
 .recomendations-dish-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   row-gap: 1rem;
 }
 
-@media (width <= 960px) {
+@media (width <=960px) {
   .header-bottom {
     padding: 0;
   }
@@ -148,7 +207,7 @@ main {
   }
 }
 
-@media (width <= 495px) {
+@media (width <=495px) {
   .checkout-form {
     padding: 0.625rem;
   }

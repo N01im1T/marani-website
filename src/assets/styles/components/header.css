@@ -3,14 +3,27 @@
 }
 
 .header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .header-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   max-width: 1440px;
@@ -21,8 +34,14 @@
 }
 
 .header-top-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -31,14 +50,26 @@
 }
 
 .header-top-nav-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-column-gap: 1.875rem;
+  -moz-column-gap: 1.875rem;
   column-gap: 1.875rem;
 }
 
 .header-top-telephone {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-column-gap: 0.75rem;
+  -moz-column-gap: 0.75rem;
   column-gap: 0.75rem;
 
   margin-left: auto;
@@ -64,32 +95,72 @@
 }
 
 .mobile-menu.slide-in {
+  -webkit-animation: slidein 0.5s;
   animation: slidein 0.5s;
+  -webkit-transform: translateY(0.5%);
+  -ms-transform: translateY(0.5%);
   transform: translateY(0.5%);
+}
+
+@-webkit-keyframes slidein {
+  from {
+    -webkit-transform: translateY(60%);
+    transform: translateY(60%);
+    opacity: 0;
+  }
+
+  to {
+    -webkit-transform: translateY(0.5%);
+    transform: translateY(0.5%);
+    opacity: 1;
+  }
 }
 
 @keyframes slidein {
   from {
+    -webkit-transform: translateY(60%);
     transform: translateY(60%);
     opacity: 0;
   }
+
   to {
+    -webkit-transform: translateY(0.5%);
     transform: translateY(0.5%);
     opacity: 1;
   }
 }
 
 .mobile-menu.slide-out {
+  -webkit-animation: slideout 0.5s;
   animation: slideout 0.5s;
+  -webkit-transform: translateY(60%);
+  -ms-transform: translateY(60%);
   transform: translateY(60%);
+}
+
+@-webkit-keyframes slideout {
+  from {
+    -webkit-transform: translateY(0.5%);
+    transform: translateY(0.5%);
+    opacity: 1;
+  }
+
+  to {
+    -webkit-transform: translateY(60%);
+    transform: translateY(60%);
+    opacity: 0;
+  }
 }
 
 @keyframes slideout {
   from {
+    -webkit-transform: translateY(0.5%);
     transform: translateY(0.5%);
     opacity: 1;
   }
+
   to {
+    -webkit-transform: translateY(60%);
     transform: translateY(60%);
     opacity: 0;
   }
@@ -97,7 +168,12 @@
 
 .mobile-menu-container {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -106,19 +182,36 @@
 }
 
 .mobile-header-top-nav-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   row-gap: 1.25rem;
 }
 
 .mobile-social-medial-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-column-gap: 1rem;
+  -moz-column-gap: 1rem;
   column-gap: 1rem;
 }
 
 .tel-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   row-gap: 0.25rem;
 
@@ -128,9 +221,18 @@
 /* Page navigation slider */
 
 .header-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
 
   max-width: 1440px;
@@ -142,6 +244,8 @@
 }
 
 .header-bottom-page-nav-glide {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   overflow: auto;
 
@@ -155,12 +259,21 @@
 }
 
 .header-bottom-page-nav-track .page-nav-slides {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  -webkit-column-gap: 3.75rem;
+  -moz-column-gap: 3.75rem;
   column-gap: 3.75rem;
 
   width: 100%;
@@ -171,16 +284,27 @@
 }
 
 .page-nav-slides {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
   justify-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   min-height: 60px;
 }
 
 .page-nav-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   min-height: 54px;
 }
@@ -190,6 +314,14 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -webkit-transition:
+    background-color 0.3s ease,
+    padding 0.3s ease,
+    border-radius 0.3s ease;
+  -o-transition:
+    background-color 0.3s ease,
+    padding 0.3s ease,
+    border-radius 0.3s ease;
   transition:
     background-color 0.3s ease,
     padding 0.3s ease,
@@ -217,6 +349,8 @@
   height: 100px;
   padding: 0 1.5rem 0 1.5rem;
 
+  -webkit-box-shadow: 0 -6px 36px 5px rgba(0, 0, 0, 0.06);
+
   box-shadow: 0 -6px 36px 5px rgba(0, 0, 0, 0.06);
   z-index: 6;
 }
@@ -224,13 +358,29 @@
 .static {
   display: block;
 
+  -webkit-animation: slide-in 1s;
+
   animation: slide-in 1s;
 }
 
 .hidden {
   display: none;
 
+  -webkit-animation: slide-out 1s;
+
   animation: slide-out 1s;
+}
+
+@-webkit-keyframes slide-in {
+  from {
+    opacity: 0;
+    display: none;
+  }
+
+  to {
+    opacity: 1;
+    display: block;
+  }
 }
 
 @keyframes slide-in {
@@ -242,6 +392,18 @@
   to {
     opacity: 1;
     display: block;
+  }
+}
+
+@-webkit-keyframes slide-out {
+  from {
+    opacity: 1;
+    display: block;
+  }
+
+  to {
+    opacity: 0;
+    display: none;
   }
 }
 
@@ -268,12 +430,21 @@
 }
 
 .sticky-nav-menu-track .page-nav-slides {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  -webkit-column-gap: 3.75rem;
+  -moz-column-gap: 3.75rem;
   column-gap: 3.75rem;
 
   width: 100%;
@@ -283,19 +454,19 @@
   width: 0;
 }
 
-@media (width <= 1440px) {
+@media (width <=1440px) {
   .header-top-nav {
     margin-left: 3rem;
   }
 }
 
-@media (width <= 1280px) {
+@media (width <=1280px) {
   .header-top-nav {
     margin-left: 1.5rem;
   }
 }
 
-@media (width <= 960px) {
+@media (width <=960px) {
   .header {
     padding: 0;
   }
@@ -307,6 +478,7 @@
   }
 
   .header-top-logo {
+    -webkit-filter: invert(1);
     filter: invert(1);
   }
 
@@ -326,6 +498,8 @@
   }
 
   .header-bottom-page-nav-track .page-nav-slides {
+    -webkit-column-gap: 1.5rem;
+    -moz-column-gap: 1.5rem;
     column-gap: 1.5rem;
   }
 
@@ -360,12 +534,16 @@
   }
 
   .sticky-nav-menu-track .page-nav-slides {
+    -webkit-column-gap: 1.5rem;
+    -moz-column-gap: 1.5rem;
     column-gap: 1.5rem;
   }
 }
 
-@media (width <= 768px) {
+@media (width <=768px) {
   .header-top {
+    -webkit-column-gap: 1.875rem;
+    -moz-column-gap: 1.875rem;
     column-gap: 1.875rem;
   }
 }

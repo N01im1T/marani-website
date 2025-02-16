@@ -13,7 +13,7 @@ const modals = () => {
     const amountCounter = target.closest(".amount-counter");
     if (!amountCounter) return;
 
-    const amountSpan = amountCounter.querySelector(".counter-amount");
+    const amountSpan = amountCounter?.querySelector(".counter-amount");
     var currentAmount = parseInt(amountSpan.textContent, 10);
     const isIncrement = target.classList.contains("counter-plus");
     const cartDishCard = target.closest(".cart-dish-card");
@@ -29,18 +29,18 @@ const modals = () => {
   });
 
   // Handlers for modal windows
-  const modals = document.querySelectorAll(".modal");
-  const closeIcons = document.querySelectorAll(".close-icon");
+  const modals = document?.querySelectorAll(".modal");
+  const closeIcons = document?.querySelectorAll(".close-icon");
 
-  const btnsChangeAddress = document.querySelectorAll(".btn-change-address");
-  const btnBookTable = document.querySelectorAll(".btn-book-table");
+  const btnsChangeAddress = document?.querySelectorAll(".btn-change-address");
+  const btnBookTable = document?.querySelectorAll(".btn-book-table");
 
-  const modalChangeAddress = document.querySelector(".modal-change-address");
-  const modalBookTable = document.querySelector(".modal-book-table");
-  const modalChooseDishOption = document.querySelector(".modal-choose-option");
+  const modalChangeAddress = document?.querySelector(".modal-change-address");
+  const modalBookTable = document?.querySelector(".modal-book-table");
+  const modalChooseDishOption = document?.querySelector(".modal-choose-option");
 
   // Variables for Choose dish option modal
-  const dishCards = document.querySelectorAll(
+  const dishCards = document?.querySelectorAll(
     '.dish-card[data-attr="variable"]'
   );
   const modalChooseOptionImg =
@@ -127,7 +127,7 @@ const modals = () => {
    * @returns {void} Does not return a value.
    */
   const populateOptions = (options) => {
-    const optionsWrapper = document.querySelector(".options-wrapper");
+    const optionsWrapper = document?.querySelector(".options-wrapper");
 
     // Clean existed options
     if (optionsWrapper) {

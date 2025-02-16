@@ -1,90 +1,62 @@
 const buttons = () => {
-  const cartDishesContainer = document.querySelector(".cart-dishes");
-  const btnOpenCart = document.querySelector(".btn-open-cart");
-  const cart = document.querySelector(".cart");
-  const closeIcon = document.querySelector(".cart .close-icon");
-
-  // Check existense of the elements
-  if (!cartDishesContainer || !btnOpenCart || !cart || !closeIcon) {
-    return;
-  }
+  const cartDishesContainer = document?.querySelector(".cart-dishes");
+  const btnOpenCart = document?.querySelector(".btn-open-cart");
+  const cart = document?.querySelector(".cart");
+  const closeIcon = document?.querySelector(".cart .close-icon");
 
   var isCartOpen = false;
 
-  // Mobile open cart button visibility function
-  function updateCartButtonVisibility() {
-    if (!cartDishesContainer || !btnOpenCart) return;
+  const isSmallScreen = () => window.innerWidth <= 960;
+  const hasItemsInCart = () => cartDishesContainer?.querySelectorAll(".cart-dish-card").length > 0;
 
-    const hasItemsInCart =
-      cartDishesContainer.querySelectorAll(".cart-dish-card").length > 0;
-    const isSmallScreen = window.innerWidth <= 960;
+  const toggleCartVisibility = (isVisible) => {
+    cart.classList.toggle("visible", isVisible);
+    cart.classList.toggle("hidden", !isVisible);
+  };
 
-    if (isSmallScreen) {
-      // Mobile behavior
-      if (hasItemsInCart) {
-        btnOpenCart.classList.add("visible");
-      } else {
-        btnOpenCart.classList.remove("visible");
-      }
+  const toggleCartAnimation = (isOpening) => {
+    cart.classList.toggle("slide-in", isOpening);
+    cart.classList.toggle("slide-out", !isOpening);
+  };
 
+  const updateCartButtonVisibility = () => {
+    if (isSmallScreen()) {
+      btnOpenCart.classList.toggle("visible", hasItemsInCart());
       if (!isCartOpen) {
-        cart.classList.remove("visible"); // Hide cart if not open
-        cart.classList.add("hidden");
+        toggleCartVisibility(false);
       }
     } else {
-      // Desktop behavior: always show the cart
       btnOpenCart.classList.remove("visible");
-      cart.classList.add("visible");
-      cart.classList.remove("hidden", "slide-in", "slide-out");
+      toggleCartVisibility(true);
+      cart.classList.remove("slide-in", "slide-out");
     }
-  }
+  };
 
-  // Event listeners for open and close buttons
-  btnOpenCart.addEventListener("click", () => {
+  const openCart = () => {
     isCartOpen = true;
     btnOpenCart.classList.remove("visible");
-    cart.classList.add("slide-in");
-    cart.classList.remove("slide-out", "hidden");
-    cart.classList.add("visible");
-  });
+    toggleCartAnimation(true);
+    toggleCartVisibility(true);
+  };
 
-  closeIcon.addEventListener("click", () => {
-    if (!cartDishesContainer || !cart || !btnOpenCart) return;
+  const closeCart = () => {
+    if (!isSmallScreen()) return;
+    isCartOpen = false;
+    toggleCartAnimation(false);
+    setTimeout(() => {
+      toggleCartVisibility(false);
+      btnOpenCart.classList.toggle("visible", hasItemsInCart());
+    }, 500);
+  };
 
-    const hasItemsInCart =
-      cartDishesContainer.querySelectorAll(".cart-dish-card").length > 0;
-    const isSmallScreen = window.innerWidth <= 960;
-
-    if (isSmallScreen) {
-      isCartOpen = false;
-      cart.classList.remove("slide-in");
-      cart.classList.add("slide-out");
-      setTimeout(() => {
-        cart.classList.remove("visible");
-        cart.classList.add("hidden");
-      }, 500);
-      if (hasItemsInCart) {
-        btnOpenCart.classList.add("visible");
-      }
-    }
-  });
-
-  // Observe changes in the cart dishes container
-  const observer = new MutationObserver(() => {
-    updateCartButtonVisibility();
-  });
-
-  // Start observing for child node changes
-  if (cartDishesContainer) {
-    observer.observe(cartDishesContainer, {
-      childList: true, // Watch for added or removed child nodes
-    });
-  }
-
-  // Listen for window resize
+  btnOpenCart?.addEventListener("click", openCart);
+  closeIcon?.addEventListener("click", closeCart);
   window.addEventListener("resize", updateCartButtonVisibility);
 
-  // Initial call to set visibility state
+  if (cartDishesContainer) {
+    new MutationObserver(updateCartButtonVisibility).observe(cartDishesContainer, { childList: true });
+  }
+
   updateCartButtonVisibility();
 };
 

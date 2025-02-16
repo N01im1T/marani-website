@@ -3,35 +3,40 @@ const header = () => {
   const burgerBtn = document.querySelector(".btn-mobile-burger");
   const closeBtn = document.querySelector(".mobile-btn-close-top-menu");
 
-  function handleResize() {
+  const toggleMenuAnimation = (isOpening) => {
+    mobileMenu.classList.toggle("slide-in", isOpening);
+    mobileMenu.classList.toggle("slide-out", !isOpening);
+  };
+
+  const toggleMenuVisibility = (isVisible) => {
+    mobileMenu.style.display = isVisible ? "block" : "none";
+  };
+
+  const handleResize = () => {
     if (window.innerWidth > 960) {
-      mobileMenu.classList.add("slide-out");
-      mobileMenu.classList.remove("slide-in");
-      setTimeout(() => {
-        mobileMenu.style.display = "none";
-      }, 500);
+      toggleMenuAnimation(false);
+      setTimeout(() => toggleMenuVisibility(false), 500);
       burgerBtn.disabled = false;
     }
-  }
+  };
+
+  const openMenu = () => {
+    toggleMenuAnimation(true);
+    toggleMenuVisibility(true);
+    burgerBtn.disabled = true;
+  };
+
+  const closeMenu = () => {
+    toggleMenuAnimation(false);
+    setTimeout(() => toggleMenuVisibility(false), 500);
+    burgerBtn.disabled = false;
+  };
 
   window.addEventListener("resize", handleResize);
   handleResize();
 
-  burgerBtn.addEventListener("click", function () {
-    mobileMenu.classList.add("slide-in");
-    mobileMenu.classList.remove("slide-out");
-    mobileMenu.style.display = "block";
-    burgerBtn.disabled = true;
-  });
-
-  closeBtn.addEventListener("click", function () {
-    mobileMenu.classList.remove("slide-in");
-    mobileMenu.classList.add("slide-out");
-    setTimeout(() => {
-      mobileMenu.style.display = "none";
-    }, 500);
-    burgerBtn.disabled = false;
-  });
+  burgerBtn?.addEventListener("click", openMenu);
+  closeBtn?.addEventListener("click", closeMenu);
 };
 
 export default header;
